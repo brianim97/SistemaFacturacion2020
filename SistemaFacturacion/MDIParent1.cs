@@ -102,7 +102,7 @@ namespace SistemaFacturacion
 
 		private void cargarToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			frmCargarProducto frm = new frmCargarProducto();
+			frmProducto frm = new frmProducto();
 			frm.MdiParent = this;
 			frm.Show();
 		}

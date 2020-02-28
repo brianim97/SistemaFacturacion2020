@@ -1,6 +1,6 @@
 ﻿namespace SistemaFacturacion
 {
-	partial class frmCargarProducto
+	partial class frmProducto
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -31,8 +31,14 @@
 			this.label7 = new System.Windows.Forms.Label();
 			this.btnLimpiar = new System.Windows.Forms.Button();
 			this.btnGuardar = new System.Windows.Forms.Button();
-			this.tabControl1 = new System.Windows.Forms.TabControl();
+			this.tabProducto = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.btnEliminar = new System.Windows.Forms.Button();
+			this.btnEditar = new System.Windows.Forms.Button();
+			this.lblTotalRegistros = new System.Windows.Forms.Label();
+			this.label9 = new System.Windows.Forms.Label();
+			this.tbBuscarProducto = new System.Windows.Forms.TextBox();
+			this.dgvVistaStock = new System.Windows.Forms.DataGridView();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.tbStock = new System.Windows.Forms.TextBox();
 			this.cbProveedor = new System.Windows.Forms.ComboBox();
@@ -49,14 +55,10 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.tbNombre = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.lblTotalRegistros = new System.Windows.Forms.Label();
-			this.label9 = new System.Windows.Forms.Label();
-			this.tbBuscarProducto = new System.Windows.Forms.TextBox();
-			this.dgvVistaStock = new System.Windows.Forms.DataGridView();
-			this.tabControl1.SuspendLayout();
+			this.tabProducto.SuspendLayout();
 			this.tabPage1.SuspendLayout();
-			this.tabPage2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvVistaStock)).BeginInit();
+			this.tabPage2.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// label7
@@ -88,18 +90,20 @@
 			this.btnGuardar.UseVisualStyleBackColor = true;
 			this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
 			// 
-			// tabControl1
+			// tabProducto
 			// 
-			this.tabControl1.Controls.Add(this.tabPage1);
-			this.tabControl1.Controls.Add(this.tabPage2);
-			this.tabControl1.Location = new System.Drawing.Point(2, 2);
-			this.tabControl1.Name = "tabControl1";
-			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(865, 451);
-			this.tabControl1.TabIndex = 22;
+			this.tabProducto.Controls.Add(this.tabPage1);
+			this.tabProducto.Controls.Add(this.tabPage2);
+			this.tabProducto.Location = new System.Drawing.Point(2, 2);
+			this.tabProducto.Name = "tabProducto";
+			this.tabProducto.SelectedIndex = 0;
+			this.tabProducto.Size = new System.Drawing.Size(865, 451);
+			this.tabProducto.TabIndex = 22;
 			// 
 			// tabPage1
 			// 
+			this.tabPage1.Controls.Add(this.btnEliminar);
+			this.tabPage1.Controls.Add(this.btnEditar);
 			this.tabPage1.Controls.Add(this.lblTotalRegistros);
 			this.tabPage1.Controls.Add(this.label9);
 			this.tabPage1.Controls.Add(this.tbBuscarProducto);
@@ -111,6 +115,63 @@
 			this.tabPage1.TabIndex = 0;
 			this.tabPage1.Text = "Stock";
 			this.tabPage1.UseVisualStyleBackColor = true;
+			// 
+			// btnEliminar
+			// 
+			this.btnEliminar.Location = new System.Drawing.Point(517, 385);
+			this.btnEliminar.Name = "btnEliminar";
+			this.btnEliminar.Size = new System.Drawing.Size(149, 34);
+			this.btnEliminar.TabIndex = 9;
+			this.btnEliminar.Text = "Eliminar";
+			this.btnEliminar.UseVisualStyleBackColor = true;
+			// 
+			// btnEditar
+			// 
+			this.btnEditar.Location = new System.Drawing.Point(190, 384);
+			this.btnEditar.Name = "btnEditar";
+			this.btnEditar.Size = new System.Drawing.Size(149, 35);
+			this.btnEditar.TabIndex = 8;
+			this.btnEditar.Text = "Editar";
+			this.btnEditar.UseVisualStyleBackColor = true;
+			this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+			// 
+			// lblTotalRegistros
+			// 
+			this.lblTotalRegistros.AutoSize = true;
+			this.lblTotalRegistros.Location = new System.Drawing.Point(9, 55);
+			this.lblTotalRegistros.Name = "lblTotalRegistros";
+			this.lblTotalRegistros.Size = new System.Drawing.Size(54, 13);
+			this.lblTotalRegistros.TabIndex = 7;
+			this.lblTotalRegistros.Text = "Registros:";
+			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.Location = new System.Drawing.Point(377, 22);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(101, 13);
+			this.label9.TabIndex = 6;
+			this.label9.Text = "Escribe para buscar";
+			// 
+			// tbBuscarProducto
+			// 
+			this.tbBuscarProducto.Location = new System.Drawing.Point(345, 38);
+			this.tbBuscarProducto.Name = "tbBuscarProducto";
+			this.tbBuscarProducto.Size = new System.Drawing.Size(166, 20);
+			this.tbBuscarProducto.TabIndex = 5;
+			this.tbBuscarProducto.TextChanged += new System.EventHandler(this.tbBuscarProducto_TextChanged);
+			// 
+			// dgvVistaStock
+			// 
+			this.dgvVistaStock.AllowUserToAddRows = false;
+			this.dgvVistaStock.AllowUserToDeleteRows = false;
+			this.dgvVistaStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvVistaStock.Location = new System.Drawing.Point(12, 71);
+			this.dgvVistaStock.Name = "dgvVistaStock";
+			this.dgvVistaStock.ReadOnly = true;
+			this.dgvVistaStock.Size = new System.Drawing.Size(838, 307);
+			this.dgvVistaStock.TabIndex = 4;
+			this.dgvVistaStock.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVistaStock_CellContentClick);
 			// 
 			// tabPage2
 			// 
@@ -261,59 +322,20 @@
 			this.label1.TabIndex = 22;
 			this.label1.Text = "Nombre";
 			// 
-			// lblTotalRegistros
-			// 
-			this.lblTotalRegistros.AutoSize = true;
-			this.lblTotalRegistros.Location = new System.Drawing.Point(9, 58);
-			this.lblTotalRegistros.Name = "lblTotalRegistros";
-			this.lblTotalRegistros.Size = new System.Drawing.Size(54, 13);
-			this.lblTotalRegistros.TabIndex = 7;
-			this.lblTotalRegistros.Text = "Registros:";
-			// 
-			// label9
-			// 
-			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(377, 22);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(101, 13);
-			this.label9.TabIndex = 6;
-			this.label9.Text = "Escribe para buscar";
-			// 
-			// tbBuscarProducto
-			// 
-			this.tbBuscarProducto.Location = new System.Drawing.Point(345, 38);
-			this.tbBuscarProducto.Name = "tbBuscarProducto";
-			this.tbBuscarProducto.Size = new System.Drawing.Size(166, 20);
-			this.tbBuscarProducto.TabIndex = 5;
-			this.tbBuscarProducto.TextChanged += new System.EventHandler(this.tbBuscarProducto_TextChanged);
-			// 
-			// dgvVistaStock
-			// 
-			this.dgvVistaStock.AllowUserToAddRows = false;
-			this.dgvVistaStock.AllowUserToDeleteRows = false;
-			this.dgvVistaStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvVistaStock.Location = new System.Drawing.Point(9, 74);
-			this.dgvVistaStock.Name = "dgvVistaStock";
-			this.dgvVistaStock.ReadOnly = true;
-			this.dgvVistaStock.Size = new System.Drawing.Size(838, 345);
-			this.dgvVistaStock.TabIndex = 4;
-			this.dgvVistaStock.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVistaStock_CellContentClick);
-			// 
-			// frmCargarProducto
+			// frmProducto
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(864, 451);
-			this.Controls.Add(this.tabControl1);
-			this.Name = "frmCargarProducto";
-			this.Text = "Cargar Producto";
+			this.Controls.Add(this.tabProducto);
+			this.Name = "frmProducto";
 			this.Load += new System.EventHandler(this.frmCargarProducto_Load);
-			this.tabControl1.ResumeLayout(false);
+			this.tabProducto.ResumeLayout(false);
 			this.tabPage1.ResumeLayout(false);
 			this.tabPage1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgvVistaStock)).EndInit();
 			this.tabPage2.ResumeLayout(false);
 			this.tabPage2.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dgvVistaStock)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -322,7 +344,7 @@
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.Button btnLimpiar;
 		private System.Windows.Forms.Button btnGuardar;
-		private System.Windows.Forms.TabControl tabControl1;
+		private System.Windows.Forms.TabControl tabProducto;
 		private System.Windows.Forms.TabPage tabPage1;
 		private System.Windows.Forms.TabPage tabPage2;
 		private System.Windows.Forms.TextBox tbStock;
@@ -344,5 +366,7 @@
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.TextBox tbBuscarProducto;
 		private System.Windows.Forms.DataGridView dgvVistaStock;
+		private System.Windows.Forms.Button btnEliminar;
+		private System.Windows.Forms.Button btnEditar;
 	}
 }

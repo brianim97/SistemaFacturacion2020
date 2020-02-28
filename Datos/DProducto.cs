@@ -78,8 +78,8 @@ namespace Datos
 		public string Editar(DProducto producto)
 		{
 			string rpta = "";
-			string query = "UPDATE INTO Producto SET id_categoria = @1,nombre = @2,marca = @3,stock = 4@,precio_compra = @5," +
-						   "precio_venta = @6, fecha_vencimiento = @7,id_proveedor = @8";
+			string query = "UPDATE Producto SET id_categoria = @1,nombre = @2,marca = @3,stock = @4,precio_compra = @5," +
+						   "precio_venta = @6, fecha_vencimiento = @7,id_proveedor = @8 WHERE id_producto = @id";
 
 			try
 			{
@@ -93,9 +93,10 @@ namespace Datos
 				cmd.Parameters.Add(new SqlParameter("6", producto.Precio_venta));
 				cmd.Parameters.Add(new SqlParameter("7", producto.Fecha_vencimiento));
 				cmd.Parameters.Add(new SqlParameter("8", producto.Id_proveedor));
+				cmd.Parameters.Add(new SqlParameter("id", producto.Id_producto));
 
 				conector.Open();
-				rpta = cmd.ExecuteNonQuery() == 1 ? "Producto cargado correctamente" : "Error en la carga del producto";
+				rpta = cmd.ExecuteNonQuery() == 1 ? "Producto editado correctamente" : "Error en editar producto";
 				conector.Close();
 				Console.WriteLine(rpta);
 				return rpta;
