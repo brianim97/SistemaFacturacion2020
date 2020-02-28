@@ -34,7 +34,6 @@
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
 			this.menuStrip = new System.Windows.Forms.MenuStrip();
 			this.vistaStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.vistaStockToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.cargarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusStrip.SuspendLayout();
 			this.menuStrip.SuspendLayout();
@@ -69,24 +68,16 @@
 			// vistaStockToolStripMenuItem
 			// 
 			this.vistaStockToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.vistaStockToolStripMenuItem1,
             this.cargarToolStripMenuItem});
 			this.vistaStockToolStripMenuItem.Name = "vistaStockToolStripMenuItem";
-			this.vistaStockToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
-			this.vistaStockToolStripMenuItem.Text = "Productos";
-			// 
-			// vistaStockToolStripMenuItem1
-			// 
-			this.vistaStockToolStripMenuItem1.Name = "vistaStockToolStripMenuItem1";
-			this.vistaStockToolStripMenuItem1.Size = new System.Drawing.Size(131, 22);
-			this.vistaStockToolStripMenuItem1.Text = "Vista Stock";
-			this.vistaStockToolStripMenuItem1.Click += new System.EventHandler(this.vistaStockToolStripMenuItem1_Click);
+			this.vistaStockToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+			this.vistaStockToolStripMenuItem.Text = "INICIO";
 			// 
 			// cargarToolStripMenuItem
 			// 
 			this.cargarToolStripMenuItem.Name = "cargarToolStripMenuItem";
-			this.cargarToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
-			this.cargarToolStripMenuItem.Text = "Cargar";
+			this.cargarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.cargarToolStripMenuItem.Text = "Productos";
 			this.cargarToolStripMenuItem.Click += new System.EventHandler(this.cargarToolStripMenuItem_Click);
 			// 
 			// MDIParent1
@@ -116,7 +107,6 @@
 		private System.Windows.Forms.ToolTip toolTip;
 		private System.Windows.Forms.MenuStrip menuStrip;
 		private System.Windows.Forms.ToolStripMenuItem vistaStockToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem vistaStockToolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem cargarToolStripMenuItem;
 	}
 }

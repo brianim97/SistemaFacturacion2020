@@ -107,11 +107,6 @@ namespace SistemaFacturacion
 			frm.Show();
 		}
 
-		private void vistaStockToolStripMenuItem1_Click(object sender, EventArgs e)
-		{
-			FrmVistaStock frm = new FrmVistaStock();
-			frm.MdiParent = this;
-			frm.Show();
-		}
+		
 	}
 }

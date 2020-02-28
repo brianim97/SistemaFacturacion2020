@@ -52,12 +52,6 @@
     <Compile Include="FrmCargarProducto.Designer.cs">
       <DependentUpon>FrmCargarProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmStock.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmStock.Designer.cs">
-      <DependentUpon>FrmStock.cs</DependentUpon>
-    </Compile>
     <Compile Include="MDIParent1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,9 +62,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmCargarProducto.resx">
       <DependentUpon>FrmCargarProducto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmStock.resx">
-      <DependentUpon>FrmStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDIParent1.resx">
       <DependentUpon>MDIParent1.cs</DependentUpon>

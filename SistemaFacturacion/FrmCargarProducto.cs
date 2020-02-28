@@ -42,6 +42,7 @@ namespace SistemaFacturacion
 
 		private void frmCargarProducto_Load(object sender, EventArgs e)
 		{
+			Mostrar();
 			Cargar_Categoria();
 			Cargar_Proveedores();
 		}
@@ -153,6 +154,11 @@ namespace SistemaFacturacion
 			dtpFecha_Vencimiento.ResetText();
 			cbProveedor.ResetText();
 		}
+		private void Mostrar()
+		{
+			NProducto.Mostrar(dgvVistaStock);
+			lblTotalRegistros.Text = "Registros: " + dgvVistaStock.Rows.Count.ToString();
+		}
 
 		//------------------------------------------------------METODOS DE BLOQUEO DE CARACTERES-------------------------------------------------------
 
@@ -226,7 +232,15 @@ namespace SistemaFacturacion
 			}
 		}
 
+		private void dgvVistaStock_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
 
+		}
+
+		private void tbBuscarProducto_TextChanged(object sender, EventArgs e)
+		{
+			NProducto.BuscarPorNombre(dgvVistaStock, tbBuscarProducto.Text);
+		}
 	}
 }
 
