@@ -40,6 +40,8 @@
 			this.tbBuscarProducto = new System.Windows.Forms.TextBox();
 			this.dgvVistaStock = new System.Windows.Forms.DataGridView();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.tbCodigo = new System.Windows.Forms.TextBox();
+			this.label10 = new System.Windows.Forms.Label();
 			this.tbStock = new System.Windows.Forms.TextBox();
 			this.cbProveedor = new System.Windows.Forms.ComboBox();
 			this.label8 = new System.Windows.Forms.Label();
@@ -55,8 +57,6 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.tbNombre = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.label10 = new System.Windows.Forms.Label();
-			this.tbCodigo = new System.Windows.Forms.TextBox();
 			this.tabProducto.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvVistaStock)).BeginInit();
@@ -168,6 +168,7 @@
 			// 
 			this.dgvVistaStock.AllowUserToAddRows = false;
 			this.dgvVistaStock.AllowUserToDeleteRows = false;
+			this.dgvVistaStock.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dgvVistaStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvVistaStock.Location = new System.Drawing.Point(12, 71);
 			this.dgvVistaStock.Name = "dgvVistaStock";
@@ -205,6 +206,22 @@
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "Cargar Producto";
 			this.tabPage2.UseVisualStyleBackColor = true;
+			// 
+			// tbCodigo
+			// 
+			this.tbCodigo.Location = new System.Drawing.Point(157, 235);
+			this.tbCodigo.Name = "tbCodigo";
+			this.tbCodigo.Size = new System.Drawing.Size(200, 20);
+			this.tbCodigo.TabIndex = 38;
+			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.Location = new System.Drawing.Point(98, 235);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(40, 13);
+			this.label10.TabIndex = 37;
+			this.label10.Text = "Codigo";
 			// 
 			// tbStock
 			// 
@@ -328,22 +345,6 @@
 			this.label1.Size = new System.Drawing.Size(44, 13);
 			this.label1.TabIndex = 22;
 			this.label1.Text = "Nombre";
-			// 
-			// label10
-			// 
-			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(98, 235);
-			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(40, 13);
-			this.label10.TabIndex = 37;
-			this.label10.Text = "Codigo";
-			// 
-			// tbCodigo
-			// 
-			this.tbCodigo.Location = new System.Drawing.Point(157, 235);
-			this.tbCodigo.Name = "tbCodigo";
-			this.tbCodigo.Size = new System.Drawing.Size(200, 20);
-			this.tbCodigo.TabIndex = 38;
 			// 
 			// frmProducto
 			// 

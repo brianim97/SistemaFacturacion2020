@@ -38,6 +38,7 @@ namespace SistemaFacturacion
 						Limpiar_Campos();
 						Editar = false;
 						Mostrar();
+						return;
 					}
 					else
 					{
@@ -46,8 +47,12 @@ namespace SistemaFacturacion
 							MessageBox.Show(string.Format("El nombre: '{0}' ya se encuentra en uso!", tbNombre.Text));
 						}
 					}
-					
+					MessageBox.Show(NProducto.Editar(Obtener_Id_Producto(AuxiliarNombreProducto), Obtener_Id_Categoria(cbCategoria.Text), tbNombre.Text, tbMarca.Text, int.Parse(tbStock.Text), tbCodigo.Text, decimal.Parse(tbPrecioCompra.Text), decimal.Parse(tbPrecioVenta.Text), dtpFecha_Vencimiento.Value, Obtener_Id_Categoria(cbProveedor.Text)));
+					Limpiar_Campos();
+					Editar = false;
+					Mostrar();
 				}
+				
 				else
 				{
 					MessageBox.Show(Comprobar_Campos());
@@ -95,6 +100,7 @@ namespace SistemaFacturacion
 			cbCategoria.Text = Convert.ToString(dgvVistaStock.CurrentRow.Cells["Categoria"].Value);
 			tbMarca.Text = Convert.ToString(dgvVistaStock.CurrentRow.Cells["Marca"].Value);
 			tbStock.Text = Convert.ToString(dgvVistaStock.CurrentRow.Cells["Stock"].Value);
+			tbCodigo.Text = Convert.ToString(dgvVistaStock.CurrentRow.Cells["Codigo"].Value);
 			tbPrecioCompra.Text = Convert.ToString(dgvVistaStock.CurrentRow.Cells["Precio Compra"].Value);
 			tbPrecioVenta.Text = Convert.ToString(dgvVistaStock.CurrentRow.Cells["Precio Venta"].Value);
 			dtpFecha_Vencimiento.Text = Convert.ToString(dgvVistaStock.CurrentRow.Cells["Fecha Vencimiento"].Value);
