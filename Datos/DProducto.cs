@@ -16,6 +16,7 @@ namespace Datos
 		public string Nombre { get; set; }
 		public string Marca { get; set; }
 		public int Stock { get; set; }
+		public string Codigo { get; set; }
 		public Decimal Precio_compra { get; set; }
 		public Decimal Precio_venta { get; set; }
 		public DateTime Fecha_vencimiento { get; set; }
@@ -29,13 +30,14 @@ namespace Datos
 
 		}
 
-		public DProducto(int id_producto, int id_categoria, String nombre, String marca,int stock, Decimal precio_compra, Decimal precio_venta, DateTime fecha_vencimiento, int id_proveedor)
+		public DProducto(int id_producto, int id_categoria, String nombre, String marca,int stock,string codigo, Decimal precio_compra, Decimal precio_venta, DateTime fecha_vencimiento, int id_proveedor)
 		{
-			Id_producto = Id_producto;
+			Id_producto = id_producto;
 			Id_categoria = id_categoria;
 			Nombre = nombre;
 			Marca = marca;
 			Stock = stock;
+			Codigo = codigo;
 			Precio_compra = precio_compra;
 			Precio_venta = precio_venta;
 			Fecha_vencimiento = fecha_vencimiento;
@@ -47,20 +49,21 @@ namespace Datos
 		public string Insertar(DProducto producto)
 		{
 			string rpta = "";
-			string query = "INSERT INTO Producto (id_categoria,nombre,marca,stock,precio_compra,precio_venta, fecha_vencimiento,id_proveedor) VALUES (@1,@2,@3,@4,@5,@6,@7,@8)";
+			string query = "INSERT INTO Producto (id_categoria,nombre,marca,stock,codigo,precio_compra,precio_venta, fecha_vencimiento,id_proveedor) VALUES (@id_categoria,@nombre,@marca,@stock,@codigo,@precio_compra,@precio_venta,@fecha_vencimiento,@id_proveedor)";
 
 			try
 			{
 				SqlConnection conector = new SqlConnection(conexion.strConexion);
 				SqlCommand cmd = new SqlCommand(query, conector);
-				cmd.Parameters.Add(new SqlParameter("1", producto.Id_categoria));
-				cmd.Parameters.Add(new SqlParameter("2", producto.Nombre));
-				cmd.Parameters.Add(new SqlParameter("3", producto.Marca));
-				cmd.Parameters.Add(new SqlParameter("4", producto.Stock));
-				cmd.Parameters.Add(new SqlParameter("5", producto.Precio_compra));
-				cmd.Parameters.Add(new SqlParameter("6", producto.Precio_venta));
-				cmd.Parameters.Add(new SqlParameter("7", producto.Fecha_vencimiento));
-				cmd.Parameters.Add(new SqlParameter("8", producto.Id_proveedor));
+				cmd.Parameters.Add(new SqlParameter("id_categoria", producto.Id_categoria));
+				cmd.Parameters.Add(new SqlParameter("nombre", producto.Nombre));
+				cmd.Parameters.Add(new SqlParameter("marca", producto.Marca));
+				cmd.Parameters.Add(new SqlParameter("stock", producto.Stock));
+				cmd.Parameters.Add(new SqlParameter("codigo", producto.Codigo));
+				cmd.Parameters.Add(new SqlParameter("precio_compra", producto.Precio_compra));
+				cmd.Parameters.Add(new SqlParameter("precio_venta", producto.Precio_venta));
+				cmd.Parameters.Add(new SqlParameter("fecha_vencimiento", producto.Fecha_vencimiento));
+				cmd.Parameters.Add(new SqlParameter("id_proveedor", producto.Id_proveedor));
 
 				conector.Open();
 				rpta = cmd.ExecuteNonQuery() == 1 ? "Producto cargado correctamente" : "Error en la carga del producto";
@@ -78,21 +81,22 @@ namespace Datos
 		public string Editar(DProducto producto)
 		{
 			string rpta = "";
-			string query = "UPDATE Producto SET id_categoria = @1,nombre = @2,marca = @3,stock = @4,precio_compra = @5," +
-						   "precio_venta = @6, fecha_vencimiento = @7,id_proveedor = @8 WHERE id_producto = @id";
+			string query = "UPDATE Producto SET id_categoria = @id_categoria,nombre = @nombre,marca = @marca,stock = @stock,codigo = @codigo,precio_compra = @precio_compra," +
+						   "precio_venta = @precio_venta, fecha_vencimiento = @fecha_vencimiento,id_proveedor = @id_proveedor WHERE id_producto = @id";
 
 			try
 			{
 				SqlConnection conector = new SqlConnection(conexion.strConexion);
 				SqlCommand cmd = new SqlCommand(query, conector);
-				cmd.Parameters.Add(new SqlParameter("1", producto.Id_categoria));
-				cmd.Parameters.Add(new SqlParameter("2", producto.Nombre));
-				cmd.Parameters.Add(new SqlParameter("3", producto.Marca));
-				cmd.Parameters.Add(new SqlParameter("4", producto.Stock));
-				cmd.Parameters.Add(new SqlParameter("5", producto.Precio_compra));
-				cmd.Parameters.Add(new SqlParameter("6", producto.Precio_venta));
-				cmd.Parameters.Add(new SqlParameter("7", producto.Fecha_vencimiento));
-				cmd.Parameters.Add(new SqlParameter("8", producto.Id_proveedor));
+				cmd.Parameters.Add(new SqlParameter("id_categoria", producto.Id_categoria));
+				cmd.Parameters.Add(new SqlParameter("nombre", producto.Nombre));
+				cmd.Parameters.Add(new SqlParameter("marca", producto.Marca));
+				cmd.Parameters.Add(new SqlParameter("stock", producto.Stock));
+				cmd.Parameters.Add(new SqlParameter("codigo", producto.Codigo));
+				cmd.Parameters.Add(new SqlParameter("precio_compra", producto.Precio_compra));
+				cmd.Parameters.Add(new SqlParameter("precio_venta", producto.Precio_venta));
+				cmd.Parameters.Add(new SqlParameter("fecha_vencimiento", producto.Fecha_vencimiento));
+				cmd.Parameters.Add(new SqlParameter("id_proveedor", producto.Id_proveedor));
 				cmd.Parameters.Add(new SqlParameter("id", producto.Id_producto));
 
 				conector.Open();
@@ -112,7 +116,7 @@ namespace Datos
 		public void Mostrar(DataGridView dgv)
 		{
 			DataTable dtRes = new DataTable();
-			String sql = "SELECT Producto.nombre AS Nombre,Categoria.Nombre AS Categoria,marca AS Marca,stock AS Stock ,precio_compra AS 'Precio Compra'," +
+			String sql = "SELECT Producto.nombre AS Nombre,Categoria.Nombre AS Categoria,marca AS Marca,stock AS Stock,codigo as Codigo ,precio_compra AS 'Precio Compra'," +
 						 "precio_venta AS 'Precio Venta',fecha_vencimiento AS 'Fecha Vencimiento',Proveedor.nombre AS Proveedor from " +
 						 "Producto INNER JOIN Categoria	ON Producto.id_categoria = Categoria.id_categoria " +
 					     "INNER JOIN Proveedor ON Producto.id_proveedor = Proveedor.id_proveedor";
@@ -127,7 +131,7 @@ namespace Datos
 		{
 			SqlConnection conector = new SqlConnection(conexion.strConexion);
 			conector.Open();
-			String sql = "SELECT Producto.nombre AS Nombre,Categoria.Nombre AS Categoria,marca AS Marca,stock AS Stock ,precio_compra AS 'Precio Compra'," +
+			String sql = "SELECT Producto.nombre AS Nombre,Categoria.Nombre AS Categoria,marca AS Marca,stock AS Stock, codigo AS Codigo ,precio_compra AS 'Precio Compra'," +
 						 "precio_venta AS 'Precio Venta',fecha_vencimiento AS 'Fecha Vencimiento',Proveedor.nombre AS Proveedor from " +
 						 "Producto INNER JOIN Categoria	ON Producto.id_categoria = Categoria.id_categoria " +
 						 "INNER JOIN Proveedor ON Producto.id_proveedor = Proveedor.id_proveedor WHERE Producto.nombre LIKE @nombre";
@@ -146,11 +150,11 @@ namespace Datos
 			try
 			{
 				SqlConnection conector = new SqlConnection(conexion.strConexion);
-				string query = "DELETE FROM Producto WHERE id_producto = ?";
+				string query = "DELETE FROM Producto WHERE id_producto = @id_producto";
 				SqlCommand cmd = new SqlCommand(query, conector);
 				cmd.Parameters.Add(new SqlParameter("@id_producto", id_producto));
 				conector.Open();
-				rpta = cmd.ExecuteNonQuery() == 1 ? "OK" : "NO SE ELIMINO EL REGISTRO";
+				rpta = cmd.ExecuteNonQuery() == 1 ? "Registro Eliminado Correctamente" : "ERROR: no se elimino el registro";
 				conector.Close();
 			}
 			catch (SqlException ex)
@@ -159,6 +163,29 @@ namespace Datos
 			}
 			return rpta;
 		}
-
+		public bool NombreExistente(string nombreNuevo)
+		{
+			try
+			{
+				SqlConnection conector = new SqlConnection(conexion.strConexion);
+				string query = "SELECT nombre FROM Producto WHERE nombre LIKE @nombre";
+				SqlCommand cmd = new SqlCommand(query, conector);
+				cmd.Parameters.Add(new SqlParameter("@nombre", nombreNuevo));
+				conector.Open();
+				SqlDataReader registros = cmd.ExecuteReader();
+				while (registros.Read())
+				{
+					conector.Close();
+					return true;
+				}
+				conector.Close();
+				return false;
+			}
+			catch (SqlException ex)
+			{
+				Console.WriteLine(ex.Message);
+				return false;
+			}
+		}
 	}
 }

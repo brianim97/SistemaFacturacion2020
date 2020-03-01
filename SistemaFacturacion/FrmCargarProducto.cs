@@ -24,15 +24,29 @@ namespace SistemaFacturacion
 			Limpiar_Campos();
 		}
 		private bool Editar = false;
-		private string AuxiliarNombreProducto;
+		private string AuxiliarNombreProducto = "";
 
 		private void btnGuardar_Click_1(object sender, EventArgs e)
 		{
 			if(Editar == true)
 			{
 				if (Comprobar_Campos() == "")
-				{ 
-					MessageBox.Show(NProducto.Editar(Obtener_Id_Producto(AuxiliarNombreProducto), Obtener_Id_Categoria(cbCategoria.Text), tbNombre.Text, tbMarca.Text, int.Parse(tbStock.Text), decimal.Parse(tbPrecioCompra.Text), decimal.Parse(tbPrecioVenta.Text), dtpFecha_Vencimiento.Value, Obtener_Id_Categoria(cbProveedor.Text))); 
+				{
+					if (AuxiliarNombreProducto.Equals(tbNombre.Text))
+					{
+						MessageBox.Show(NProducto.Editar(Obtener_Id_Producto(AuxiliarNombreProducto), Obtener_Id_Categoria(cbCategoria.Text), tbNombre.Text, tbMarca.Text, int.Parse(tbStock.Text), tbCodigo.Text, decimal.Parse(tbPrecioCompra.Text), decimal.Parse(tbPrecioVenta.Text), dtpFecha_Vencimiento.Value, Obtener_Id_Categoria(cbProveedor.Text)));
+						Limpiar_Campos();
+						Editar = false;
+						Mostrar();
+					}
+					else
+					{
+						if (NProducto.NombreExistente(tbNombre.Text))
+						{
+							MessageBox.Show(string.Format("El nombre: '{0}' ya se encuentra en uso!", tbNombre.Text));
+						}
+					}
+					
 				}
 				else
 				{
@@ -43,7 +57,17 @@ namespace SistemaFacturacion
 			{
 				if (Comprobar_Campos() == "")
 				{
-					MessageBox.Show(NProducto.Insertar(Obtener_Id_Categoria(cbCategoria.Text), tbNombre.Text, tbMarca.Text, int.Parse(tbStock.Text), decimal.Parse(tbPrecioCompra.Text), decimal.Parse(tbPrecioVenta.Text), dtpFecha_Vencimiento.Value, Obtener_Id_Categoria(cbProveedor.Text)));
+					if (NProducto.NombreExistente(tbNombre.Text))
+					{
+						MessageBox.Show(string.Format("El nombre: '{0}' ya se encuentra en uso!", tbNombre.Text));
+					}
+					else
+					{
+						MessageBox.Show(NProducto.Insertar(Obtener_Id_Categoria(cbCategoria.Text), tbNombre.Text, tbMarca.Text, int.Parse(tbStock.Text), tbCodigo.Text, decimal.Parse(tbPrecioCompra.Text), decimal.Parse(tbPrecioVenta.Text), dtpFecha_Vencimiento.Value, Obtener_Id_Categoria(cbProveedor.Text)));
+						Limpiar_Campos();
+						Mostrar();
+					}
+					
 				}
 				else
 				{
@@ -66,7 +90,7 @@ namespace SistemaFacturacion
 		//-------------------------------------------------------------METODOS AUXILIARES -------------------------------------------------------------------
 		public void PrepararDatosDeProductoParaEditar()
 		{
-			AuxiliarNombreProducto = tbNombre.Text;
+			AuxiliarNombreProducto = Convert.ToString(dgvVistaStock.CurrentRow.Cells["Nombre"].Value);
 			tbNombre.Text = Convert.ToString(dgvVistaStock.CurrentRow.Cells["Nombre"].Value);
 			cbCategoria.Text = Convert.ToString(dgvVistaStock.CurrentRow.Cells["Categoria"].Value);
 			tbMarca.Text = Convert.ToString(dgvVistaStock.CurrentRow.Cells["Marca"].Value);
@@ -166,7 +190,14 @@ namespace SistemaFacturacion
 			if (tbStock.Text == string.Empty)
 			{
 				rpta += "Error: campo 'Stock' no puede estar vacio.\n";
+			}else if (tbStock.Text.Any(x => !char.IsNumber(x)))
+				rpta+="Error: campo 'Stock' no soporta letras\n";
+
+			if (tbCodigo.Text == string.Empty)
+			{
+				rpta += "Error: campo 'Codigo' no puede estar vacio.\n";
 			}
+		//------------------------------------------------------------------------------------------------------------
 			if (tbPrecioCompra.Text.Contains("."))
 			{
 				rpta += "Error: campo 'Precio Compra' no puede contener el caracter [.] solo permite [,].\n";
@@ -175,19 +206,39 @@ namespace SistemaFacturacion
 			{
 				rpta += "Error: campo 'Precio Compra' no puede estar vacio.\n";
 			}
+			else if (!tbPrecioCompra.Text.Any(x => !char.IsNumber(x)) || tbPrecioCompra.Text.Contains(",")) 
+			{ }
+			else if (tbPrecioCompra.Text.Any(x => !char.IsNumber(x)))
+			{
+				rpta += "Error: campo 'Precio Compra' no soporta letras\n";
+			}
+
 			if (tbPrecioVenta.Text.Contains("."))
 			{
 				rpta += "Error: campo 'Precio Venta' no puede contener el caracter [.] solo permite [,].\n";
 			}
+
 			if (tbPrecioVenta.Text == string.Empty)
 			{
 				rpta += "Error: campo 'Precio Venta' no puede estar vacio.\n";
 			}
+			else if (!tbPrecioVenta.Text.Any(x => !char.IsNumber(x)) || tbPrecioVenta.Text.Contains(","))
+			{
+			}
+			else if (tbPrecioVenta.Text.Any(x => !char.IsNumber(x))){
+				rpta += "Error: campo 'Precio Venta' no soporta letras\n";
+			}
+		//--------------------------------------------------------------------------------------------------------------
+
 			if (cbProveedor.Text == string.Empty)
 			{
 				rpta += "Error: campo 'Proveedor' no puede estar vacio.";
 			}
 			return rpta;
+		}
+		private void Comprobar_Nombres_En_DB(string nombreNuevo)
+		{
+
 		}
 		private void Limpiar_Campos()
 		{
@@ -195,10 +246,12 @@ namespace SistemaFacturacion
 			cbCategoria.ResetText();
 			tbMarca.Clear();
 			tbStock.Clear();
+			tbCodigo.Clear();
 			tbPrecioCompra.Clear();
 			tbPrecioVenta.Clear();
 			dtpFecha_Vencimiento.ResetText();
 			cbProveedor.ResetText();
+			AuxiliarNombreProducto = "";
 		}
 		private void Mostrar()
 		{
@@ -283,11 +336,6 @@ namespace SistemaFacturacion
 		{
 			NProducto.BuscarPorNombre(dgvVistaStock, tbBuscarProducto.Text);
 		}
-
-		private void dgvVistaStock_CellContentClick(object sender, DataGridViewCellEventArgs e)
-		{
-			Habilitar_Editar_Eliminar(true);
-		}
 		private void Habilitar_Editar_Eliminar(bool valor)
 		{
 			btnEditar.Enabled = valor;
@@ -297,6 +345,49 @@ namespace SistemaFacturacion
 		private void btnEditar_Click(object sender, EventArgs e)
 		{
 			PrepararDatosDeProductoParaEditar();
+			Habilitar_Editar_Eliminar(false);
+		}
+
+		private void dgvVistaStock_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+		{
+			Habilitar_Editar_Eliminar(true);
+			AuxiliarNombreProducto = Convert.ToString(dgvVistaStock.CurrentRow.Cells["Nombre"].Value);
+		}
+
+		private void btnEliminar_Click(object sender, EventArgs e)
+		{
+			Habilitar_Editar_Eliminar(false);
+			DialogResult result = MessageBox.Show(string.Format("¿Esta seguro de eliminar '{0}' permamentemente? ",AuxiliarNombreProducto), "Advertencia!", MessageBoxButtons.YesNo);
+			if(result == DialogResult.Yes)
+			{
+				MessageBox.Show(NProducto.Eliminar(Obtener_Id_Producto(AuxiliarNombreProducto)));
+				Mostrar();
+			}
+		}
+
+		private void btnPrueba_Click(object sender, EventArgs e)
+		{
+			tbNombre.Text = "Prueba";
+			cbCategoria.Text = "VARIOS";
+			tbMarca.Text = "una";
+			tbStock.Text = "10";
+			tbCodigo.Text = "10001";
+			tbPrecioCompra.Text = "15,5";
+			tbPrecioVenta.Text = "20,5";
+			cbProveedor.Text = "VARIOS";
+			
+		}
+
+		private void btnPruebaError_Click(object sender, EventArgs e)
+		{
+			tbNombre.Text = "aa";
+			cbCategoria.Text = "aa";
+			tbMarca.Text = "aa";
+			tbStock.Text = "aa";
+			tbCodigo.Text = "aa";
+			tbPrecioCompra.Text = "aa";
+			tbPrecioVenta.Text = "aa";
+			cbProveedor.Text = "aa";
 		}
 	}
 }
