@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DCategoria.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="DProducto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
