@@ -28,44 +28,46 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.tabControl1 = new System.Windows.Forms.TabControl();
+			this.tabCategorias = new System.Windows.Forms.TabControl();
 			this.tpVistaCategoria = new System.Windows.Forms.TabPage();
 			this.tpCrearCategoria = new System.Windows.Forms.TabPage();
 			this.dgvVistaCategorias = new System.Windows.Forms.DataGridView();
 			this.tbVistaCategorias = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
-			this.tbNombreCap = new System.Windows.Forms.TextBox();
+			this.tbNombreCat = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.tbDescripcioCat = new System.Windows.Forms.TextBox();
 			this.btnGuardar = new System.Windows.Forms.Button();
 			this.btnLimpiar = new System.Windows.Forms.Button();
 			this.label4 = new System.Windows.Forms.Label();
-			this.tabControl1.SuspendLayout();
+			this.btnEditar = new System.Windows.Forms.Button();
+			this.tabCategorias.SuspendLayout();
 			this.tpVistaCategoria.SuspendLayout();
 			this.tpCrearCategoria.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvVistaCategorias)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// tabControl1
+			// tabCategorias
 			// 
-			this.tabControl1.Controls.Add(this.tpVistaCategoria);
-			this.tabControl1.Controls.Add(this.tpCrearCategoria);
-			this.tabControl1.Location = new System.Drawing.Point(2, 1);
-			this.tabControl1.Name = "tabControl1";
-			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(461, 328);
-			this.tabControl1.TabIndex = 0;
+			this.tabCategorias.Controls.Add(this.tpVistaCategoria);
+			this.tabCategorias.Controls.Add(this.tpCrearCategoria);
+			this.tabCategorias.Location = new System.Drawing.Point(2, 1);
+			this.tabCategorias.Name = "tabCategorias";
+			this.tabCategorias.SelectedIndex = 0;
+			this.tabCategorias.Size = new System.Drawing.Size(462, 328);
+			this.tabCategorias.TabIndex = 0;
 			// 
 			// tpVistaCategoria
 			// 
+			this.tpVistaCategoria.Controls.Add(this.btnEditar);
 			this.tpVistaCategoria.Controls.Add(this.label1);
 			this.tpVistaCategoria.Controls.Add(this.tbVistaCategorias);
 			this.tpVistaCategoria.Controls.Add(this.dgvVistaCategorias);
 			this.tpVistaCategoria.Location = new System.Drawing.Point(4, 22);
 			this.tpVistaCategoria.Name = "tpVistaCategoria";
 			this.tpVistaCategoria.Padding = new System.Windows.Forms.Padding(3);
-			this.tpVistaCategoria.Size = new System.Drawing.Size(453, 302);
+			this.tpVistaCategoria.Size = new System.Drawing.Size(454, 302);
 			this.tpVistaCategoria.TabIndex = 0;
 			this.tpVistaCategoria.Text = "Vista";
 			this.tpVistaCategoria.UseVisualStyleBackColor = true;
@@ -77,35 +79,41 @@
 			this.tpCrearCategoria.Controls.Add(this.btnLimpiar);
 			this.tpCrearCategoria.Controls.Add(this.tbDescripcioCat);
 			this.tpCrearCategoria.Controls.Add(this.label3);
-			this.tpCrearCategoria.Controls.Add(this.tbNombreCap);
+			this.tpCrearCategoria.Controls.Add(this.tbNombreCat);
 			this.tpCrearCategoria.Controls.Add(this.label2);
 			this.tpCrearCategoria.Location = new System.Drawing.Point(4, 22);
 			this.tpCrearCategoria.Name = "tpCrearCategoria";
 			this.tpCrearCategoria.Padding = new System.Windows.Forms.Padding(3);
-			this.tpCrearCategoria.Size = new System.Drawing.Size(453, 302);
+			this.tpCrearCategoria.Size = new System.Drawing.Size(454, 302);
 			this.tpCrearCategoria.TabIndex = 1;
 			this.tpCrearCategoria.Text = "Crear";
 			this.tpCrearCategoria.UseVisualStyleBackColor = true;
 			// 
 			// dgvVistaCategorias
 			// 
+			this.dgvVistaCategorias.AllowUserToAddRows = false;
+			this.dgvVistaCategorias.AllowUserToDeleteRows = false;
+			this.dgvVistaCategorias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dgvVistaCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvVistaCategorias.Location = new System.Drawing.Point(6, 45);
 			this.dgvVistaCategorias.Name = "dgvVistaCategorias";
+			this.dgvVistaCategorias.ReadOnly = true;
 			this.dgvVistaCategorias.Size = new System.Drawing.Size(441, 251);
 			this.dgvVistaCategorias.TabIndex = 0;
+			this.dgvVistaCategorias.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVistaCategorias_CellDoubleClick);
 			// 
 			// tbVistaCategorias
 			// 
-			this.tbVistaCategorias.Location = new System.Drawing.Point(162, 19);
+			this.tbVistaCategorias.Location = new System.Drawing.Point(62, 22);
 			this.tbVistaCategorias.Name = "tbVistaCategorias";
 			this.tbVistaCategorias.Size = new System.Drawing.Size(133, 20);
 			this.tbVistaCategorias.TabIndex = 1;
+			this.tbVistaCategorias.TextChanged += new System.EventHandler(this.tbVistaCategorias_TextChanged);
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(178, 3);
+			this.label1.Location = new System.Drawing.Point(78, 6);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(101, 13);
 			this.label1.TabIndex = 2;
@@ -120,12 +128,12 @@
 			this.label2.TabIndex = 0;
 			this.label2.Text = "Nombre";
 			// 
-			// tbNombreCap
+			// tbNombreCat
 			// 
-			this.tbNombreCap.Location = new System.Drawing.Point(143, 43);
-			this.tbNombreCap.Name = "tbNombreCap";
-			this.tbNombreCap.Size = new System.Drawing.Size(215, 20);
-			this.tbNombreCap.TabIndex = 1;
+			this.tbNombreCat.Location = new System.Drawing.Point(143, 43);
+			this.tbNombreCat.Name = "tbNombreCat";
+			this.tbNombreCat.Size = new System.Drawing.Size(215, 20);
+			this.tbNombreCat.TabIndex = 1;
 			// 
 			// label3
 			// 
@@ -152,6 +160,7 @@
 			this.btnGuardar.TabIndex = 22;
 			this.btnGuardar.Text = "Guardar";
 			this.btnGuardar.UseVisualStyleBackColor = true;
+			this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
 			// 
 			// btnLimpiar
 			// 
@@ -161,6 +170,7 @@
 			this.btnLimpiar.TabIndex = 21;
 			this.btnLimpiar.Text = "Limpiar";
 			this.btnLimpiar.UseVisualStyleBackColor = true;
+			this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
 			// 
 			// label4
 			// 
@@ -172,15 +182,26 @@
 			this.label4.TabIndex = 23;
 			this.label4.Text = "*";
 			// 
+			// btnEditar
+			// 
+			this.btnEditar.Location = new System.Drawing.Point(251, 6);
+			this.btnEditar.Name = "btnEditar";
+			this.btnEditar.Size = new System.Drawing.Size(139, 36);
+			this.btnEditar.TabIndex = 23;
+			this.btnEditar.Text = "Editar";
+			this.btnEditar.UseVisualStyleBackColor = true;
+			this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+			// 
 			// FrmCategorias
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(461, 328);
-			this.Controls.Add(this.tabControl1);
+			this.Controls.Add(this.tabCategorias);
 			this.Name = "FrmCategorias";
 			this.Text = "Categorias";
-			this.tabControl1.ResumeLayout(false);
+			this.Load += new System.EventHandler(this.FrmCategorias_Load);
+			this.tabCategorias.ResumeLayout(false);
 			this.tpVistaCategoria.ResumeLayout(false);
 			this.tpVistaCategoria.PerformLayout();
 			this.tpCrearCategoria.ResumeLayout(false);
@@ -192,7 +213,7 @@
 
 		#endregion
 
-		private System.Windows.Forms.TabControl tabControl1;
+		private System.Windows.Forms.TabControl tabCategorias;
 		private System.Windows.Forms.TabPage tpVistaCategoria;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox tbVistaCategorias;
@@ -200,10 +221,11 @@
 		private System.Windows.Forms.TabPage tpCrearCategoria;
 		private System.Windows.Forms.TextBox tbDescripcioCat;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.TextBox tbNombreCap;
+		private System.Windows.Forms.TextBox tbNombreCat;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Button btnGuardar;
 		private System.Windows.Forms.Button btnLimpiar;
+		private System.Windows.Forms.Button btnEditar;
 	}
 }

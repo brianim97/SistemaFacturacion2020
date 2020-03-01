@@ -35,6 +35,7 @@
 			this.menuStrip = new System.Windows.Forms.MenuStrip();
 			this.vistaStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.cargarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusStrip.SuspendLayout();
 			this.menuStrip.SuspendLayout();
 			this.SuspendLayout();
@@ -68,7 +69,8 @@
 			// vistaStockToolStripMenuItem
 			// 
 			this.vistaStockToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cargarToolStripMenuItem});
+            this.cargarToolStripMenuItem,
+            this.categoriasToolStripMenuItem});
 			this.vistaStockToolStripMenuItem.Name = "vistaStockToolStripMenuItem";
 			this.vistaStockToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
 			this.vistaStockToolStripMenuItem.Text = "INICIO";
@@ -79,6 +81,13 @@
 			this.cargarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.cargarToolStripMenuItem.Text = "Productos";
 			this.cargarToolStripMenuItem.Click += new System.EventHandler(this.cargarToolStripMenuItem_Click);
+			// 
+			// categoriasToolStripMenuItem
+			// 
+			this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
+			this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.categoriasToolStripMenuItem.Text = "Categorias";
+			this.categoriasToolStripMenuItem.Click += new System.EventHandler(this.categoriasToolStripMenuItem_Click);
 			// 
 			// MDIParent1
 			// 
@@ -108,6 +117,7 @@
 		private System.Windows.Forms.MenuStrip menuStrip;
 		private System.Windows.Forms.ToolStripMenuItem vistaStockToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem cargarToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem categoriasToolStripMenuItem;
 	}
 }
 

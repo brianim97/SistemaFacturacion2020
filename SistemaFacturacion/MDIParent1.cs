@@ -107,6 +107,11 @@ namespace SistemaFacturacion
 			frm.Show();
 		}
 
-		
+		private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			FrmCategorias frm = new FrmCategorias();
+			frm.MdiParent = this;
+			frm.Show();
+		}
 	}
 }
