@@ -36,6 +36,7 @@
 			this.vistaStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.cargarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusStrip.SuspendLayout();
 			this.menuStrip.SuspendLayout();
 			this.SuspendLayout();
@@ -70,7 +71,8 @@
 			// 
 			this.vistaStockToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cargarToolStripMenuItem,
-            this.categoriasToolStripMenuItem});
+            this.categoriasToolStripMenuItem,
+            this.proveedoresToolStripMenuItem});
 			this.vistaStockToolStripMenuItem.Name = "vistaStockToolStripMenuItem";
 			this.vistaStockToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
 			this.vistaStockToolStripMenuItem.Text = "INICIO";
@@ -88,6 +90,13 @@
 			this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.categoriasToolStripMenuItem.Text = "Categorias";
 			this.categoriasToolStripMenuItem.Click += new System.EventHandler(this.categoriasToolStripMenuItem_Click);
+			// 
+			// proveedoresToolStripMenuItem
+			// 
+			this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
+			this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.proveedoresToolStripMenuItem.Text = "Proveedores";
+			this.proveedoresToolStripMenuItem.Click += new System.EventHandler(this.proveedoresToolStripMenuItem_Click);
 			// 
 			// MDIParent1
 			// 
@@ -118,6 +127,7 @@
 		private System.Windows.Forms.ToolStripMenuItem vistaStockToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem cargarToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem categoriasToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem proveedoresToolStripMenuItem;
 	}
 }
 

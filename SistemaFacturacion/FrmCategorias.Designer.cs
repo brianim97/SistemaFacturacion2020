@@ -84,7 +84,7 @@
 			this.tpCrearCategoria.Location = new System.Drawing.Point(4, 22);
 			this.tpCrearCategoria.Name = "tpCrearCategoria";
 			this.tpCrearCategoria.Padding = new System.Windows.Forms.Padding(3);
-			this.tpCrearCategoria.Size = new System.Drawing.Size(454, 302);
+			this.tpCrearCategoria.Size = new System.Drawing.Size(555, 302);
 			this.tpCrearCategoria.TabIndex = 1;
 			this.tpCrearCategoria.Text = "Crear";
 			this.tpCrearCategoria.UseVisualStyleBackColor = true;
@@ -122,7 +122,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(62, 46);
+			this.label2.Location = new System.Drawing.Point(128, 48);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(44, 13);
 			this.label2.TabIndex = 0;
@@ -130,7 +130,7 @@
 			// 
 			// tbNombreCat
 			// 
-			this.tbNombreCat.Location = new System.Drawing.Point(143, 43);
+			this.tbNombreCat.Location = new System.Drawing.Point(200, 45);
 			this.tbNombreCat.Name = "tbNombreCat";
 			this.tbNombreCat.Size = new System.Drawing.Size(215, 20);
 			this.tbNombreCat.TabIndex = 1;
@@ -138,7 +138,7 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(62, 103);
+			this.label3.Location = new System.Drawing.Point(128, 101);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(63, 13);
 			this.label3.TabIndex = 2;
@@ -146,7 +146,7 @@
 			// 
 			// tbDescripcioCat
 			// 
-			this.tbDescripcioCat.Location = new System.Drawing.Point(143, 96);
+			this.tbDescripcioCat.Location = new System.Drawing.Point(200, 98);
 			this.tbDescripcioCat.Multiline = true;
 			this.tbDescripcioCat.Name = "tbDescripcioCat";
 			this.tbDescripcioCat.Size = new System.Drawing.Size(215, 65);
@@ -154,7 +154,7 @@
 			// 
 			// btnGuardar
 			// 
-			this.btnGuardar.Location = new System.Drawing.Point(74, 211);
+			this.btnGuardar.Location = new System.Drawing.Point(131, 213);
 			this.btnGuardar.Name = "btnGuardar";
 			this.btnGuardar.Size = new System.Drawing.Size(139, 36);
 			this.btnGuardar.TabIndex = 22;
@@ -164,7 +164,7 @@
 			// 
 			// btnLimpiar
 			// 
-			this.btnLimpiar.Location = new System.Drawing.Point(219, 211);
+			this.btnLimpiar.Location = new System.Drawing.Point(276, 213);
 			this.btnLimpiar.Name = "btnLimpiar";
 			this.btnLimpiar.Size = new System.Drawing.Size(139, 36);
 			this.btnLimpiar.TabIndex = 21;
@@ -176,7 +176,7 @@
 			// 
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.Location = new System.Drawing.Point(364, 46);
+			this.label4.Location = new System.Drawing.Point(421, 48);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(17, 24);
 			this.label4.TabIndex = 23;

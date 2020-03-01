@@ -113,5 +113,12 @@ namespace SistemaFacturacion
 			frm.MdiParent = this;
 			frm.Show();
 		}
+
+		private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			FrmProveedores frm = new FrmProveedores(); ;
+			frm.MdiParent = this;
+			frm.Show();
+		}
 	}
 }
