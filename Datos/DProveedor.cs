@@ -40,7 +40,7 @@ namespace Datos
 				SqlConnection conector = new SqlConnection(conexion.strConexion);
 				SqlCommand cmd = new SqlCommand(query, conector);
 				cmd.Parameters.Add(new SqlParameter("nombre", proveedor.Nombre));
-				cmd.Parameters.Add(new SqlParameter("descripcion", proveedor.Contacto));
+				cmd.Parameters.Add(new SqlParameter("contacto", proveedor.Contacto));
 				conector.Open();
 				rpta = cmd.ExecuteNonQuery() == 1 ? "Proveedor cargado correctamente" : "Error en la carga de proveedor";
 				conector.Close();

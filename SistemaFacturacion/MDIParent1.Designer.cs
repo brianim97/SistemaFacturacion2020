@@ -80,21 +80,21 @@
 			// cargarToolStripMenuItem
 			// 
 			this.cargarToolStripMenuItem.Name = "cargarToolStripMenuItem";
-			this.cargarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.cargarToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
 			this.cargarToolStripMenuItem.Text = "Productos";
 			this.cargarToolStripMenuItem.Click += new System.EventHandler(this.cargarToolStripMenuItem_Click);
 			// 
 			// categoriasToolStripMenuItem
 			// 
 			this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-			this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
 			this.categoriasToolStripMenuItem.Text = "Categorias";
 			this.categoriasToolStripMenuItem.Click += new System.EventHandler(this.categoriasToolStripMenuItem_Click);
 			// 
 			// proveedoresToolStripMenuItem
 			// 
 			this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
-			this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
 			this.proveedoresToolStripMenuItem.Text = "Proveedores";
 			this.proveedoresToolStripMenuItem.Click += new System.EventHandler(this.proveedoresToolStripMenuItem_Click);
 			// 
@@ -111,6 +111,7 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "SISTEMA WAKE";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+			this.Load += new System.EventHandler(this.MDIParent1_Load);
 			this.statusStrip.ResumeLayout(false);
 			this.statusStrip.PerformLayout();
 			this.menuStrip.ResumeLayout(false);

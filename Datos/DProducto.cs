@@ -115,33 +115,49 @@ namespace Datos
 
 		public void Mostrar(DataGridView dgv)
 		{
-			DataTable dtRes = new DataTable();
-			String sql = "SELECT Producto.nombre AS Nombre,Categoria.Nombre AS Categoria,marca AS Marca,stock AS Stock,codigo as Codigo ,precio_compra AS 'Precio Compra'," +
-						 "precio_venta AS 'Precio Venta',fecha_vencimiento AS 'Fecha Vencimiento',Proveedor.nombre AS Proveedor from " +
-						 "Producto INNER JOIN Categoria	ON Producto.id_categoria = Categoria.id_categoria " +
-					     "INNER JOIN Proveedor ON Producto.id_proveedor = Proveedor.id_proveedor";
-			SqlConnection conector = new SqlConnection(conexion.strConexion);
-			conector.Open();
-			SqlDataAdapter da = new SqlDataAdapter(sql, conector);
-			da.Fill(dtRes);
-			dgv.DataSource = dtRes;
-			conector.Close();
+			try
+			{
+				DataTable dtRes = new DataTable();
+				String sql = "SELECT Producto.nombre AS Nombre,Categoria.Nombre AS Categoria,marca AS Marca,stock AS Stock,codigo as Codigo ,precio_compra AS 'Precio Compra'," +
+							 "precio_venta AS 'Precio Venta',fecha_vencimiento AS 'Fecha Vencimiento',Proveedor.nombre AS Proveedor from " +
+							 "Producto INNER JOIN Categoria	ON Producto.id_categoria = Categoria.id_categoria " +
+							 "INNER JOIN Proveedor ON Producto.id_proveedor = Proveedor.id_proveedor";
+				SqlConnection conector = new SqlConnection(conexion.strConexion);
+				conector.Open();
+				SqlDataAdapter da = new SqlDataAdapter(sql, conector);
+				da.Fill(dtRes);
+				dgv.DataSource = dtRes;
+				conector.Close();
+			}
+			catch (SqlException ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+			
 		}
 		public void BuscarPorNombre(DataGridView dgv,string nombre_producto)
 		{
-			SqlConnection conector = new SqlConnection(conexion.strConexion);
-			conector.Open();
-			String sql = "SELECT Producto.nombre AS Nombre,Categoria.Nombre AS Categoria,marca AS Marca,stock AS Stock, codigo AS Codigo ,precio_compra AS 'Precio Compra'," +
-						 "precio_venta AS 'Precio Venta',fecha_vencimiento AS 'Fecha Vencimiento',Proveedor.nombre AS Proveedor from " +
-						 "Producto INNER JOIN Categoria	ON Producto.id_categoria = Categoria.id_categoria " +
-						 "INNER JOIN Proveedor ON Producto.id_proveedor = Proveedor.id_proveedor WHERE Producto.nombre LIKE @nombre";
-			SqlCommand cmd = new SqlCommand(sql, conector);
-			cmd.Parameters.Add(new SqlParameter("@nombre", "%" + nombre_producto + "%"));
-			SqlDataAdapter da = new SqlDataAdapter(cmd);
-			DataTable dtRes = new DataTable("Producto");
-			da.Fill(dtRes);
-			dgv.DataSource = dtRes;
-			conector.Close();
+			try
+			{
+				SqlConnection conector = new SqlConnection(conexion.strConexion);
+				conector.Open();
+				String sql = "SELECT Producto.nombre AS Nombre,Categoria.Nombre AS Categoria,marca AS Marca,stock AS Stock, codigo AS Codigo ,precio_compra AS 'Precio Compra'," +
+							 "precio_venta AS 'Precio Venta',fecha_vencimiento AS 'Fecha Vencimiento',Proveedor.nombre AS Proveedor from " +
+							 "Producto INNER JOIN Categoria	ON Producto.id_categoria = Categoria.id_categoria " +
+							 "INNER JOIN Proveedor ON Producto.id_proveedor = Proveedor.id_proveedor WHERE Producto.nombre LIKE @nombre";
+				SqlCommand cmd = new SqlCommand(sql, conector);
+				cmd.Parameters.Add(new SqlParameter("@nombre", "%" + nombre_producto + "%"));
+				SqlDataAdapter da = new SqlDataAdapter(cmd);
+				DataTable dtRes = new DataTable("Producto");
+				da.Fill(dtRes);
+				dgv.DataSource = dtRes;
+				conector.Close();
+			}
+			catch (SqlException ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+			
 			
 		}
 		public string Eliminar(int id_producto)
@@ -183,7 +199,7 @@ namespace Datos
 			}
 			catch (SqlException ex)
 			{
-				Console.WriteLine(ex.Message);
+				MessageBox.Show(ex.Message);
 				return false;
 			}
 		}

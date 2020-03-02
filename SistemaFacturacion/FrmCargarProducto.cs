@@ -112,74 +112,142 @@ namespace SistemaFacturacion
 	
 		private void Cargar_Categoria()
 		{
-			Conexion conexion = new Conexion();
-			SqlConnection conector = new SqlConnection(conexion.strConexion);
-			SqlCommand cmd = new SqlCommand("SELECT nombre FROM Categoria", conector);
-			conector.Open();
-			SqlDataReader registros = cmd.ExecuteReader();
-			while (registros.Read())
+			try
 			{
-				cbCategoria.Items.Add(registros["nombre"].ToString());
+				Conexion conexion = new Conexion();
+				SqlConnection conector = new SqlConnection(conexion.strConexion);
+				SqlCommand cmd = new SqlCommand("SELECT nombre FROM Categoria", conector);
+				conector.Open();
+				SqlDataReader registros = cmd.ExecuteReader();
+				while (registros.Read())
+				{
+					cbCategoria.Items.Add(registros["nombre"].ToString());
+				}
+				conector.Close();
 			}
+			catch (SqlException ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+			
 		}
 		private void Cargar_Proveedores()
 		{
-			Conexion conexion = new Conexion();
-			SqlConnection conector = new SqlConnection(conexion.strConexion);
-			SqlCommand cmd = new SqlCommand("SELECT nombre FROM Proveedor", conector);
-			conector.Open();
-			SqlDataReader registros = cmd.ExecuteReader();
-			while (registros.Read())
+			try
 			{
-				cbProveedor.Items.Add(registros["nombre"].ToString());
+				Conexion conexion = new Conexion();
+				SqlConnection conector = new SqlConnection(conexion.strConexion);
+				SqlCommand cmd = new SqlCommand("SELECT nombre FROM Proveedor", conector);
+				conector.Open();
+				SqlDataReader registros = cmd.ExecuteReader();
+				while (registros.Read())
+				{
+					cbProveedor.Items.Add(registros["nombre"].ToString());
+				}
 			}
+			catch (SqlException ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+			
 		}
 		private int Obtener_Id_Categoria(string nombre)
 		{
-			Conexion conexion = new Conexion();
-			SqlConnection conector = new SqlConnection(conexion.strConexion);
-			SqlCommand cmd = new SqlCommand(string.Format("SELECT id_categoria FROM Categoria WHERE Nombre = '{0}'", nombre), conector);
-			conector.Open();
-			SqlDataReader registros = cmd.ExecuteReader();
 			int id = 0;
-			while (registros.Read())
+			try
 			{
-				id = Int16.Parse(registros["id_categoria"].ToString());
-			}
+				Conexion conexion = new Conexion();
+				SqlConnection conector = new SqlConnection(conexion.strConexion);
+				SqlCommand cmd = new SqlCommand(string.Format("SELECT id_categoria FROM Categoria WHERE Nombre = '{0}'", nombre), conector);
+				conector.Open();
+				SqlDataReader registros = cmd.ExecuteReader();
+				while (registros.Read())
+				{
+					id = Int16.Parse(registros["id_categoria"].ToString());
+				}
 
-			conector.Close();
-			return id;
+				conector.Close();
+				return id;
+			}
+			catch (SqlException ex)
+			{
+				MessageBox.Show(ex.Message);
+				return id;
+			}			
 		}
 		private int Obtener_Id_Producto(string nombre)
 		{
-			Conexion conexion = new Conexion();
-			SqlConnection conector = new SqlConnection(conexion.strConexion);
-			SqlCommand cmd = new SqlCommand(string.Format("SELECT id_producto FROM Producto WHERE Nombre = '{0}'", nombre), conector);
-			conector.Open();
-			SqlDataReader registros = cmd.ExecuteReader();
 			int id = 0;
-			while (registros.Read())
+			try
 			{
-				id = Int16.Parse(registros["id_producto"].ToString());
+				Conexion conexion = new Conexion();
+				SqlConnection conector = new SqlConnection(conexion.strConexion);
+				SqlCommand cmd = new SqlCommand(string.Format("SELECT id_producto FROM Producto WHERE Nombre = '{0}'", nombre), conector);
+				conector.Open();
+				SqlDataReader registros = cmd.ExecuteReader();
+				while (registros.Read())
+				{
+					id = Int16.Parse(registros["id_producto"].ToString());
+				}
+				conector.Close();
+				return id;
 			}
-			conector.Close();
-			return id;
+			catch (SqlException ex)
+			{
+				MessageBox.Show(ex.Message);
+				return id;
+			}
+			
 		}
 		private int Obtener_Id_Proveedor(string nombre)
 		{
-			Conexion conexion = new Conexion();
-			SqlConnection conector = new SqlConnection(conexion.strConexion);
-			SqlCommand cmd = new SqlCommand(string.Format("SELECT id_proveedor FROM Proveedor WHERE Nombre = '{0}'", nombre), conector);
-			conector.Open();
-			SqlDataReader registros = cmd.ExecuteReader();
 			int id = 0;
-			while (registros.Read())
+			try
 			{
-				id = Int16.Parse(registros["id_proveedor"].ToString());
-			}
+				Conexion conexion = new Conexion();
+				SqlConnection conector = new SqlConnection(conexion.strConexion);
+				SqlCommand cmd = new SqlCommand(string.Format("SELECT id_proveedor FROM Proveedor WHERE Nombre = '{0}'", nombre), conector);
+				conector.Open();
+				SqlDataReader registros = cmd.ExecuteReader();
+			
+				while (registros.Read())
+				{
+					id = Int16.Parse(registros["id_proveedor"].ToString());
+				}
 
-			conector.Close();
-			return id;
+				conector.Close();
+				return id;
+			}
+			catch (SqlException ex)
+			{
+				MessageBox.Show(ex.Message);
+				return id;
+			}
+			
+		}
+		private bool Comprobar_Id_Proveedor_Categoria()
+		{
+			bool bandera = true;
+			if(Obtener_Id_Categoria(cbCategoria.Text) == 0)
+			{
+				MessageBox.Show("Error: 'ID' de categoria no encontrado!");
+				bandera = false;
+			}
+			if (Obtener_Id_Proveedor(cbProveedor.Text) == 0)
+			{
+				MessageBox.Show("Error: 'ID' de proveedor no encontrado!");
+				bandera = false;
+			}
+			return bandera;
+		}
+		private bool Comprobar_Id_Producto()
+		{
+			if (Obtener_Id_Producto(AuxiliarNombreProducto) == 0)
+			{
+				MessageBox.Show("Error: 'ID' de categoria no encontrado!");
+				return false;
+			}
+			return true;
 		}
 
 		private string Comprobar_Campos()

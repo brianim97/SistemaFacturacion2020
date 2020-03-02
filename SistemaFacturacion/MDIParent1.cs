@@ -112,6 +112,7 @@ namespace SistemaFacturacion
 			FrmCategorias frm = new FrmCategorias();
 			frm.MdiParent = this;
 			frm.Show();
+			Console.WriteLine("se toco el boton Categorias");
 		}
 
 		private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
@@ -120,5 +121,12 @@ namespace SistemaFacturacion
 			frm.MdiParent = this;
 			frm.Show();
 		}
+
+		private void MDIParent1_Load(object sender, EventArgs e)
+		{
+
+		}
+
+		
 	}
 }
