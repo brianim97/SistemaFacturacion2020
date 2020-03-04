@@ -12,6 +12,7 @@ namespace SistemaFacturacion
 	public partial class MDIParent1 : Form
 	{
 		private int childFormNumber = 0;
+		public string TipoUsuario = "";
 
 		public MDIParent1()
 		{
@@ -124,9 +125,18 @@ namespace SistemaFacturacion
 
 		private void MDIParent1_Load(object sender, EventArgs e)
 		{
-
 		}
 
-		
+		private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			FrmLogin frm = new FrmLogin();
+			frm.MdiParent = this;
+			frm.Show();
+		}
+
+		private void MDIParent1_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			Application.Exit();
+		}
 	}
 }
