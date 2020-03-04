@@ -85,10 +85,14 @@ namespace SistemaFacturacion
 
 		private void frmCargarProducto_Load(object sender, EventArgs e)
 		{
-			Mostrar();
-			Cargar_Categoria();
-			Cargar_Proveedores();
-			Habilitar_Editar_Eliminar(false);
+			if(Mostrar())
+			{
+				Cargar_Categoria();
+				Cargar_Proveedores();
+				Habilitar_Editar_Eliminar(false);
+			}
+			
+			
 
 		}
 		
@@ -327,10 +331,15 @@ namespace SistemaFacturacion
 			cbProveedor.ResetText();
 			AuxiliarNombreProducto = "";
 		}
-		private void Mostrar()
+		private bool Mostrar()
 		{
-			NProducto.Mostrar(dgvVistaStock);
-			lblTotalRegistros.Text = "Registros: " + dgvVistaStock.Rows.Count.ToString();
+			if (NProducto.Mostrar(dgvVistaStock))
+			{
+				lblTotalRegistros.Text = "Registros: " + dgvVistaStock.Rows.Count.ToString();
+				return true;
+			}
+			return false;
+			
 		}
 
 		//------------------------------------------------------METODOS DE BLOQUEO DE CARACTERES-------------------------------------------------------

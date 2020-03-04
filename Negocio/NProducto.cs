@@ -42,10 +42,10 @@ namespace Negocio
 			return obj.Editar(obj);
 		}
 
-		public static void Mostrar(DataGridView dgv)
+		public static bool Mostrar(DataGridView dgv)
 		{
 			DProducto obj = new DProducto();
-			obj.Mostrar(dgv);
+			return obj.Mostrar(dgv);
 		}
 		public static void BuscarPorNombre(DataGridView dgv,string nombre_producto)
 		{

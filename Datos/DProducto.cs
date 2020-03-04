@@ -113,7 +113,7 @@ namespace Datos
 
 		}
 
-		public void Mostrar(DataGridView dgv)
+		public bool Mostrar(DataGridView dgv)
 		{
 			try
 			{
@@ -128,10 +128,12 @@ namespace Datos
 				da.Fill(dtRes);
 				dgv.DataSource = dtRes;
 				conector.Close();
+				return true;
 			}
 			catch (SqlException ex)
 			{
 				MessageBox.Show(ex.Message);
+				return false;
 			}
 			
 		}
