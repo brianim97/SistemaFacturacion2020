@@ -44,7 +44,7 @@ namespace SistemaFacturacion
 				{
 					if (contraseña == tbContraseña.Text)
 					{
-						MessageBox.Show(string.Format("Inicio de sesion correcto!\nBienvenido: '{0}' Tipo de cuenta '{1}'", usuarioNombre, account));
+						MessageBox.Show(string.Format("Inicio de sesion correcto!\nBienvenido: '{0}' Tipo de cuenta '{1}'", usuarioNombre, account),"Aviso");
 						MDIParent1 frm = new MDIParent1();
 						frm.TipoUsuario = account;
 						this.Hide();

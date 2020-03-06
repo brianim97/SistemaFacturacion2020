@@ -136,6 +136,17 @@ namespace SistemaFacturacion
 
 		private void MDIParent1_FormClosed(object sender, FormClosedEventArgs e)
 		{
+		}
+
+		private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			FrmLogin frm = new FrmLogin();
+			frm.Show();
+			this.Close();
+		}
+
+		private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+		{
 			Application.Exit();
 		}
 	}

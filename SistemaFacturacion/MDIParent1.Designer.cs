@@ -38,7 +38,8 @@
 			this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.lblVariable = new System.Windows.Forms.Label();
+			this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusStrip.SuspendLayout();
 			this.menuStrip.SuspendLayout();
 			this.SuspendLayout();
@@ -75,7 +76,9 @@
             this.cargarToolStripMenuItem,
             this.categoriasToolStripMenuItem,
             this.proveedoresToolStripMenuItem,
-            this.loginToolStripMenuItem});
+            this.loginToolStripMenuItem,
+            this.cerrarSesionToolStripMenuItem,
+            this.salirToolStripMenuItem});
 			this.vistaStockToolStripMenuItem.Name = "vistaStockToolStripMenuItem";
 			this.vistaStockToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
 			this.vistaStockToolStripMenuItem.Text = "INICIO";
@@ -108,21 +111,26 @@
 			this.loginToolStripMenuItem.Text = "Login";
 			this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
 			// 
-			// lblVariable
+			// cerrarSesionToolStripMenuItem
 			// 
-			this.lblVariable.AutoSize = true;
-			this.lblVariable.Location = new System.Drawing.Point(367, 103);
-			this.lblVariable.Name = "lblVariable";
-			this.lblVariable.Size = new System.Drawing.Size(35, 13);
-			this.lblVariable.TabIndex = 4;
-			this.lblVariable.Text = "label1";
+			this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
+			this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
+			this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
+			// 
+			// salirToolStripMenuItem
+			// 
+			this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+			this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.salirToolStripMenuItem.Text = "Salir";
+			this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
 			// 
 			// MDIParent1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(632, 453);
-			this.Controls.Add(this.lblVariable);
+			this.ControlBox = false;
 			this.Controls.Add(this.statusStrip);
 			this.Controls.Add(this.menuStrip);
 			this.IsMdiContainer = true;
@@ -151,7 +159,8 @@
 		private System.Windows.Forms.ToolStripMenuItem categoriasToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem proveedoresToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
-		private System.Windows.Forms.Label lblVariable;
+		private System.Windows.Forms.ToolStripMenuItem cerrarSesionToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
 	}
 }
 
