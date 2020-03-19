@@ -33,7 +33,7 @@ namespace Datos
 		public string Insertar(DUsuario usuario)
 		{
 			string rpta = "";
-			string query = "INSERT INTO Usuario (name, password,account) VALUES (@name,@password,@account)";
+			string query = "INSERT INTO Usuarios (name, password,account) VALUES (@name,@password,@account)";
 
 			try
 			{
@@ -58,7 +58,7 @@ namespace Datos
 		public string Editar(DUsuario usuario)
 		{
 			string rpta = "";
-			string query = "UPDATE Usuario SET name = @name, password = @password, account = @account WHERE id_usuario = @id_usuario";
+			string query = "UPDATE Usuarios SET name = @name, password = @password, account = @account WHERE id_usuario = @id_usuario";
 
 			try
 			{
@@ -66,10 +66,10 @@ namespace Datos
 				SqlCommand cmd = new SqlCommand(query, conector);
 				cmd.Parameters.Add(new SqlParameter("name", usuario.Nombre));
 				cmd.Parameters.Add(new SqlParameter("password", usuario.Contraseña));
-				cmd.Parameters.Add(new SqlParameter("account", usuario.Contraseña));
+				cmd.Parameters.Add(new SqlParameter("account", usuario.Account));
 				cmd.Parameters.Add(new SqlParameter("id_usuario", usuario.Id_Usuario));
 				conector.Open();
-				rpta = cmd.ExecuteNonQuery() == 1 ? "Usuarioo editada correctamente" : "Error en editar usuario";
+				rpta = cmd.ExecuteNonQuery() == 1 ? "Usuario editado correctamente" : "Error en editar usuario";
 				conector.Close();
 				Console.WriteLine(rpta);
 				return rpta;
@@ -84,7 +84,7 @@ namespace Datos
 		public void Mostrar(DataGridView dgv)
 		{
 			DataTable dtRes = new DataTable();
-			String sql = "SELECT name AS Nombre, password AS Contraseña, Account AS Nivel de Acceso from Usuario";
+			String sql = "SELECT name AS Nombre, password AS Contraseña, Account AS 'Nivel de Acceso' from Usuarios";
 			SqlConnection conector = new SqlConnection(conexion.strConexion);
 			conector.Open();
 			SqlDataAdapter da = new SqlDataAdapter(sql, conector);
@@ -96,7 +96,7 @@ namespace Datos
 		{
 			SqlConnection conector = new SqlConnection(conexion.strConexion);
 			conector.Open();
-			String sql = "SELECT name AS Nombre, password AS Contraseña, Account AS Nivel de Acceso from Usuario WHERE name LIKE @name";
+			String sql = "SELECT name AS Nombre, password AS Contraseña, Account AS Nivel de Acceso from Usuarios WHERE name LIKE @name";
 			SqlCommand cmd = new SqlCommand(sql, conector);
 			cmd.Parameters.Add(new SqlParameter("@name", "%" + nombre_usuario + "%"));
 			SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -112,7 +112,7 @@ namespace Datos
 			try
 			{
 				SqlConnection conector = new SqlConnection(conexion.strConexion);
-				string query = "DELETE FROM Usuario WHERE id_usuario = @id_usuario";
+				string query = "DELETE FROM Usuarios WHERE id_usuario = @id_usuario";
 				SqlCommand cmd = new SqlCommand(query, conector);
 				cmd.Parameters.Add(new SqlParameter("@id_usuario", id_usuario));
 				conector.Open();
@@ -130,7 +130,7 @@ namespace Datos
 			try
 			{
 				SqlConnection conector = new SqlConnection(conexion.strConexion);
-				string query = "SELECT name FROM Usuario WHERE name LIKE @name";
+				string query = "SELECT name FROM Usuarios WHERE name LIKE @name";
 				SqlCommand cmd = new SqlCommand(query, conector);
 				cmd.Parameters.Add(new SqlParameter("@name", nombreNuevo));
 				conector.Open();

@@ -100,19 +100,29 @@ namespace SistemaFacturacion
 		}
 		private int Obtener_Id(string nombre)
 		{
-			Conexion conexion = new Conexion();
-			SqlConnection conector = new SqlConnection(conexion.strConexion);
-			string query = string.Format("SELECT id_categoria FROM Categoria WHERE nombre = '{0}'", nombre);
-			SqlCommand cmd = new SqlCommand(query, conector);
-			conector.Open();
-			SqlDataReader registro = cmd.ExecuteReader();
 			int id = 0;
-			while (registro.Read())
+			try
 			{
-				id = Int16.Parse(registro["id_categoria"].ToString());
+				Conexion conexion = new Conexion();
+				SqlConnection conector = new SqlConnection(conexion.strConexion);
+				string query = string.Format("SELECT id_categoria FROM Categoria WHERE nombre = '{0}'", nombre);
+				SqlCommand cmd = new SqlCommand(query, conector);
+				conector.Open();
+				SqlDataReader registro = cmd.ExecuteReader();
+				
+				while (registro.Read())
+				{
+					id = Int16.Parse(registro["id_categoria"].ToString());
+					return id;
+				}
 				return id;
 			}
-			return id;
+			catch (SqlException ex)
+			{
+				MessageBox.Show(ex.Message);
+				return id;
+			}
+			
 		}
 		private bool NombreExistente(string nombre)
 		{
@@ -154,5 +164,7 @@ namespace SistemaFacturacion
 		{
 			NCategoria.BuscarPorNombre(dgvVistaCategorias, tbVistaCategorias.Text);
 		}
+
+		
 	}
 }

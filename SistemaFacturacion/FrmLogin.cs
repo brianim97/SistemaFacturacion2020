@@ -26,7 +26,7 @@ namespace SistemaFacturacion
 
 		private void btnSalir_Click(object sender, EventArgs e)
 		{
-			this.Close();
+			Application.Exit();
 		}
 
 		private void btnIngresar_Click(object sender, EventArgs e)

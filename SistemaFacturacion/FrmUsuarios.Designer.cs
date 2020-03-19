@@ -47,10 +47,14 @@
 			// 
 			// dgvUsuarios
 			// 
-			this.dgvUsuarios.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.dgvUsuarios.AllowUserToAddRows = false;
+			this.dgvUsuarios.AllowUserToDeleteRows = false;
+			this.dgvUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.dgvUsuarios.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
 			this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvUsuarios.Location = new System.Drawing.Point(12, 57);
 			this.dgvUsuarios.Name = "dgvUsuarios";
+			this.dgvUsuarios.ReadOnly = true;
 			this.dgvUsuarios.Size = new System.Drawing.Size(437, 150);
 			this.dgvUsuarios.TabIndex = 0;
 			this.dgvUsuarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
@@ -174,7 +178,11 @@
 			// 
 			// cbNivelAcceso
 			// 
+			this.cbNivelAcceso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbNivelAcceso.FormattingEnabled = true;
+			this.cbNivelAcceso.Items.AddRange(new object[] {
+            "administrador",
+            "empleado"});
 			this.cbNivelAcceso.Location = new System.Drawing.Point(195, 311);
 			this.cbNivelAcceso.Name = "cbNivelAcceso";
 			this.cbNivelAcceso.Size = new System.Drawing.Size(132, 21);

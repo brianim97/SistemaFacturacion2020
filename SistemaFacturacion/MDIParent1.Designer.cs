@@ -37,7 +37,7 @@
 			this.cargarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusStrip.SuspendLayout();
@@ -76,7 +76,7 @@
             this.cargarToolStripMenuItem,
             this.categoriasToolStripMenuItem,
             this.proveedoresToolStripMenuItem,
-            this.loginToolStripMenuItem,
+            this.usuariosToolStripMenuItem,
             this.cerrarSesionToolStripMenuItem,
             this.salirToolStripMenuItem});
 			this.vistaStockToolStripMenuItem.Name = "vistaStockToolStripMenuItem";
@@ -104,12 +104,12 @@
 			this.proveedoresToolStripMenuItem.Text = "Proveedores";
 			this.proveedoresToolStripMenuItem.Click += new System.EventHandler(this.proveedoresToolStripMenuItem_Click);
 			// 
-			// loginToolStripMenuItem
+			// usuariosToolStripMenuItem
 			// 
-			this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-			this.loginToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.loginToolStripMenuItem.Text = "Login";
-			this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
+			this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
+			this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.usuariosToolStripMenuItem.Text = "Usuarios";
+			this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
 			// 
 			// cerrarSesionToolStripMenuItem
 			// 
@@ -158,9 +158,9 @@
 		private System.Windows.Forms.ToolStripMenuItem cargarToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem categoriasToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem proveedoresToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem cerrarSesionToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
 	}
 }
 

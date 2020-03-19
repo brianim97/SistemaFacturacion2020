@@ -149,5 +149,12 @@ namespace SistemaFacturacion
 		{
 			Application.Exit();
 		}
+
+		private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			FrmUsuarios frm = new FrmUsuarios();
+			frm.MdiParent = this;
+			frm.Show();
+		}
 	}
 }
