@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace SistemaFacturacion
 {
-	public partial class FrmCategorias : Form
+	public partial class FrmClientes : Form
 	{
 		bool Editar = false;
 		string AuxiliarNombre = "";
-		public FrmCategorias()
+		public FrmClientes()
 		{
 			InitializeComponent();
 		}
@@ -40,18 +40,18 @@ namespace SistemaFacturacion
 					}
 					else
 					{
-						if(AuxiliarNombre == tbNombreCat.Text)
+						if(AuxiliarNombre == tbDni.Text)
 						{
-							MessageBox.Show(NCategoria.Editar(Obtener_Id(tbNombreCat.Text), tbNombreCat.Text, tbDescripcioCat.Text));
+							MessageBox.Show(NCategoria.Editar(Obtener_Id(tbDni.Text), tbDni.Text, tbDescripcioCat.Text));
 							Limpiar_Campos();
 							Editar = false;
 						}
-						else if (NombreExistente(tbNombreCat.Text))
+						else if (NombreExistente(tbDni.Text))
 						{
-							MessageBox.Show(string.Format("Error: el nombre '{0}' ya se encuentra en uso!", tbNombreCat.Text));
+							MessageBox.Show(string.Format("Error: el nombre '{0}' ya se encuentra en uso!", tbDni.Text));
 						}else
 						{
-							MessageBox.Show(NCategoria.Editar(Obtener_Id(AuxiliarNombre), tbNombreCat.Text, tbDescripcioCat.Text));
+							MessageBox.Show(NCategoria.Editar(Obtener_Id(AuxiliarNombre), tbDni.Text, tbDescripcioCat.Text));
 							Limpiar_Campos();
 							Editar = false;
 						}
@@ -68,13 +68,13 @@ namespace SistemaFacturacion
 			{
 				if (Comprobar_Campos() == string.Empty)
 				{
-					if (NombreExistente(tbNombreCat.Text))
+					if (NombreExistente(tbDni.Text))
 					{
-						MessageBox.Show(string.Format("Error: el nombre '{0}' ya se encuentra en uso!", tbNombreCat.Text));
+						MessageBox.Show(string.Format("Error: el nombre '{0}' ya se encuentra en uso!", tbDni.Text));
 					}
 					else
 					{
-						MessageBox.Show(NCategoria.Insertar(tbNombreCat.Text, tbDescripcioCat.Text));
+						MessageBox.Show(NCategoria.Insertar(tbDni.Text, tbDescripcioCat.Text));
 						Limpiar_Campos();
 					}
 					
@@ -91,7 +91,7 @@ namespace SistemaFacturacion
 		private string Comprobar_Campos()
 		{
 			string rpta = "";
-			if(tbNombreCat.Text == string.Empty)
+			if(tbDni.Text == string.Empty)
 			{
 				rpta += "Error: el campo 'Nombre' no puede estar vacio";
 			}
@@ -130,12 +130,12 @@ namespace SistemaFacturacion
 		}
 		private void Limpiar_Campos()
 		{
-			tbNombreCat.Clear();
+			tbDni.Clear();
 			tbDescripcioCat.Clear();
 		}
 		private void Mostrar()
 		{
-			NCategoria.Mostrar(dgvVistaCategorias);
+			NCategoria.Mostrar(dgvVistaCliente);
 		}
 
 		private void btnLimpiar_Click(object sender, EventArgs e)
@@ -145,15 +145,15 @@ namespace SistemaFacturacion
 
 		private void dgvVistaCategorias_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
-			AuxiliarNombre = Convert.ToString(dgvVistaCategorias.CurrentRow.Cells["Nombre"].Value);
+			AuxiliarNombre = Convert.ToString(dgvVistaCliente.CurrentRow.Cells["Nombre"].Value);
 			btnEditar.Enabled = true;
 			
 		}
 
 		private void btnEditar_Click(object sender, EventArgs e)
 		{
-			tbNombreCat.Text = Convert.ToString(dgvVistaCategorias.CurrentRow.Cells["Nombre"].Value);
-			tbDescripcioCat.Text = Convert.ToString(dgvVistaCategorias.CurrentRow.Cells["Descripcion"].Value);
+			tbDni.Text = Convert.ToString(dgvVistaCliente.CurrentRow.Cells["Nombre"].Value);
+			tbDescripcioCat.Text = Convert.ToString(dgvVistaCliente.CurrentRow.Cells["Descripcion"].Value);
 			tabCategorias.SelectedIndex = 1;
 			Editar = true;
 			btnEditar.Enabled = false;
@@ -162,7 +162,7 @@ namespace SistemaFacturacion
 
 		private void tbVistaCategorias_TextChanged(object sender, EventArgs e)
 		{
-			NCategoria.BuscarPorNombre(dgvVistaCategorias, tbVistaCategorias.Text);
+			NCategoria.BuscarPorNombre(dgvVistaCliente, tbBuscarCliente.Text);
 		}
 
 		

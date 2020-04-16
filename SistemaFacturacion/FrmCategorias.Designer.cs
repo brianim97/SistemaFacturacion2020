@@ -1,6 +1,6 @@
 ﻿namespace SistemaFacturacion
 {
-	partial class FrmCategorias
+	partial class FrmClientes
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -32,19 +32,23 @@
 			this.tpVistaCategoria = new System.Windows.Forms.TabPage();
 			this.btnEditar = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
-			this.tbVistaCategorias = new System.Windows.Forms.TextBox();
-			this.dgvVistaCategorias = new System.Windows.Forms.DataGridView();
+			this.tbBuscarCliente = new System.Windows.Forms.TextBox();
+			this.dgvVistaCliente = new System.Windows.Forms.DataGridView();
 			this.tpCrearCategoria = new System.Windows.Forms.TabPage();
 			this.label4 = new System.Windows.Forms.Label();
 			this.btnGuardar = new System.Windows.Forms.Button();
 			this.btnLimpiar = new System.Windows.Forms.Button();
-			this.tbDescripcioCat = new System.Windows.Forms.TextBox();
-			this.label3 = new System.Windows.Forms.Label();
-			this.tbNombreCat = new System.Windows.Forms.TextBox();
+			this.tbDni = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
+			this.tbNombre = new System.Windows.Forms.TextBox();
+			this.label3 = new System.Windows.Forms.Label();
+			this.tbDireccion = new System.Windows.Forms.TextBox();
+			this.label5 = new System.Windows.Forms.Label();
+			this.tbTelefono = new System.Windows.Forms.TextBox();
+			this.label6 = new System.Windows.Forms.Label();
 			this.tabCategorias.SuspendLayout();
 			this.tpVistaCategoria.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dgvVistaCategorias)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgvVistaCliente)).BeginInit();
 			this.tpCrearCategoria.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -62,8 +66,8 @@
 			// 
 			this.tpVistaCategoria.Controls.Add(this.btnEditar);
 			this.tpVistaCategoria.Controls.Add(this.label1);
-			this.tpVistaCategoria.Controls.Add(this.tbVistaCategorias);
-			this.tpVistaCategoria.Controls.Add(this.dgvVistaCategorias);
+			this.tpVistaCategoria.Controls.Add(this.tbBuscarCliente);
+			this.tpVistaCategoria.Controls.Add(this.dgvVistaCliente);
 			this.tpVistaCategoria.Location = new System.Drawing.Point(4, 22);
 			this.tpVistaCategoria.Name = "tpVistaCategoria";
 			this.tpVistaCategoria.Padding = new System.Windows.Forms.Padding(3);
@@ -91,36 +95,39 @@
 			this.label1.TabIndex = 2;
 			this.label1.Text = "Escribe para buscar";
 			// 
-			// tbVistaCategorias
+			// tbBuscarCliente
 			// 
-			this.tbVistaCategorias.Location = new System.Drawing.Point(165, 15);
-			this.tbVistaCategorias.Name = "tbVistaCategorias";
-			this.tbVistaCategorias.Size = new System.Drawing.Size(148, 20);
-			this.tbVistaCategorias.TabIndex = 1;
-			this.tbVistaCategorias.TextChanged += new System.EventHandler(this.tbVistaCategorias_TextChanged);
+			this.tbBuscarCliente.Location = new System.Drawing.Point(165, 15);
+			this.tbBuscarCliente.Name = "tbBuscarCliente";
+			this.tbBuscarCliente.Size = new System.Drawing.Size(148, 20);
+			this.tbBuscarCliente.TabIndex = 1;
+			this.tbBuscarCliente.TextChanged += new System.EventHandler(this.tbVistaCategorias_TextChanged);
 			// 
-			// dgvVistaCategorias
+			// dgvVistaCliente
 			// 
-			this.dgvVistaCategorias.AllowUserToAddRows = false;
-			this.dgvVistaCategorias.AllowUserToDeleteRows = false;
-			this.dgvVistaCategorias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.dgvVistaCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvVistaCategorias.Location = new System.Drawing.Point(6, 45);
-			this.dgvVistaCategorias.Name = "dgvVistaCategorias";
-			this.dgvVistaCategorias.ReadOnly = true;
-			this.dgvVistaCategorias.Size = new System.Drawing.Size(542, 251);
-			this.dgvVistaCategorias.TabIndex = 0;
-		
-			this.dgvVistaCategorias.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVistaCategorias_CellDoubleClick);
+			this.dgvVistaCliente.AllowUserToAddRows = false;
+			this.dgvVistaCliente.AllowUserToDeleteRows = false;
+			this.dgvVistaCliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.dgvVistaCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvVistaCliente.Location = new System.Drawing.Point(6, 45);
+			this.dgvVistaCliente.Name = "dgvVistaCliente";
+			this.dgvVistaCliente.ReadOnly = true;
+			this.dgvVistaCliente.Size = new System.Drawing.Size(542, 251);
+			this.dgvVistaCliente.TabIndex = 0;
+			this.dgvVistaCliente.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVistaCategorias_CellDoubleClick);
 			// 
 			// tpCrearCategoria
 			// 
+			this.tpCrearCategoria.Controls.Add(this.tbTelefono);
+			this.tpCrearCategoria.Controls.Add(this.label6);
+			this.tpCrearCategoria.Controls.Add(this.tbDireccion);
+			this.tpCrearCategoria.Controls.Add(this.label5);
+			this.tpCrearCategoria.Controls.Add(this.tbNombre);
+			this.tpCrearCategoria.Controls.Add(this.label3);
 			this.tpCrearCategoria.Controls.Add(this.label4);
 			this.tpCrearCategoria.Controls.Add(this.btnGuardar);
 			this.tpCrearCategoria.Controls.Add(this.btnLimpiar);
-			this.tpCrearCategoria.Controls.Add(this.tbDescripcioCat);
-			this.tpCrearCategoria.Controls.Add(this.label3);
-			this.tpCrearCategoria.Controls.Add(this.tbNombreCat);
+			this.tpCrearCategoria.Controls.Add(this.tbDni);
 			this.tpCrearCategoria.Controls.Add(this.label2);
 			this.tpCrearCategoria.Location = new System.Drawing.Point(4, 22);
 			this.tpCrearCategoria.Name = "tpCrearCategoria";
@@ -160,52 +167,83 @@
 			this.btnLimpiar.UseVisualStyleBackColor = true;
 			this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
 			// 
-			// tbDescripcioCat
+			// tbDni
 			// 
-			this.tbDescripcioCat.Location = new System.Drawing.Point(200, 98);
-			this.tbDescripcioCat.Multiline = true;
-			this.tbDescripcioCat.Name = "tbDescripcioCat";
-			this.tbDescripcioCat.Size = new System.Drawing.Size(215, 65);
-			this.tbDescripcioCat.TabIndex = 3;
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(128, 101);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(63, 13);
-			this.label3.TabIndex = 2;
-			this.label3.Text = "Descripcion";
-			// 
-			// tbNombreCat
-			// 
-			this.tbNombreCat.Location = new System.Drawing.Point(200, 45);
-			this.tbNombreCat.Name = "tbNombreCat";
-			this.tbNombreCat.Size = new System.Drawing.Size(215, 20);
-			this.tbNombreCat.TabIndex = 1;
+			this.tbDni.Location = new System.Drawing.Point(200, 45);
+			this.tbDni.Name = "tbDni";
+			this.tbDni.Size = new System.Drawing.Size(215, 20);
+			this.tbDni.TabIndex = 1;
 			// 
 			// label2
 			// 
 			this.label2.AutoSize = true;
 			this.label2.Location = new System.Drawing.Point(128, 48);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(44, 13);
+			this.label2.Size = new System.Drawing.Size(26, 13);
 			this.label2.TabIndex = 0;
-			this.label2.Text = "Nombre";
+			this.label2.Text = "DNI";
 			// 
-			// FrmCategorias
+			// tbNombre
+			// 
+			this.tbNombre.Location = new System.Drawing.Point(200, 83);
+			this.tbNombre.Name = "tbNombre";
+			this.tbNombre.Size = new System.Drawing.Size(215, 20);
+			this.tbNombre.TabIndex = 25;
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(128, 86);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(44, 13);
+			this.label3.TabIndex = 24;
+			this.label3.Text = "Nombre";
+			// 
+			// tbDireccion
+			// 
+			this.tbDireccion.Location = new System.Drawing.Point(200, 122);
+			this.tbDireccion.Name = "tbDireccion";
+			this.tbDireccion.Size = new System.Drawing.Size(215, 20);
+			this.tbDireccion.TabIndex = 27;
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(128, 125);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(52, 13);
+			this.label5.TabIndex = 26;
+			this.label5.Text = "Direccion";
+			// 
+			// tbTelefono
+			// 
+			this.tbTelefono.Location = new System.Drawing.Point(200, 158);
+			this.tbTelefono.Name = "tbTelefono";
+			this.tbTelefono.Size = new System.Drawing.Size(215, 20);
+			this.tbTelefono.TabIndex = 29;
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(128, 161);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(49, 13);
+			this.label6.TabIndex = 28;
+			this.label6.Text = "Telefono";
+			// 
+			// FrmClientes
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(566, 328);
 			this.Controls.Add(this.tabCategorias);
-			this.Name = "FrmCategorias";
-			this.Text = "Categorias";
+			this.Name = "FrmClientes";
+			this.Text = "Clientes";
 			this.Load += new System.EventHandler(this.FrmCategorias_Load);
 			this.tabCategorias.ResumeLayout(false);
 			this.tpVistaCategoria.ResumeLayout(false);
 			this.tpVistaCategoria.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dgvVistaCategorias)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgvVistaCliente)).EndInit();
 			this.tpCrearCategoria.ResumeLayout(false);
 			this.tpCrearCategoria.PerformLayout();
 			this.ResumeLayout(false);
@@ -217,16 +255,20 @@
 		private System.Windows.Forms.TabControl tabCategorias;
 		private System.Windows.Forms.TabPage tpVistaCategoria;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TextBox tbVistaCategorias;
-		private System.Windows.Forms.DataGridView dgvVistaCategorias;
+		private System.Windows.Forms.TextBox tbBuscarCliente;
+		private System.Windows.Forms.DataGridView dgvVistaCliente;
 		private System.Windows.Forms.TabPage tpCrearCategoria;
-		private System.Windows.Forms.TextBox tbDescripcioCat;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.TextBox tbNombreCat;
+		private System.Windows.Forms.TextBox tbDni;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Button btnGuardar;
 		private System.Windows.Forms.Button btnLimpiar;
 		private System.Windows.Forms.Button btnEditar;
+		private System.Windows.Forms.TextBox tbTelefono;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.TextBox tbDireccion;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.TextBox tbNombre;
+		private System.Windows.Forms.Label label3;
 	}
 }

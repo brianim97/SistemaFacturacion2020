@@ -17,16 +17,26 @@ namespace Datos
 		string password;
 		public string strConexion;
 		//"server = 192.168.1.6 ; database = Prueba ; user Id = EscritorioServer ; Password = adrian97"
+		//server 2= Data Source=.;Initial Catalog=Prueba;Integrated Security=True
 		public Conexion()
 		{
 			try
 			{
+			
 				string[] lineas = File.ReadAllLines(Application.StartupPath + "/DataBaseConnection.txt");
-				server = lineas[0];
-				database = lineas[1];
-				userId = lineas[2];
-				password = lineas[3];
-				strConexion = string.Format("server = {0} ; database = {1} ; user Id = {2} ; Password = {3}", server, database,userId,password);
+				if(lineas.Length < 2)
+				{
+					strConexion = lineas[0];
+				}
+				else
+				{
+					server = lineas[0];
+					database = lineas[1];
+					userId = lineas[2];
+					password = lineas[3];
+					strConexion = string.Format("server = {0} ; database = {1} ; user Id = {2} ; Password = {3}", server, database, userId, password);
+				}
+				
 			}
 			catch (IOException ex)
 			{
