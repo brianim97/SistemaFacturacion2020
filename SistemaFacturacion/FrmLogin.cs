@@ -57,5 +57,11 @@ namespace SistemaFacturacion
 				MessageBox.Show("Error: Usuario o Contraseña incorrecta!");
 			}
 		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			tbUsuario.Text = "Admin";
+			tbContraseña.Text = "sis20";
+		}
 	}
 }

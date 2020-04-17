@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="datagrid.cs" />
     <Compile Include="NCategoria.cs" />
+    <Compile Include="NCliente.cs" />
     <Compile Include="NProducto.cs" />
     <Compile Include="NProveedor.cs" />
     <Compile Include="NUsuario.cs" />

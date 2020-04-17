@@ -38,6 +38,7 @@
 			this.btnSalir = new System.Windows.Forms.Button();
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			this.btnIngresar = new System.Windows.Forms.Button();
+			this.button1 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.tableLayoutPanel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -148,6 +149,18 @@
 			this.btnIngresar.UseVisualStyleBackColor = true;
 			this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
 			// 
+			// button1
+			// 
+			this.button1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.button1.ForeColor = System.Drawing.Color.Cornsilk;
+			this.button1.Location = new System.Drawing.Point(2, 6);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(36, 55);
+			this.button1.TabIndex = 9;
+			this.button1.UseVisualStyleBackColor = false;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
 			// FrmLogin
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -155,6 +168,7 @@
 			this.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.ClientSize = new System.Drawing.Size(596, 197);
 			this.ControlBox = false;
+			this.Controls.Add(this.button1);
 			this.Controls.Add(this.btnIngresar);
 			this.Controls.Add(this.pictureBox2);
 			this.Controls.Add(this.btnSalir);
@@ -183,5 +197,6 @@
 		private System.Windows.Forms.Button btnSalir;
 		private System.Windows.Forms.PictureBox pictureBox2;
 		private System.Windows.Forms.Button btnIngresar;
+		private System.Windows.Forms.Button button1;
 	}
 }

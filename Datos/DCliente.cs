@@ -72,7 +72,7 @@ namespace Datos
 				cmd.Parameters.Add(new SqlParameter("nombre", cliente.Nombre));
 				cmd.Parameters.Add(new SqlParameter("direccion", cliente.Direccion));
 				cmd.Parameters.Add(new SqlParameter("telefono", cliente.Telefono));
-				cmd.Parameters.Add(new SqlParameter("id_cliente", cliente.Id));
+				cmd.Parameters.Add(new SqlParameter("id", cliente.Id));
 				conector.Open();
 				rpta = cmd.ExecuteNonQuery() == 1 ? "Cliente editado correctamente" : "Error en editar cliente";
 				conector.Close();
@@ -133,7 +133,7 @@ namespace Datos
 				SqlConnection conector = new SqlConnection(conexion.strConexion);
 				string query = "DELETE FROM Cliente WHERE dni = @dni";
 				SqlCommand cmd = new SqlCommand(query, conector);
-				cmd.Parameters.Add(new SqlParameter("@id", dni));
+				cmd.Parameters.Add(new SqlParameter("@dni", dni));
 				conector.Open();
 				rpta = cmd.ExecuteNonQuery() == 1 ? "Registro Eliminado Correctamente" : "ERROR: no se elimino el registro";
 				conector.Close();
@@ -172,4 +172,4 @@ namespace Datos
 	}
 
 }
-}
+
