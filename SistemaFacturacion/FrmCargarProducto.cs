@@ -68,7 +68,7 @@ namespace SistemaFacturacion
 					}
 					else
 					{
-						MessageBox.Show(NProducto.Insertar(Obtener_Id_Categoria(cbCategoria.Text), tbNombre.Text, tbMarca.Text, int.Parse(tbStock.Text), tbCodigo.Text, decimal.Parse(tbPrecioCompra.Text), decimal.Parse(tbPrecioVenta.Text), dtpFecha_Vencimiento.Value, Obtener_Id_Categoria(cbProveedor.Text)));
+						MessageBox.Show(NProducto.Insertar(Obtener_Id_Categoria(cbCategoria.Text), tbNombre.Text, tbMarca.Text, int.Parse(tbStock.Text), tbCodigo.Text, decimal.Parse(tbPrecioCompra.Text), decimal.Parse(tbPrecioVenta.Text), dtpFecha_Vencimiento.Value, Obtener_Id_Proveedor(cbProveedor.Text)));
 						Limpiar_Campos();
 						Mostrar();
 					}

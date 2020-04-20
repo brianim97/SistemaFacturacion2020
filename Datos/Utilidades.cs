@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Datos
 {
@@ -12,15 +13,21 @@ namespace Datos
 	{
 		public static DataSet Ejecutar(string query)
 		{
-			Conexion conexion = new Conexion();
-			SqlConnection conector = new SqlConnection(conexion.strConexion);
-			conector.Open();
 			DataSet ds = new DataSet();
-			SqlDataAdapter da = new SqlDataAdapter(query, conector);
-			da.Fill(ds);
-			conector.Close();
+			try
+			{
+				Conexion conexion = new Conexion();
+				SqlConnection conector = new SqlConnection(conexion.strConexion);
+				conector.Open();
+				SqlDataAdapter da = new SqlDataAdapter(query, conector);
+				da.Fill(ds);
+				conector.Close();
+			}
+			catch (SqlException ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
 			return ds;
-
 		}
 	}
 }

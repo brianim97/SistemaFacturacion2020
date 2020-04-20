@@ -11,6 +11,7 @@ namespace SistemaFacturacion
 {
 	public partial class MDIParent1 : Form
 	{
+		public string NombreUsuario { get; set; }
 		private int childFormNumber = 0;
 		public string TipoUsuario = "";
 
@@ -160,6 +161,14 @@ namespace SistemaFacturacion
 		private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			FrmClientes frm = new FrmClientes();
+			frm.MdiParent = this;
+			frm.Show();
+		}
+
+		private void facturacionToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			FrmFacturacion frm = new FrmFacturacion();
+			frm.UsuarioNombre = NombreUsuario;
 			frm.MdiParent = this;
 			frm.Show();
 		}

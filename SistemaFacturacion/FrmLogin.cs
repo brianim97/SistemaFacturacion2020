@@ -14,6 +14,7 @@ namespace SistemaFacturacion
 {
 	public partial class FrmLogin : Form
 	{
+
 		public FrmLogin()
 		{
 			InitializeComponent();
@@ -47,6 +48,7 @@ namespace SistemaFacturacion
 						MessageBox.Show(string.Format("Inicio de sesion correcto!\nBienvenido: '{0}' Tipo de cuenta '{1}'", usuarioNombre, account),"Aviso");
 						MDIParent1 frm = new MDIParent1();
 						frm.TipoUsuario = account;
+						frm.NombreUsuario = tbUsuario.Text;
 						this.Hide();
 						frm.Show();
 					}
