@@ -69,7 +69,7 @@
 			// 
 			// btnNuevo
 			// 
-			this.btnNuevo.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			this.btnNuevo.BackColor = System.Drawing.Color.Transparent;
 			this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnNuevo.Location = new System.Drawing.Point(474, 57);
@@ -82,7 +82,7 @@
 			// 
 			// btnEditar
 			// 
-			this.btnEditar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			this.btnEditar.BackColor = System.Drawing.Color.Transparent;
 			this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnEditar.Location = new System.Drawing.Point(474, 115);
@@ -95,7 +95,7 @@
 			// 
 			// btnEliminar
 			// 
-			this.btnEliminar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			this.btnEliminar.BackColor = System.Drawing.Color.Transparent;
 			this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnEliminar.Location = new System.Drawing.Point(474, 171);
@@ -152,7 +152,7 @@
 			// 
 			// btnGuardar
 			// 
-			this.btnGuardar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			this.btnGuardar.BackColor = System.Drawing.Color.Transparent;
 			this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnGuardar.Location = new System.Drawing.Point(474, 296);
@@ -165,7 +165,7 @@
 			// 
 			// btnLimpiar
 			// 
-			this.btnLimpiar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			this.btnLimpiar.BackColor = System.Drawing.Color.Transparent;
 			this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnLimpiar.Location = new System.Drawing.Point(474, 242);
@@ -202,7 +202,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+			this.BackColor = System.Drawing.SystemColors.Control;
 			this.ClientSize = new System.Drawing.Size(638, 354);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.cbNivelAcceso);
@@ -218,7 +218,10 @@
 			this.Controls.Add(this.btnNuevo);
 			this.Controls.Add(this.tbBuscarUsuario);
 			this.Controls.Add(this.dgvUsuarios);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+			this.MaximizeBox = false;
 			this.Name = "FrmUsuarios";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Usuarios";
 			this.Load += new System.EventHandler(this.FrmUsuarios_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();

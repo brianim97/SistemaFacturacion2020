@@ -180,5 +180,11 @@ namespace SistemaFacturacion
 				cont_fila--;
 			}
 		}
+
+		private void btnClientes_Click(object sender, EventArgs e)
+		{
+			FrmClientes frm = new FrmClientes();
+			frm.ShowDialog();
+		}
 	}
 }

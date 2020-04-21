@@ -187,7 +187,10 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(566, 328);
 			this.Controls.Add(this.tabCategorias);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+			this.MaximizeBox = false;
 			this.Name = "FrmCategoria";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Categorias";
 			this.Load += new System.EventHandler(this.FrmCategorias_Load);
 			this.tabCategorias.ResumeLayout(false);

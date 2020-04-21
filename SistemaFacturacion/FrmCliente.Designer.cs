@@ -29,9 +29,12 @@
 		private void InitializeComponent()
 		{
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+			this.btnEliminar = new System.Windows.Forms.Button();
 			this.btnGuardar = new System.Windows.Forms.Button();
 			this.btnEditar = new System.Windows.Forms.Button();
 			this.btnLimpiar = new System.Windows.Forms.Button();
+			this.rbDni = new System.Windows.Forms.RadioButton();
+			this.rbNombre = new System.Windows.Forms.RadioButton();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.label8 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
@@ -47,9 +50,6 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.tbBuscarCliente = new System.Windows.Forms.TextBox();
 			this.dgvVistaCliente = new System.Windows.Forms.DataGridView();
-			this.rbNombre = new System.Windows.Forms.RadioButton();
-			this.rbDni = new System.Windows.Forms.RadioButton();
-			this.btnEliminar = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -83,6 +83,16 @@
 			this.splitContainer1.SplitterDistance = 106;
 			this.splitContainer1.TabIndex = 0;
 			// 
+			// btnEliminar
+			// 
+			this.btnEliminar.Location = new System.Drawing.Point(3, 288);
+			this.btnEliminar.Name = "btnEliminar";
+			this.btnEliminar.Size = new System.Drawing.Size(100, 36);
+			this.btnEliminar.TabIndex = 34;
+			this.btnEliminar.Text = "Eliminar";
+			this.btnEliminar.UseVisualStyleBackColor = true;
+			this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+			// 
 			// btnGuardar
 			// 
 			this.btnGuardar.Location = new System.Drawing.Point(3, 162);
@@ -112,6 +122,28 @@
 			this.btnLimpiar.Text = "Limpiar";
 			this.btnLimpiar.UseVisualStyleBackColor = true;
 			this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+			// 
+			// rbDni
+			// 
+			this.rbDni.AutoSize = true;
+			this.rbDni.Location = new System.Drawing.Point(322, 221);
+			this.rbDni.Name = "rbDni";
+			this.rbDni.Size = new System.Drawing.Size(44, 17);
+			this.rbDni.TabIndex = 30;
+			this.rbDni.Text = "DNI";
+			this.rbDni.UseVisualStyleBackColor = true;
+			// 
+			// rbNombre
+			// 
+			this.rbNombre.AutoSize = true;
+			this.rbNombre.Checked = true;
+			this.rbNombre.Location = new System.Drawing.Point(225, 221);
+			this.rbNombre.Name = "rbNombre";
+			this.rbNombre.Size = new System.Drawing.Size(62, 17);
+			this.rbNombre.TabIndex = 29;
+			this.rbNombre.TabStop = true;
+			this.rbNombre.Text = "Nombre";
+			this.rbNombre.UseVisualStyleBackColor = true;
 			// 
 			// panel1
 			// 
@@ -255,46 +287,17 @@
 			this.dgvVistaCliente.TabIndex = 24;
 			this.dgvVistaCliente.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVistaCliente_CellDoubleClick);
 			// 
-			// rbNombre
-			// 
-			this.rbNombre.AutoSize = true;
-			this.rbNombre.Checked = true;
-			this.rbNombre.Location = new System.Drawing.Point(225, 221);
-			this.rbNombre.Name = "rbNombre";
-			this.rbNombre.Size = new System.Drawing.Size(62, 17);
-			this.rbNombre.TabIndex = 29;
-			this.rbNombre.TabStop = true;
-			this.rbNombre.Text = "Nombre";
-			this.rbNombre.UseVisualStyleBackColor = true;
-			// 
-			// rbDni
-			// 
-			this.rbDni.AutoSize = true;
-			this.rbDni.Location = new System.Drawing.Point(322, 221);
-			this.rbDni.Name = "rbDni";
-			this.rbDni.Size = new System.Drawing.Size(44, 17);
-			this.rbDni.TabIndex = 30;
-			this.rbDni.Text = "DNI";
-			this.rbDni.UseVisualStyleBackColor = true;
-			// 
-			// btnEliminar
-			// 
-			this.btnEliminar.Location = new System.Drawing.Point(3, 288);
-			this.btnEliminar.Name = "btnEliminar";
-			this.btnEliminar.Size = new System.Drawing.Size(100, 36);
-			this.btnEliminar.TabIndex = 34;
-			this.btnEliminar.Text = "Eliminar";
-			this.btnEliminar.UseVisualStyleBackColor = true;
-			this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-			// 
 			// FrmClientes
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(659, 485);
 			this.Controls.Add(this.splitContainer1);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+			this.MaximizeBox = false;
 			this.Name = "FrmClientes";
-			this.Text = "FrmCliente";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.Text = "Clientes";
 			this.Load += new System.EventHandler(this.Clientes_Load);
 			this.splitContainer1.Panel1.ResumeLayout(false);
 			this.splitContainer1.Panel2.ResumeLayout(false);

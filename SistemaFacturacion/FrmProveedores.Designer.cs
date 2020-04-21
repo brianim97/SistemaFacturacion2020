@@ -198,7 +198,10 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(566, 328);
 			this.Controls.Add(this.tabProveedor);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+			this.MinimizeBox = false;
 			this.Name = "FrmProveedores";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Proveedores";
 			this.Load += new System.EventHandler(this.FrmProveedores_Load);
 			this.tabProveedor.ResumeLayout(false);

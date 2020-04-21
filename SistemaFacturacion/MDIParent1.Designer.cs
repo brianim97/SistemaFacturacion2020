@@ -29,6 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDIParent1));
 			this.statusStrip = new System.Windows.Forms.StatusStrip();
 			this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
@@ -42,15 +43,11 @@
 			this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.facturacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.statusStrip.SuspendLayout();
-			this.menuStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// statusStrip
 			// 
 			this.statusStrip.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel});
 			this.statusStrip.Location = new System.Drawing.Point(0, 431);
 			this.statusStrip.Name = "statusStrip";
 			this.statusStrip.Size = new System.Drawing.Size(632, 22);
@@ -65,28 +62,18 @@
 			// 
 			// menuStrip
 			// 
-			this.menuStrip.BackColor = System.Drawing.Color.MidnightBlue;
-			this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.vistaStockToolStripMenuItem});
+			this.menuStrip.BackColor = System.Drawing.Color.DarkSlateBlue;
 			this.menuStrip.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip.Name = "menuStrip";
 			this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
 			this.menuStrip.Size = new System.Drawing.Size(632, 24);
 			this.menuStrip.TabIndex = 0;
 			this.menuStrip.Text = "MenuStrip";
+			this.menuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip_ItemClicked);
 			// 
 			// vistaStockToolStripMenuItem
 			// 
-			this.vistaStockToolStripMenuItem.BackColor = System.Drawing.Color.Navy;
-			this.vistaStockToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cargarToolStripMenuItem,
-            this.categoriasToolStripMenuItem,
-            this.proveedoresToolStripMenuItem,
-            this.usuariosToolStripMenuItem,
-            this.cerrarSesionToolStripMenuItem,
-            this.clientesToolStripMenuItem,
-            this.facturacionToolStripMenuItem,
-            this.salirToolStripMenuItem});
+			this.vistaStockToolStripMenuItem.BackColor = System.Drawing.Color.DarkSlateBlue;
 			this.vistaStockToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
 			this.vistaStockToolStripMenuItem.Name = "vistaStockToolStripMenuItem";
 			this.vistaStockToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
@@ -94,7 +81,7 @@
 			// 
 			// cargarToolStripMenuItem
 			// 
-			this.cargarToolStripMenuItem.BackColor = System.Drawing.Color.Navy;
+			this.cargarToolStripMenuItem.BackColor = System.Drawing.Color.DarkSlateBlue;
 			this.cargarToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
 			this.cargarToolStripMenuItem.Name = "cargarToolStripMenuItem";
 			this.cargarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
@@ -103,7 +90,7 @@
 			// 
 			// categoriasToolStripMenuItem
 			// 
-			this.categoriasToolStripMenuItem.BackColor = System.Drawing.Color.Navy;
+			this.categoriasToolStripMenuItem.BackColor = System.Drawing.Color.DarkSlateBlue;
 			this.categoriasToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
 			this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
 			this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
@@ -112,7 +99,7 @@
 			// 
 			// proveedoresToolStripMenuItem
 			// 
-			this.proveedoresToolStripMenuItem.BackColor = System.Drawing.Color.Navy;
+			this.proveedoresToolStripMenuItem.BackColor = System.Drawing.Color.DarkSlateBlue;
 			this.proveedoresToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
 			this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
 			this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
@@ -121,7 +108,7 @@
 			// 
 			// usuariosToolStripMenuItem
 			// 
-			this.usuariosToolStripMenuItem.BackColor = System.Drawing.Color.Navy;
+			this.usuariosToolStripMenuItem.BackColor = System.Drawing.Color.DarkSlateBlue;
 			this.usuariosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
 			this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
 			this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
@@ -130,7 +117,7 @@
 			// 
 			// cerrarSesionToolStripMenuItem
 			// 
-			this.cerrarSesionToolStripMenuItem.BackColor = System.Drawing.Color.Navy;
+			this.cerrarSesionToolStripMenuItem.BackColor = System.Drawing.Color.DarkSlateBlue;
 			this.cerrarSesionToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
 			this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
 			this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
@@ -139,7 +126,7 @@
 			// 
 			// clientesToolStripMenuItem
 			// 
-			this.clientesToolStripMenuItem.BackColor = System.Drawing.Color.Navy;
+			this.clientesToolStripMenuItem.BackColor = System.Drawing.Color.DarkSlateBlue;
 			this.clientesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
 			this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
 			this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
@@ -148,7 +135,7 @@
 			// 
 			// facturacionToolStripMenuItem
 			// 
-			this.facturacionToolStripMenuItem.BackColor = System.Drawing.Color.Navy;
+			this.facturacionToolStripMenuItem.BackColor = System.Drawing.Color.DarkSlateBlue;
 			this.facturacionToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
 			this.facturacionToolStripMenuItem.Name = "facturacionToolStripMenuItem";
 			this.facturacionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
@@ -157,7 +144,7 @@
 			// 
 			// salirToolStripMenuItem
 			// 
-			this.salirToolStripMenuItem.BackColor = System.Drawing.Color.Navy;
+			this.salirToolStripMenuItem.BackColor = System.Drawing.Color.DarkSlateBlue;
 			this.salirToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
 			this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
 			this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
@@ -168,23 +155,22 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.Color.White;
 			this.ClientSize = new System.Drawing.Size(632, 453);
 			this.ControlBox = false;
 			this.Controls.Add(this.statusStrip);
 			this.Controls.Add(this.menuStrip);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.IsMdiContainer = true;
 			this.MainMenuStrip = this.menuStrip;
 			this.Name = "MDIParent1";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "SISTEMA WAKE";
+			this.TransparencyKey = System.Drawing.Color.Transparent;
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MDIParent1_FormClosed);
 			this.Load += new System.EventHandler(this.MDIParent1_Load);
-			this.statusStrip.ResumeLayout(false);
-			this.statusStrip.PerformLayout();
-			this.menuStrip.ResumeLayout(false);
-			this.menuStrip.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

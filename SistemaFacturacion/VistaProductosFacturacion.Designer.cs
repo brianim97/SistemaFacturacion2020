@@ -60,8 +60,10 @@
 			this.ClientSize = new System.Drawing.Size(634, 335);
 			this.Controls.Add(this.tbBuscarProductosFacturacion);
 			this.Controls.Add(this.dgvVistaProdFact);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+			this.MaximizeBox = false;
 			this.Name = "VistaProductosFacturacion";
-			this.Text = "VistaProductosFacturacion";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Load += new System.EventHandler(this.VistaProductosFacturacion_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dgvVistaProdFact)).EndInit();
 			this.ResumeLayout(false);

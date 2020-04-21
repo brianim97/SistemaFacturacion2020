@@ -19,7 +19,7 @@ namespace SistemaFacturacion
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
             //AsignarConsola();
-			Application.Run(new FrmLogin());
+			Application.Run(new FrmLoginPrincipal());
 		}
         //public static int AsignarConsola()
         //{

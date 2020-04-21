@@ -352,7 +352,10 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(864, 451);
 			this.Controls.Add(this.tabProducto);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+			this.MaximizeBox = false;
 			this.Name = "frmProducto";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Productos";
 			this.Load += new System.EventHandler(this.frmCargarProducto_Load);
 			this.tabProducto.ResumeLayout(false);
