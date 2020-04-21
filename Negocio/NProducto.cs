@@ -47,10 +47,20 @@ namespace Negocio
 			DProducto obj = new DProducto();
 			return obj.Mostrar(dgv);
 		}
+		public static bool MostrarFacturacion(DataGridView dgv)
+		{
+			DProducto obj = new DProducto();
+			return obj.MostrarFacturacion(dgv);
+		}
 		public static void BuscarPorNombre(DataGridView dgv,string nombre_producto)
 		{
 			DProducto obj = new DProducto();
 			obj.BuscarPorNombre(dgv,nombre_producto);
+		}
+		public static void BuscarPorNombreFacturacion(DataGridView dgv, string nombre_producto)
+		{
+			DProducto obj = new DProducto();
+			obj.BuscarPorNombreFacturacion(dgv, nombre_producto);
 		}
 		public static string Eliminar(int id)
 		{

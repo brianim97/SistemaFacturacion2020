@@ -111,9 +111,7 @@ namespace SistemaFacturacion
 
 		private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FrmCategoria frm = new FrmCategoria();
-			frm.MdiParent = this;
-			frm.Show();
+			
 			Console.WriteLine("se toco el boton Categorias");
 		}
 
@@ -169,6 +167,13 @@ namespace SistemaFacturacion
 		{
 			FrmFacturacion frm = new FrmFacturacion();
 			frm.UsuarioNombre = NombreUsuario;
+			frm.MdiParent = this;
+			frm.Show();
+		}
+
+		private void btnCategorias_Click(object sender, EventArgs e)
+		{
+			FrmCategoria frm = new FrmCategoria();
 			frm.MdiParent = this;
 			frm.Show();
 		}

@@ -137,6 +137,30 @@ namespace Datos
 			}
 			
 		}
+		public bool MostrarFacturacion(DataGridView dgv)
+		{
+			try
+			{
+				DataTable dtRes = new DataTable();
+				String sql = "SELECT codigo AS Codigo, Producto.nombre AS Descripcion,Categoria.Nombre AS Categoria,marca AS Marca,stock AS Stock," +
+							 "precio_venta AS 'Precio',fecha_vencimiento AS 'Fecha Vencimiento',Proveedor.nombre AS Proveedor from " +
+							 "Producto INNER JOIN Categoria	ON Producto.id_categoria = Categoria.id_categoria " +
+							 "INNER JOIN Proveedor ON Producto.id_proveedor = Proveedor.id_proveedor";
+				SqlConnection conector = new SqlConnection(conexion.strConexion);
+				conector.Open();
+				SqlDataAdapter da = new SqlDataAdapter(sql, conector);
+				da.Fill(dtRes);
+				dgv.DataSource = dtRes;
+				conector.Close();
+				return true;
+			}
+			catch (SqlException ex)
+			{
+				MessageBox.Show(ex.Message);
+				return false;
+			}
+
+		}
 		public void BuscarPorNombre(DataGridView dgv,string nombre_producto)
 		{
 			try
@@ -161,6 +185,31 @@ namespace Datos
 			}
 			
 			
+		}
+		public void BuscarPorNombreFacturacion(DataGridView dgv, string nombre_producto)
+		{
+			try
+			{
+				SqlConnection conector = new SqlConnection(conexion.strConexion);
+				conector.Open();
+				String sql = "SELECT codigo AS Codigo, Producto.nombre AS Descripcion,Categoria.Nombre AS Categoria,marca AS Marca,stock AS Stock," +
+							 "precio_venta AS 'Precio',fecha_vencimiento AS 'Fecha Vencimiento',Proveedor.nombre AS Proveedor from " +
+							 "Producto INNER JOIN Categoria	ON Producto.id_categoria = Categoria.id_categoria " +
+							 "INNER JOIN Proveedor ON Producto.id_proveedor = Proveedor.id_proveedor WHERE Producto.nombre LIKE @nombre";
+				SqlCommand cmd = new SqlCommand(sql, conector);
+				cmd.Parameters.Add(new SqlParameter("@nombre", "%" + nombre_producto + "%"));
+				SqlDataAdapter da = new SqlDataAdapter(cmd);
+				DataTable dtRes = new DataTable("Producto");
+				da.Fill(dtRes);
+				dgv.DataSource = dtRes;
+				conector.Close();
+			}
+			catch (SqlException ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+
+
 		}
 		public string Eliminar(int id_producto)
 		{
