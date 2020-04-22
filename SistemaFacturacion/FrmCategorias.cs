@@ -165,6 +165,9 @@ namespace SistemaFacturacion
 			NCategoria.BuscarPorNombre(dgvVistaCategoria, tbBuscarCategoria.Text);
 		}
 
-		
+		private void FrmCategoria_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			FrmPrincipal.abiertoFrmCategorias = false;
+		}
 	}
 }

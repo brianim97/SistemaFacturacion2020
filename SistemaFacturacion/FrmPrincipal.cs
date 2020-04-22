@@ -12,8 +12,21 @@ namespace SistemaFacturacion
 {
 	public partial class FrmPrincipal : Form
 	{
-		public string NombreUsuario { get; set; }
+		public static string NombreUsuario { get; set; }
 		public string TipoUsuario = "";
+		public static bool abiertoFrmFacturacion = false;
+		public static bool abiertoFrmClientes = false;
+		public static bool abiertoFrmProductos = false;
+		public static bool abiertoFrmProveedores = false;
+		public static bool abiertoFrmUsuarios = false;
+		public static bool abiertoFrmCategorias = false;
+		public Form frmFacturacion;
+		public Form frmClientes;
+		public Form frmProductos;
+		public Form frmProveedores;
+		public Form frmUsuarios;
+		public Form frmCategoria;
+
 
 		public FrmPrincipal()
 		{
@@ -29,43 +42,73 @@ namespace SistemaFacturacion
 
 		private void btnCateogrias_Click(object sender, EventArgs e)
 		{
-			AbrirFrmHijo(new FrmCategoria());
-			
-			//FrmCategoria frm = new FrmCategoria();
-
-			//frm.Show();
+			if (abiertoFrmCategorias)
+			{
+				frmCategoria.BringToFront();
+			}
+			else
+			{
+				frmCategoria = new FrmCategoria();
+				AbrirFrmHijo(frmCategoria);
+				abiertoFrmCategorias = true;
+			}
 		}
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			AbrirFrmHijo(new FrmClientes());
-			//FrmClientes frm = new FrmClientes();
-
-			//frm.Show();
+			if (abiertoFrmClientes)
+			{
+				frmClientes.BringToFront();
+			}
+			else
+			{
+				frmClientes = new FrmClientes();
+				AbrirFrmHijo(frmClientes);
+				abiertoFrmClientes = true;
+			}
 		}
 
 		private void button2_Click(object sender, EventArgs e)
 		{
-			AbrirFrmHijo(new frmProducto());
-			//frmProducto frm = new frmProducto();
-
-			//frm.Show();
+			if (abiertoFrmProductos)
+			{
+				frmProductos.BringToFront();
+			}
+			else
+			{
+				frmProductos = new frmProducto();
+				AbrirFrmHijo(frmProductos);
+				abiertoFrmProductos = true;
+			}
 		}
 
 		private void btnProveedores_Click(object sender, EventArgs e)
 		{
-			AbrirFrmHijo(new FrmProveedores());
-			//FrmProveedores frm = new FrmProveedores(); ;
-
-			//frm.Show();
+			if (abiertoFrmProveedores)
+			{
+				frmProveedores.BringToFront();
+			}
+			else
+			{
+				frmProveedores = new FrmProveedores();
+				AbrirFrmHijo(frmProveedores);
+				abiertoFrmProveedores = true;
+			}
 		}
 
 		private void btnFacturacion_Click(object sender, EventArgs e)
 		{
-			//FrmFacturacion frm = new FrmFacturacion();
-			//frm.UsuarioNombre = NombreUsuario;
-			//frm.Show();
-			AbrirFrmHijo(new FrmFacturacion());
+			if (abiertoFrmFacturacion)
+			{
+				frmFacturacion.BringToFront();
+			}
+			else
+			{
+				frmFacturacion = new FrmFacturacion();
+				AbrirFrmHijo(frmFacturacion);
+				abiertoFrmFacturacion = true;
+				
+			}
 		}
 
 		private void button6_Click(object sender, EventArgs e)
@@ -75,22 +118,24 @@ namespace SistemaFacturacion
 
 		private void button5_Click(object sender, EventArgs e)
 		{
-			//FrmLoginPrincipal frm = new FrmLoginPrincipal();
-			//frm.Show();
-			AbrirFrmHijo(new FrmLoginPrincipal());
+			FrmLoginPrincipal frm = new FrmLoginPrincipal();
+			frm.Show();
 			this.Close();
 		}
 
 		private void btnUsuarios_Click(object sender, EventArgs e)
 		{
-			AbrirFrmHijo(new FrmUsuarios());
-			//FrmUsuarios frm = new FrmUsuarios();
-
-			//frm.Show();
+			if (abiertoFrmUsuarios)
+			{
+				frmUsuarios.BringToFront();
+			}
+			else
+			{
+				frmUsuarios = new FrmUsuarios();
+				AbrirFrmHijo(frmUsuarios);
+				abiertoFrmUsuarios = true;
+			}
 		}
-
-		
-
 		private void FrmPrincipal_Load_1(object sender, EventArgs e)
 		{
 			lblUsuario.Text = NombreUsuario;
@@ -108,16 +153,33 @@ namespace SistemaFacturacion
 		}
 		private void AbrirFrmHijo(Object frmHijo)
 		{
-			//if(this.panelPrimario.Controls.Count > 0)
-			//{
-			//	this.panelPrimario.Controls.RemoveAt(0);
-			//}
 			Form fh = frmHijo as Form;
 			fh.TopLevel = false;
 			this.panelPrimario.Controls.Add(fh);
 			this.panelPrimario.Tag = fh;
 			fh.Show();
 			fh.BringToFront();
+		}
+
+		
+
+		private void AbrirOCerrarFrm(bool abiertoFrm, Form frm, Form frmLegal)
+		{
+			if (abiertoFrm)
+			{
+				frm.BringToFront();
+			}
+			else
+			{
+				frm = frmLegal;
+				AbrirFrmHijo(frm);
+				abiertoFrm = true;
+			}
+		}
+
+		private void panelPrimario_Paint(object sender, PaintEventArgs e)
+		{
+
 		}
 	}
 }

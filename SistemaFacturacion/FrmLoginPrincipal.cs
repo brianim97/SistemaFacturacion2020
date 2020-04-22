@@ -41,7 +41,7 @@ namespace SistemaFacturacion
 						MessageBox.Show(string.Format("Inicio de sesion correcto!\nBienvenido: '{0}' Tipo de cuenta '{1}'", usuarioNombre, account), "Aviso");
 						FrmPrincipal frm = new FrmPrincipal();
 						frm.TipoUsuario = account;
-						frm.NombreUsuario = tbUsuario.Text;
+						FrmPrincipal.NombreUsuario = tbUsuario.Text;
 						this.Hide();
 						frm.Show();
 					}

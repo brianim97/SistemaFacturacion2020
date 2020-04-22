@@ -472,6 +472,11 @@ namespace SistemaFacturacion
 			tbPrecioVenta.Text = "aa";
 			cbProveedor.Text = "aa";
 		}
+
+		private void frmProducto_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			FrmPrincipal.abiertoFrmProductos = false;
+		}
 	}
 }
 

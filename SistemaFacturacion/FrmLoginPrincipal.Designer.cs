@@ -42,10 +42,10 @@
 			this.btnIngresar.BackColor = System.Drawing.Color.Transparent;
 			this.btnIngresar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.btnIngresar.Cursor = System.Windows.Forms.Cursors.Default;
-			this.btnIngresar.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateBlue;
+			this.btnIngresar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
 			this.btnIngresar.FlatAppearance.BorderSize = 0;
-			this.btnIngresar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkSlateBlue;
-			this.btnIngresar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
+			this.btnIngresar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(73)))), ((int)(((byte)(205)))));
+			this.btnIngresar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(73)))), ((int)(((byte)(205)))));
 			this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnIngresar.Font = new System.Drawing.Font("Gill Sans MT", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnIngresar.ForeColor = System.Drawing.Color.LightGray;
@@ -86,7 +86,7 @@
 			this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.button1.FlatAppearance.BorderSize = 0;
 			this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkSlateBlue;
-			this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
+			this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(73)))), ((int)(((byte)(205)))));
 			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.button1.Font = new System.Drawing.Font("Gill Sans MT", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button1.ForeColor = System.Drawing.Color.DimGray;
@@ -104,7 +104,7 @@
 			this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.button2.FlatAppearance.BorderSize = 0;
 			this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkSlateBlue;
-			this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
+			this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(73)))), ((int)(((byte)(205)))));
 			this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.button2.Font = new System.Drawing.Font("Impact", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button2.ForeColor = System.Drawing.Color.DimGray;

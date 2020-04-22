@@ -193,5 +193,10 @@ namespace SistemaFacturacion
 			MessageBox.Show(NCliente.Eliminar(Convert.ToInt32(AuxiliarDni)));
 			Mostrar();
 		}
+
+		private void FrmClientes_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			FrmPrincipal.abiertoFrmClientes = false;
+		}
 	}
 }

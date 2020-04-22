@@ -235,5 +235,10 @@ namespace SistemaFacturacion
 		{
 			NUsuario.Mostrar(dgvUsuarios);
 		}
+
+		private void FrmUsuarios_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			FrmPrincipal.abiertoFrmUsuarios = false;
+		}
 	}
 }

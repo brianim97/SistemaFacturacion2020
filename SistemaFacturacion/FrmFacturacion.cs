@@ -14,8 +14,8 @@ namespace SistemaFacturacion
 {
 	public partial class FrmFacturacion : Form , IContract
 	{
-		public string UsuarioNombre { get; set; }
 		public static string CodigoAuxiliar { get; set; }
+
 		public FrmFacturacion()
 		{
 			InitializeComponent();
@@ -23,7 +23,8 @@ namespace SistemaFacturacion
 
 		private void FrmFacturacion_Load(object sender, EventArgs e)
 		{
-			lblAtiende.Text = UsuarioNombre;
+			lblAtiende.Text = FrmPrincipal.NombreUsuario;
+
 		}
 		private void tbDniCliente_KeyPress(object sender, KeyPressEventArgs e)
 		{
@@ -185,6 +186,33 @@ namespace SistemaFacturacion
 		{
 			FrmClientes frm = new FrmClientes();
 			frm.ShowDialog();
+		}
+
+		
+
+		private void panel2_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void FrmFacturacion_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			FrmPrincipal.abiertoFrmFacturacion = false;
+		}
+
+		private void button6_Click(object sender, EventArgs e)
+		{
+			frmProducto frm = new frmProducto();
+			frm.ShowDialog();
+		}
+
+		private void button5_Click(object sender, EventArgs e)
+		{
+			lblClienteNombre.Text = "";
+			tbCodigoProd.Clear();
+			tbDniCliente.Clear();
+			dgvFacturacion.Rows.Clear();
+			lblTotal.Text = "";
 		}
 	}
 }

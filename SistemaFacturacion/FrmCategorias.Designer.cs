@@ -192,6 +192,7 @@
 			this.Name = "FrmCategoria";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Categorias";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmCategoria_FormClosing);
 			this.Load += new System.EventHandler(this.FrmCategorias_Load);
 			this.tabCategorias.ResumeLayout(false);
 			this.tpVistaCategoria.ResumeLayout(false);

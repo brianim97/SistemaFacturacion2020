@@ -203,6 +203,7 @@
 			this.Name = "FrmProveedores";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Proveedores";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmProveedores_FormClosing);
 			this.Load += new System.EventHandler(this.FrmProveedores_Load);
 			this.tabProveedor.ResumeLayout(false);
 			this.tpVistaCategoria.ResumeLayout(false);

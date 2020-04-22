@@ -165,10 +165,10 @@ namespace SistemaFacturacion
 
 		private void facturacionToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			FrmFacturacion frm = new FrmFacturacion();
-			frm.UsuarioNombre = NombreUsuario;
-			frm.MdiParent = this;
-			frm.Show();
+			//FrmFacturacion frm = new FrmFacturacion();
+			//frm.UsuarioNombre = NombreUsuario;
+			//frm.MdiParent = this;
+			//frm.Show();
 		}
 
 		private void btnCategorias_Click(object sender, EventArgs e)

@@ -357,6 +357,7 @@
 			this.Name = "frmProducto";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Productos";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmProducto_FormClosing);
 			this.Load += new System.EventHandler(this.frmCargarProducto_Load);
 			this.tabProducto.ResumeLayout(false);
 			this.tabPage1.ResumeLayout(false);

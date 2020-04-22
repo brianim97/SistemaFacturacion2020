@@ -17,6 +17,7 @@ namespace SistemaFacturacion
 	{
 		string AuxiliarNombre = "";
 		bool Editar = false;
+
 		public FrmProveedores()
 		{
 			InitializeComponent();
@@ -151,6 +152,11 @@ namespace SistemaFacturacion
 			tabProveedor.SelectedIndex = 1;
 			Editar = true;
 			btnEditar.Enabled = false;
+		}
+
+		private void FrmProveedores_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			FrmPrincipal.abiertoFrmProveedores = false;
 		}
 	}
 
