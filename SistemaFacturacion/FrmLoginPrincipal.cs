@@ -68,5 +68,12 @@ namespace SistemaFacturacion
 			tbUsuario.Text = "Admin";
 			tbContraseña.Text = "sis20";
 		}
+
+		private void btnAccProgramador_Click(object sender, EventArgs e)
+		{
+			FrmAccesoProgramador frm = new FrmAccesoProgramador();
+			frm.Show();
+			this.Hide();
+		}
 	}
 }

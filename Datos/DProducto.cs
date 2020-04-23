@@ -208,6 +208,30 @@ namespace Datos
 			{
 				MessageBox.Show(ex.Message);
 			}
+		}
+		public void BuscarPorCodigoFacturacion(DataGridView dgv, string codigo_producto)
+		{
+			try
+			{
+				SqlConnection conector = new SqlConnection(conexion.strConexion);
+				conector.Open();
+				String sql = "SELECT codigo AS Codigo, Producto.nombre AS Descripcion,Categoria.Nombre AS Categoria,marca AS Marca,stock AS Stock," +
+							 "precio_venta AS 'Precio',fecha_vencimiento AS 'Fecha Vencimiento',Proveedor.nombre AS Proveedor from " +
+							 "Producto INNER JOIN Categoria	ON Producto.id_categoria = Categoria.id_categoria " +
+							 "INNER JOIN Proveedor ON Producto.id_proveedor = Proveedor.id_proveedor WHERE Producto.codigo LIKE @codigo";
+				SqlCommand cmd = new SqlCommand(sql, conector);
+				cmd.Parameters.Add(new SqlParameter("@codigo", "%" + codigo_producto + "%"));
+				SqlDataAdapter da = new SqlDataAdapter(cmd);
+				DataTable dtRes = new DataTable("Producto");
+				da.Fill(dtRes);
+				dgv.DataSource = dtRes;
+				conector.Close();
+			}
+			catch (SqlException ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+
 
 
 		}

@@ -119,7 +119,10 @@ namespace SistemaFacturacion
 			if (tbDni.Text == string.Empty)
 			{
 				rpta += "Error: el campo 'Dni' no puede estar vacio";
-			}
+			} 
+			if(tbDni.Text.Any(x => !char.IsNumber(x)))
+				rpta += "\nError: campo 'Dni' solo soporta numeros";
+
 			if (tbNombre.Text == string.Empty)
 			{
 				rpta += "\nError: el campo 'Nombre' no puede estar vacio";
@@ -160,14 +163,14 @@ namespace SistemaFacturacion
 
 		private void dgvVistaCliente_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
 		{
-			AuxiliarDni = Convert.ToString(dgvVistaCliente.CurrentRow.Cells["Dni"].Value);
+			AuxiliarDni = Convert.ToString(dgvVistaCliente.CurrentRow.Cells["DNI/CUIT/CUIL"].Value);
 			btnEditar.Enabled = true;
 			btnEliminar.Enabled = true;
 		}
 
 		private void btnEditar_Click(object sender, EventArgs e)
 		{
-			tbDni.Text = Convert.ToString(dgvVistaCliente.CurrentRow.Cells["Dni"].Value);
+			tbDni.Text = Convert.ToString(dgvVistaCliente.CurrentRow.Cells["DNI/CUIT/CUIL"].Value);
 			tbNombre.Text = Convert.ToString(dgvVistaCliente.CurrentRow.Cells["Nombre"].Value);
 			tbDireccion.Text = Convert.ToString(dgvVistaCliente.CurrentRow.Cells["Direccion"].Value);
 			tbTelefono.Text = Convert.ToString(dgvVistaCliente.CurrentRow.Cells["Telefono"].Value);

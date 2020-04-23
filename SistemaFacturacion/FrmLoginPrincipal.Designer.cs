@@ -35,6 +35,7 @@
 			this.button1 = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
 			this.button3 = new System.Windows.Forms.Button();
+			this.btnAccProgramador = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// btnIngresar
@@ -135,6 +136,26 @@
 			this.button3.UseVisualStyleBackColor = false;
 			this.button3.Click += new System.EventHandler(this.button3_Click);
 			// 
+			// btnAccProgramador
+			// 
+			this.btnAccProgramador.BackColor = System.Drawing.Color.Transparent;
+			this.btnAccProgramador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.btnAccProgramador.Cursor = System.Windows.Forms.Cursors.Default;
+			this.btnAccProgramador.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+			this.btnAccProgramador.FlatAppearance.BorderSize = 0;
+			this.btnAccProgramador.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(73)))), ((int)(((byte)(205)))));
+			this.btnAccProgramador.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(73)))), ((int)(((byte)(205)))));
+			this.btnAccProgramador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnAccProgramador.Font = new System.Drawing.Font("Gill Sans MT", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnAccProgramador.ForeColor = System.Drawing.Color.LightGray;
+			this.btnAccProgramador.Location = new System.Drawing.Point(0, 508);
+			this.btnAccProgramador.Name = "btnAccProgramador";
+			this.btnAccProgramador.Size = new System.Drawing.Size(135, 30);
+			this.btnAccProgramador.TabIndex = 6;
+			this.btnAccProgramador.Text = "Acceso Programador";
+			this.btnAccProgramador.UseVisualStyleBackColor = false;
+			this.btnAccProgramador.Click += new System.EventHandler(this.btnAccProgramador_Click);
+			// 
 			// FrmLoginPrincipal
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -143,6 +164,7 @@
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ClientSize = new System.Drawing.Size(400, 550);
+			this.Controls.Add(this.btnAccProgramador);
 			this.Controls.Add(this.button3);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.button1);
@@ -167,5 +189,6 @@
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.Button button3;
+		private System.Windows.Forms.Button btnAccProgramador;
 	}
 }

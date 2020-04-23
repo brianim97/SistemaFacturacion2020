@@ -20,12 +20,14 @@ namespace SistemaFacturacion
 		public static bool abiertoFrmProveedores = false;
 		public static bool abiertoFrmUsuarios = false;
 		public static bool abiertoFrmCategorias = false;
+		public static bool abiertoFrmMantenimiento = false;
 		public Form frmFacturacion;
 		public Form frmClientes;
 		public Form frmProductos;
 		public Form frmProveedores;
 		public Form frmUsuarios;
 		public Form frmCategoria;
+		public Form FrmMantenimiento;
 
 
 		public FrmPrincipal()
@@ -180,6 +182,20 @@ namespace SistemaFacturacion
 		private void panelPrimario_Paint(object sender, PaintEventArgs e)
 		{
 
+		}
+
+		private void btnMantenimiento_Click(object sender, EventArgs e)
+		{
+			if (abiertoFrmMantenimiento)
+			{
+				FrmMantenimiento.BringToFront();
+			}
+			else
+			{
+				FrmMantenimiento = new frmMantenimiento();
+				AbrirFrmHijo(FrmMantenimiento);
+				abiertoFrmMantenimiento = true;
+			}
 		}
 	}
 }

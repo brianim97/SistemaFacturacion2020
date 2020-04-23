@@ -30,6 +30,8 @@
 		{
 			this.dgvVistaProdFact = new System.Windows.Forms.DataGridView();
 			this.tbBuscarProductosFacturacion = new System.Windows.Forms.TextBox();
+			this.rbNombreDescripcion = new System.Windows.Forms.RadioButton();
+			this.rbCodigo = new System.Windows.Forms.RadioButton();
 			((System.ComponentModel.ISupportInitialize)(this.dgvVistaProdFact)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -53,17 +55,41 @@
 			this.tbBuscarProductosFacturacion.TabIndex = 1;
 			this.tbBuscarProductosFacturacion.TextChanged += new System.EventHandler(this.tbBuscarProductosFacturacion_TextChanged);
 			// 
+			// rbNombreDescripcion
+			// 
+			this.rbNombreDescripcion.AutoSize = true;
+			this.rbNombreDescripcion.Location = new System.Drawing.Point(292, 53);
+			this.rbNombreDescripcion.Name = "rbNombreDescripcion";
+			this.rbNombreDescripcion.Size = new System.Drawing.Size(123, 17);
+			this.rbNombreDescripcion.TabIndex = 7;
+			this.rbNombreDescripcion.Text = "Nombre/Descripcion";
+			this.rbNombreDescripcion.UseVisualStyleBackColor = true;
+			// 
+			// rbCodigo
+			// 
+			this.rbCodigo.AutoSize = true;
+			this.rbCodigo.Checked = true;
+			this.rbCodigo.Location = new System.Drawing.Point(224, 53);
+			this.rbCodigo.Name = "rbCodigo";
+			this.rbCodigo.Size = new System.Drawing.Size(58, 17);
+			this.rbCodigo.TabIndex = 6;
+			this.rbCodigo.Text = "Codigo";
+			this.rbCodigo.UseVisualStyleBackColor = true;
+			// 
 			// VistaProductosFacturacion
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(634, 335);
+			this.Controls.Add(this.rbNombreDescripcion);
+			this.Controls.Add(this.rbCodigo);
 			this.Controls.Add(this.tbBuscarProductosFacturacion);
 			this.Controls.Add(this.dgvVistaProdFact);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
 			this.MaximizeBox = false;
 			this.Name = "VistaProductosFacturacion";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.Text = "Seleccion del Producto";
 			this.Load += new System.EventHandler(this.VistaProductosFacturacion_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dgvVistaProdFact)).EndInit();
 			this.ResumeLayout(false);
@@ -75,5 +101,7 @@
 
 		private System.Windows.Forms.DataGridView dgvVistaProdFact;
 		private System.Windows.Forms.TextBox tbBuscarProductosFacturacion;
+		private System.Windows.Forms.RadioButton rbNombreDescripcion;
+		private System.Windows.Forms.RadioButton rbCodigo;
 	}
 }

@@ -89,7 +89,7 @@ namespace Datos
 		public void Mostrar(DataGridView dgv)
 		{
 			DataTable dtRes = new DataTable();
-			String sql = "SELECT dni AS DNI ,nombre AS Nombre, direccion AS Direccion, telefono AS Telefono from Cliente";
+			String sql = "SELECT dni AS 'DNI/CUIT/CUIL' ,nombre AS Nombre, direccion AS Direccion, telefono AS Telefono from Cliente";
 			SqlConnection conector = new SqlConnection(conexion.strConexion);
 			conector.Open();
 			SqlDataAdapter da = new SqlDataAdapter(sql, conector);
@@ -101,7 +101,7 @@ namespace Datos
 		{
 			SqlConnection conector = new SqlConnection(conexion.strConexion);
 			conector.Open();
-			String sql = "SELECT dni AS DNI ,nombre AS Nombre, direccion AS Direccion, telefono AS Telefono from Cliente WHERE nombre LIKE @nombre";
+			String sql = "SELECT dni AS 'DNI/CUIT/CUIL' ,nombre AS Nombre, direccion AS Direccion, telefono AS Telefono from Cliente WHERE nombre LIKE @nombre";
 			SqlCommand cmd = new SqlCommand(sql, conector);
 			cmd.Parameters.Add(new SqlParameter("@nombre", "%" + nombre_cliente + "%"));
 			SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -115,7 +115,7 @@ namespace Datos
 		{
 			SqlConnection conector = new SqlConnection(conexion.strConexion);
 			conector.Open();
-			String sql = "SELECT dni AS DNI ,nombre AS Nombre, direccion AS Direccion, telefono AS Telefono from Cliente WHERE dni LIKE @dni";
+			String sql = "SELECT dni AS 'DNI/CUIT/CUIL' ,nombre AS Nombre, direccion AS Direccion, telefono AS Telefono from Cliente WHERE dni LIKE @dni";
 			SqlCommand cmd = new SqlCommand(sql, conector);
 			cmd.Parameters.Add(new SqlParameter("@dni", "%" + dni_cliente + "%"));
 			SqlDataAdapter da = new SqlDataAdapter(cmd);

@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace SistemaFacturacion
 {
-	public partial class FrmFacturacion : Form , IContract
+	public partial class FrmFacturacion : Form , IContract,IContractCliente
 	{
 		public static string CodigoAuxiliar { get; set; }
 
@@ -63,15 +63,6 @@ namespace SistemaFacturacion
 		private void tbCodigoProd_TextChanged(object sender, EventArgs e)
 		{
 
-		}
-
-		private void tbDescripcion_KeyPress(object sender, KeyPressEventArgs e)
-		{
-
-			if ((int)e.KeyChar == (int)Keys.Enter)
-			{
-
-			}
 		}
 
 		private void btnBuscarDescr_Click(object sender, EventArgs e)
@@ -149,23 +140,12 @@ namespace SistemaFacturacion
 					}
 					lblTotal.Text = "$ "+total.ToString();
 
-
-
-				}//,"110","100"
+				}
 			}
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message);
-				//DialogResult dialogResult = MessageBox.Show("Usuario no encontrado, ¿Desea agregar uno nuevo?", "", MessageBoxButtons.YesNo);
-				//if (dialogResult == DialogResult.Yes)
-				//{
-				//	FrmClientes frm = new FrmClientes();
-				//	frm.ShowDialog();
-				//}
-				//else if (dialogResult == DialogResult.No)
-				//{
-				//	tbDniCliente.Clear();
-				//}
+				
 			}
 		}
 
@@ -182,11 +162,7 @@ namespace SistemaFacturacion
 			}
 		}
 
-		private void btnClientes_Click(object sender, EventArgs e)
-		{
-			FrmClientes frm = new FrmClientes();
-			frm.ShowDialog();
-		}
+		
 
 		
 
@@ -208,11 +184,62 @@ namespace SistemaFacturacion
 
 		private void button5_Click(object sender, EventArgs e)
 		{
+			Nuevo();
+		}
+		private void Nuevo()
+		{
 			lblClienteNombre.Text = "";
 			tbCodigoProd.Clear();
 			tbDniCliente.Clear();
 			dgvFacturacion.Rows.Clear();
 			lblTotal.Text = "";
 		}
+
+		private void btnClientes_Click_1(object sender, EventArgs e)
+		{
+			FrmClientes frm = new FrmClientes();
+			frm.ShowDialog();
+		}
+
+		private void btnBuscarClientes_Click(object sender, EventArgs e)
+		{
+			VistaClientesFacturacion vista = new VistaClientesFacturacion();
+			vista.Contrato = this;
+			vista.ShowDialog();
+		}
+
+		public void EnviarDatosCliente(string dni)
+		{
+			tbDniCliente.Text = dni;
+			EnterBusquedaCliente();
+
+		}
+		private void EnterBusquedaCliente()
+		{
+			try
+			{
+					string query = string.Format("SELECT nombre FROM Cliente WHERE dni LIKE {0}", tbDniCliente.Text);
+
+					DataSet ds = Utilidades.Ejecutar(query);
+
+					lblClienteNombre.Text = ds.Tables[0].Rows[0]["nombre"].ToString();
+			}
+			catch (Exception)
+			{
+				DialogResult dialogResult = MessageBox.Show("Usuario no encontrado, ¿Desea agregar uno nuevo?", "", MessageBoxButtons.YesNo);
+				if (dialogResult == DialogResult.Yes)
+				{
+					FrmClientes frm = new FrmClientes();
+					frm.ShowDialog();
+				}
+				else if (dialogResult == DialogResult.No)
+				{
+					tbDniCliente.Clear();
+				}
+			}
+
+		}
+
+		
 	}
 }

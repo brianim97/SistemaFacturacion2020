@@ -22,7 +22,11 @@ namespace SistemaFacturacion
 
 		private void tbBuscarProductosFacturacion_TextChanged(object sender, EventArgs e)
 		{
-			NProducto.BuscarPorNombreFacturacion(dgvVistaProdFact, tbBuscarProductosFacturacion.Text);
+			if(rbNombreDescripcion.Checked)
+				NProducto.BuscarPorNombreFacturacion(dgvVistaProdFact, tbBuscarProductosFacturacion.Text);
+			else if(rbCodigo.Checked)
+				NProducto.BuscarPorCodigoFacturacion(dgvVistaProdFact, tbBuscarProductosFacturacion.Text);
+
 		}
 
 		private void VistaProductosFacturacion_Load(object sender, EventArgs e)

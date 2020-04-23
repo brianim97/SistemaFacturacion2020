@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace SistemaFacturacion
 {
-	public interface IFrmCerrado
+	public interface IContractCliente
 	{
-		void Dato(string nombre);
+		void EnviarDatosCliente(string dni);
 	}
 }
