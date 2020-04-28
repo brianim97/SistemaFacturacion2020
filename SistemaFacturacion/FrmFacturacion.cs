@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Common;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,7 @@ namespace SistemaFacturacion
 	public partial class FrmFacturacion : Form , IContract,IContractCliente
 	{
 		public static string CodigoAuxiliar { get; set; }
-
+		
 		public FrmFacturacion()
 		{
 			InitializeComponent();
@@ -76,10 +77,15 @@ namespace SistemaFacturacion
 		{
 			tbCodigoProd.Text = codigo;
 		}
-		public static int cont_fila = 0;
-		public static double total = 0;
+		public int cont_fila = 0;
+		public double total = 0;
 		private void btnColocar_Click(object sender, EventArgs e)
 		{
+			if(tbCodigoProd.Text == string.Empty)
+			{
+				MessageBox.Show("Debe Ingresar un Codigo de Producto Primero!");
+				return;
+			}
 			try
 			{
 					if (tbCantidad.Text != string.Empty)
@@ -240,6 +246,41 @@ namespace SistemaFacturacion
 
 		}
 
+		private void btnFacturar_Click(object sender, EventArgs e)
+		{
+			if(cont_fila != 0)
+			{
+				try
+				{
+					string cmd = string.Format("Exec ActualizarFacturas '{0}'", 3);
+					DataSet ds = Utilidades.Ejecutar(cmd);
+					string num_factura = ds.Tables[0].Rows[0]["num_factura"].ToString().Trim();
+
 		
+
+					foreach (DataGridViewRow fila in dgvFacturacion.Rows)
+					{
+						cmd = string.Format("Exec ActualizarDetalles '{0}','{1}','{2}','{3}','{4}'", Convert.ToInt32(num_factura),Convert.ToInt32(fila.Cells[0].Value.ToString()), fila.Cells[2].Value.ToString(),fila.Cells[3].Value.ToString(), fila.Cells[4].Value.ToString());
+						ds = Utilidades.Ejecutar(cmd);
+						//Convert.ToDouble(fila.Cells[2].Value.ToString()) Convert.ToDouble(fila.Cells[4].Value.ToString())
+					}
+					cmd = "Exec DatosFactura " + num_factura;
+					ds = Utilidades.Ejecutar(cmd);
+
+					FrmReporte rp = new FrmReporte();
+					rp.reportViewer1.LocalReport.DataSources[0].Value = ds.Tables[0];
+					
+					rp.ShowDialog();
+					Nuevo();
+					cont_fila = 0;
+				}
+				catch (SqlException ex)
+				{
+
+					MessageBox.Show(ex.Message);
+				}
+			}
+			
+		}
 	}
 }

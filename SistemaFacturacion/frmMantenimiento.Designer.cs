@@ -39,9 +39,13 @@
 			this.btnBuscarRestore = new System.Windows.Forms.Button();
 			this.tbUbicacionRestore = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
+			this.pbImg = new System.Windows.Forms.PictureBox();
+			this.label3 = new System.Windows.Forms.Label();
+			this.btnSeleccionar = new System.Windows.Forms.Button();
 			this.tabControl1.SuspendLayout();
 			this.tabBackup.SuspendLayout();
 			this.tabRestore.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pbImg)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// tabControl1
@@ -156,11 +160,42 @@
 			this.label2.TabIndex = 4;
 			this.label2.Text = "Ubicacion:";
 			// 
+			// pbImg
+			// 
+			this.pbImg.Location = new System.Drawing.Point(64, 234);
+			this.pbImg.Name = "pbImg";
+			this.pbImg.Size = new System.Drawing.Size(373, 143);
+			this.pbImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pbImg.TabIndex = 5;
+			this.pbImg.TabStop = false;
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(200, 213);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(86, 13);
+			this.label3.TabIndex = 4;
+			this.label3.Text = "Imagen Logotipo";
+			// 
+			// btnSeleccionar
+			// 
+			this.btnSeleccionar.Location = new System.Drawing.Point(347, 383);
+			this.btnSeleccionar.Name = "btnSeleccionar";
+			this.btnSeleccionar.Size = new System.Drawing.Size(90, 20);
+			this.btnSeleccionar.TabIndex = 3;
+			this.btnSeleccionar.Text = "Seleccionar";
+			this.btnSeleccionar.UseVisualStyleBackColor = true;
+			this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
+			// 
 			// frmMantenimiento
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(532, 213);
+			this.ClientSize = new System.Drawing.Size(525, 433);
+			this.Controls.Add(this.pbImg);
+			this.Controls.Add(this.label3);
+			this.Controls.Add(this.btnSeleccionar);
 			this.Controls.Add(this.tabControl1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
 			this.Name = "frmMantenimiento";
@@ -173,7 +208,9 @@
 			this.tabBackup.PerformLayout();
 			this.tabRestore.ResumeLayout(false);
 			this.tabRestore.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pbImg)).EndInit();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
@@ -190,5 +227,8 @@
 		private System.Windows.Forms.Button btnBuscarRestore;
 		private System.Windows.Forms.TextBox tbUbicacionRestore;
 		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.PictureBox pbImg;
+		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Button btnSeleccionar;
 	}
 }

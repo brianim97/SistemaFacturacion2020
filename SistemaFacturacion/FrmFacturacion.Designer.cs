@@ -35,7 +35,7 @@
 			this.BtnEliminar = new System.Windows.Forms.Button();
 			this.button6 = new System.Windows.Forms.Button();
 			this.button5 = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
+			this.btnFacturar = new System.Windows.Forms.Button();
 			this.btnColocar = new System.Windows.Forms.Button();
 			this.btnBuscarClientes = new System.Windows.Forms.Button();
 			this.panel2 = new System.Windows.Forms.Panel();
@@ -54,7 +54,7 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.pbLogoComercio = new System.Windows.Forms.PictureBox();
 			this.tbDniCliente = new System.Windows.Forms.TextBox();
 			this.dgvFacturacion = new System.Windows.Forms.DataGridView();
 			this.ColCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,7 +64,7 @@
 			this.ColImporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pbLogoComercio)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dgvFacturacion)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -74,7 +74,7 @@
 			this.panel1.Controls.Add(this.BtnEliminar);
 			this.panel1.Controls.Add(this.button6);
 			this.panel1.Controls.Add(this.button5);
-			this.panel1.Controls.Add(this.button2);
+			this.panel1.Controls.Add(this.btnFacturar);
 			this.panel1.Controls.Add(this.btnColocar);
 			this.panel1.Location = new System.Drawing.Point(0, 167);
 			this.panel1.Name = "panel1";
@@ -121,14 +121,15 @@
 			this.button5.UseVisualStyleBackColor = true;
 			this.button5.Click += new System.EventHandler(this.button5_Click);
 			// 
-			// button2
+			// btnFacturar
 			// 
-			this.button2.Location = new System.Drawing.Point(0, 254);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(115, 122);
-			this.button2.TabIndex = 1;
-			this.button2.Text = "FACTURAR";
-			this.button2.UseVisualStyleBackColor = true;
+			this.btnFacturar.Location = new System.Drawing.Point(0, 254);
+			this.btnFacturar.Name = "btnFacturar";
+			this.btnFacturar.Size = new System.Drawing.Size(115, 122);
+			this.btnFacturar.TabIndex = 1;
+			this.btnFacturar.Text = "FACTURAR";
+			this.btnFacturar.UseVisualStyleBackColor = true;
+			this.btnFacturar.Click += new System.EventHandler(this.btnFacturar_Click);
 			// 
 			// btnColocar
 			// 
@@ -169,7 +170,7 @@
 			this.panel2.Controls.Add(this.label2);
 			this.panel2.Controls.Add(this.label5);
 			this.panel2.Controls.Add(this.label1);
-			this.panel2.Controls.Add(this.pictureBox1);
+			this.panel2.Controls.Add(this.pbLogoComercio);
 			this.panel2.Controls.Add(this.tbDniCliente);
 			this.panel2.Controls.Add(this.dgvFacturacion);
 			this.panel2.Location = new System.Drawing.Point(3, -2);
@@ -327,13 +328,13 @@
 			this.label1.TabIndex = 9;
 			this.label1.Text = "LE ATIENDE";
 			// 
-			// pictureBox1
+			// pbLogoComercio
 			// 
-			this.pictureBox1.Location = new System.Drawing.Point(473, 0);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(373, 129);
-			this.pictureBox1.TabIndex = 8;
-			this.pictureBox1.TabStop = false;
+			this.pbLogoComercio.Location = new System.Drawing.Point(473, 3);
+			this.pbLogoComercio.Name = "pbLogoComercio";
+			this.pbLogoComercio.Size = new System.Drawing.Size(373, 143);
+			this.pbLogoComercio.TabIndex = 8;
+			this.pbLogoComercio.TabStop = false;
 			// 
 			// tbDniCliente
 			// 
@@ -342,7 +343,6 @@
 			this.tbDniCliente.Name = "tbDniCliente";
 			this.tbDniCliente.Size = new System.Drawing.Size(246, 26);
 			this.tbDniCliente.TabIndex = 7;
-			
 			this.tbDniCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDniCliente_KeyPress);
 			// 
 			// dgvFacturacion
@@ -437,7 +437,7 @@
 			this.panel1.ResumeLayout(false);
 			this.panel2.ResumeLayout(false);
 			this.panel2.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pbLogoComercio)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dgvFacturacion)).EndInit();
 			this.ResumeLayout(false);
 
@@ -450,7 +450,7 @@
 		private System.Windows.Forms.Button btnBuscarClientes;
 		private System.Windows.Forms.Button button6;
 		private System.Windows.Forms.Button button5;
-		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.Button btnFacturar;
 		private System.Windows.Forms.Button btnColocar;
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.DataGridView dgvFacturacion;
@@ -463,7 +463,7 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.PictureBox pictureBox1;
+		private System.Windows.Forms.PictureBox pbLogoComercio;
 		private System.Windows.Forms.TextBox tbDniCliente;
 		private System.Windows.Forms.Label lblClienteNombre;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColCodigo;

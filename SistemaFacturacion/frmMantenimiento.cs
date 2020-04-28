@@ -14,6 +14,7 @@ namespace SistemaFacturacion
 {
 	public partial class frmMantenimiento : Form
 	{
+		public Byte[] Logo { get; set; }
 		public frmMantenimiento()
 		{
 			InitializeComponent();
@@ -120,6 +121,16 @@ namespace SistemaFacturacion
 			}
 		}
 
-		
+		private void btnSeleccionar_Click(object sender, EventArgs e)
+		{
+			OpenFileDialog fileDialog = new OpenFileDialog();
+			fileDialog.Filter = "Archivo JPG (*.jpg)|*.jpg| Archivo PNG (*.png)|*.png| Archivo BMP (*.bmp)|*bmp";
+			if (fileDialog.ShowDialog() == DialogResult.OK)
+			{
+				//
+				//Cargamos nuestro control PictureBox con el archivo de imagen seleccionado
+				pbImg.Image = Image.FromFile(fileDialog.FileName);
+			}
+		}
 	}
 }
