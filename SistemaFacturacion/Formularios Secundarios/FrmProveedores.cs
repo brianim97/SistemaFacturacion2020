@@ -27,6 +27,7 @@ namespace SistemaFacturacion
 		{
 			AuxiliarNombre = Convert.ToString(dgvVistaProveedor.CurrentRow.Cells["Nombre"].Value);
 			btnEditar.Enabled = true;
+			btnEliminar.Enabled = true;
 		}
 
 		private void tbVistaProveedor_TextChanged(object sender, EventArgs e)
@@ -38,6 +39,7 @@ namespace SistemaFacturacion
 		{
 			Mostrar();
 			btnEditar.Enabled = false;
+			btnEliminar.Enabled = false;
 		}
 
 		private void btnGuardar_Click(object sender, EventArgs e)
@@ -152,11 +154,20 @@ namespace SistemaFacturacion
 			tabProveedor.SelectedIndex = 1;
 			Editar = true;
 			btnEditar.Enabled = false;
+			btnEliminar.Enabled = false;
 		}
 
 		private void FrmProveedores_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			FrmPrincipal.abiertoFrmProveedores = false;
+		}
+
+		private void btnEliminar_Click(object sender, EventArgs e)
+		{
+			MessageBox.Show(NProveedor.Eliminar(Obtener_Id(AuxiliarNombre)));
+			Mostrar();
+			btnEliminar.Enabled = false;
+			btnEditar.Enabled = false;
 		}
 	}
 

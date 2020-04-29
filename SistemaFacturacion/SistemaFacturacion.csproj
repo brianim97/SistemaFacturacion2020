@@ -48,9 +48,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>aaaG.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
@@ -72,8 +79,12 @@
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
+    <Reference Include="NMemory, Version=3.0.0.0, Culture=neutral, PublicKeyToken=afc61983f100d280, processorArchitecture=MSIL">
+      <HintPath>..\packages\NMemory.3.1.1\lib\net45\NMemory.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -83,6 +94,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Z.Dapper.Plus, Version=3.0.9.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Z.Dapper.Plus.3.0.9\lib\net45\Z.Dapper.Plus.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataSet1.Designer.cs">
@@ -90,34 +104,28 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="FrmAccesoProgramador.cs">
+    <Compile Include="FrmPrincipales\FrmAccesoProgramador.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAccesoProgramador.Designer.cs">
+    <Compile Include="FrmPrincipales\FrmAccesoProgramador.Designer.cs">
       <DependentUpon>FrmAccesoProgramador.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmBotones.cs">
+    <Compile Include="Formularios Secundarios\FrmCargarProducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBotones.Designer.cs">
-      <DependentUpon>frmBotones.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmCargarProducto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCargarProducto.Designer.cs">
+    <Compile Include="Formularios Secundarios\FrmCargarProducto.Designer.cs">
       <DependentUpon>FrmCargarProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCategorias.cs">
+    <Compile Include="Formularios Secundarios\FrmCategorias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmCategorias.Designer.cs">
+    <Compile Include="Formularios Secundarios\FrmCategorias.Designer.cs">
       <DependentUpon>FrmCategorias.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCliente.cs">
+    <Compile Include="Formularios Secundarios\FrmCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmCliente.Designer.cs">
+    <Compile Include="Formularios Secundarios\FrmCliente.Designer.cs">
       <DependentUpon>FrmCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmFacturacion.cs">
@@ -126,34 +134,28 @@
     <Compile Include="FrmFacturacion.Designer.cs">
       <DependentUpon>FrmFacturacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLogin.cs">
+    <Compile Include="FrmPrincipales\FrmLoginPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLogin.Designer.cs">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmLoginPrincipal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmLoginPrincipal.Designer.cs">
+    <Compile Include="FrmPrincipales\FrmLoginPrincipal.Designer.cs">
       <DependentUpon>FrmLoginPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMantenimiento.cs">
+    <Compile Include="Formularios Secundarios\frmMantenimiento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMantenimiento.Designer.cs">
+    <Compile Include="Formularios Secundarios\frmMantenimiento.Designer.cs">
       <DependentUpon>frmMantenimiento.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPrincipal.cs">
+    <Compile Include="FrmPrincipales\FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPrincipal.Designer.cs">
+    <Compile Include="FrmPrincipales\FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmProveedores.cs">
+    <Compile Include="Formularios Secundarios\FrmProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmProveedores.Designer.cs">
+    <Compile Include="Formularios Secundarios\FrmProveedores.Designer.cs">
       <DependentUpon>FrmProveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmReporte.cs">
@@ -162,20 +164,15 @@
     <Compile Include="FrmReporte.Designer.cs">
       <DependentUpon>FrmReporte.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmUsuarios.cs">
+    <Compile Include="Formularios Secundarios\FrmUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmUsuarios.Designer.cs">
+    <Compile Include="Formularios Secundarios\FrmUsuarios.Designer.cs">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="IContract.cs" />
-    <Compile Include="IContractCliente.cs" />
-    <Compile Include="MDIParent1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MDIParent1.Designer.cs">
-      <DependentUpon>MDIParent1.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Interfaces\IContract.cs" />
+    <Compile Include="Interfaces\IContractCliente.cs" />
+    <Compile Include="Clases\ProductoImport.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -183,74 +180,65 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RecursosNegocio.cs" />
+    <Compile Include="Clases\RecursosNegocio.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="VistaClientesFacturacion.cs">
+    <Compile Include="Formularios Secundarios\VistaClientesFacturacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VistaClientesFacturacion.Designer.cs">
+    <Compile Include="Formularios Secundarios\VistaClientesFacturacion.Designer.cs">
       <DependentUpon>VistaClientesFacturacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="VistaProductosFacturacion.cs">
+    <Compile Include="Formularios Secundarios\VistaProductosFacturacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VistaProductosFacturacion.Designer.cs">
+    <Compile Include="Formularios Secundarios\VistaProductosFacturacion.Designer.cs">
       <DependentUpon>VistaProductosFacturacion.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FrmAccesoProgramador.resx">
+    <EmbeddedResource Include="FrmPrincipales\FrmAccesoProgramador.resx">
       <DependentUpon>FrmAccesoProgramador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmBotones.resx">
-      <DependentUpon>frmBotones.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmCargarProducto.resx">
+    <EmbeddedResource Include="Formularios Secundarios\FrmCargarProducto.resx">
       <DependentUpon>FrmCargarProducto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCategorias.resx">
+    <EmbeddedResource Include="Formularios Secundarios\FrmCategorias.resx">
       <DependentUpon>FrmCategorias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCliente.resx">
+    <EmbeddedResource Include="Formularios Secundarios\FrmCliente.resx">
       <DependentUpon>FrmCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmFacturacion.resx">
       <DependentUpon>FrmFacturacion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmLogin.resx">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmLoginPrincipal.resx">
+    <EmbeddedResource Include="FrmPrincipales\FrmLoginPrincipal.resx">
       <DependentUpon>FrmLoginPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMantenimiento.resx">
+    <EmbeddedResource Include="Formularios Secundarios\frmMantenimiento.resx">
       <DependentUpon>frmMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPrincipal.resx">
+    <EmbeddedResource Include="FrmPrincipales\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmProveedores.resx">
+    <EmbeddedResource Include="Formularios Secundarios\FrmProveedores.resx">
       <DependentUpon>FrmProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReporte.resx">
       <DependentUpon>FrmReporte.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmUsuarios.resx">
+    <EmbeddedResource Include="Formularios Secundarios\FrmUsuarios.resx">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MDIParent1.resx">
-      <DependentUpon>MDIParent1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report1.rdlc" />
-    <EmbeddedResource Include="VistaClientesFacturacion.resx">
+    <EmbeddedResource Include="Formularios Secundarios\VistaClientesFacturacion.resx">
       <DependentUpon>VistaClientesFacturacion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VistaProductosFacturacion.resx">
+    <EmbeddedResource Include="Formularios Secundarios\VistaProductosFacturacion.resx">
       <DependentUpon>VistaProductosFacturacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report2.rdlc" />
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
@@ -263,6 +251,9 @@
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Datos.DProducto.datasource" />
+    <None Include="Properties\DataSources\FrmFacturacion.datasource" />
+    <None Include="Properties\DataSources\ProductoImport.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -317,8 +308,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\DataSources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

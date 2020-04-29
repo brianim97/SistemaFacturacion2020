@@ -42,6 +42,7 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.tbNombreProveedor = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
+			this.btnEliminar = new System.Windows.Forms.Button();
 			this.tabProveedor.SuspendLayout();
 			this.tpVistaCategoria.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvVistaProveedor)).BeginInit();
@@ -60,6 +61,7 @@
 			// 
 			// tpVistaCategoria
 			// 
+			this.tpVistaCategoria.Controls.Add(this.btnEliminar);
 			this.tpVistaCategoria.Controls.Add(this.btnEditar);
 			this.tpVistaCategoria.Controls.Add(this.label1);
 			this.tpVistaCategoria.Controls.Add(this.tbVistaProveedor);
@@ -76,7 +78,7 @@
 			// 
 			this.btnEditar.Location = new System.Drawing.Point(349, 6);
 			this.btnEditar.Name = "btnEditar";
-			this.btnEditar.Size = new System.Drawing.Size(139, 36);
+			this.btnEditar.Size = new System.Drawing.Size(98, 36);
 			this.btnEditar.TabIndex = 23;
 			this.btnEditar.Text = "Editar";
 			this.btnEditar.UseVisualStyleBackColor = true;
@@ -192,6 +194,16 @@
 			this.label2.TabIndex = 0;
 			this.label2.Text = "Nombre";
 			// 
+			// btnEliminar
+			// 
+			this.btnEliminar.Location = new System.Drawing.Point(450, 6);
+			this.btnEliminar.Name = "btnEliminar";
+			this.btnEliminar.Size = new System.Drawing.Size(98, 36);
+			this.btnEliminar.TabIndex = 25;
+			this.btnEliminar.Text = "Eliminar";
+			this.btnEliminar.UseVisualStyleBackColor = true;
+			this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+			// 
 			// FrmProveedores
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -231,5 +243,6 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.TextBox tbNombreProveedor;
 		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Button btnEliminar;
 	}
 }

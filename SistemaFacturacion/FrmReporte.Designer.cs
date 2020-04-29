@@ -1,5 +1,6 @@
 ﻿namespace SistemaFacturacion
 {
+	
 	partial class FrmReporte
 	{
 		/// <summary>
@@ -30,13 +31,23 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-			this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-			this.DataSet1 = new SistemaFacturacion.DataSet1();
 			this.DatosFacturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.DataSet1 = new SistemaFacturacion.DataSet1();
+			this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
 			this.DatosFacturaTableAdapter = new SistemaFacturacion.DataSet1TableAdapters.DatosFacturaTableAdapter();
-			((System.ComponentModel.ISupportInitialize)(this.DataSet1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.DatosFacturaBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.DataSet1)).BeginInit();
 			this.SuspendLayout();
+			// 
+			// DatosFacturaBindingSource
+			// 
+			this.DatosFacturaBindingSource.DataMember = "DatosFactura";
+			this.DatosFacturaBindingSource.DataSource = this.DataSet1;
+			// 
+			// DataSet1
+			// 
+			this.DataSet1.DataSetName = "DataSet1";
+			this.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
 			// 
 			// reportViewer1
 			// 
@@ -44,22 +55,12 @@
 			reportDataSource1.Name = "DataSet1";
 			reportDataSource1.Value = this.DatosFacturaBindingSource;
 			this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-			this.reportViewer1.LocalReport.ReportEmbeddedResource = "SistemaFacturacion.Report1.rdlc";
+			this.reportViewer1.LocalReport.ReportEmbeddedResource = "SistemaFacturacion.Report2.rdlc";
 			this.reportViewer1.Location = new System.Drawing.Point(0, 0);
 			this.reportViewer1.Name = "reportViewer1";
 			this.reportViewer1.ServerReport.BearerToken = null;
 			this.reportViewer1.Size = new System.Drawing.Size(871, 530);
 			this.reportViewer1.TabIndex = 0;
-			// 
-			// DataSet1
-			// 
-			this.DataSet1.DataSetName = "DataSet1";
-			this.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-			// 
-			// DatosFacturaBindingSource
-			// 
-			this.DatosFacturaBindingSource.DataMember = "DatosFactura";
-			this.DatosFacturaBindingSource.DataSource = this.DataSet1;
 			// 
 			// DatosFacturaTableAdapter
 			// 
@@ -74,8 +75,8 @@
 			this.Name = "FrmReporte";
 			this.Text = "FrmReporte";
 			this.Load += new System.EventHandler(this.FrmReporte_Load);
-			((System.ComponentModel.ISupportInitialize)(this.DataSet1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.DatosFacturaBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.DataSet1)).EndInit();
 			this.ResumeLayout(false);
 
 		}

@@ -19,7 +19,6 @@ namespace Datos
 		public string Codigo { get; set; }
 		public Decimal Precio_compra { get; set; }
 		public Decimal Precio_venta { get; set; }
-		public DateTime Fecha_vencimiento { get; set; }
 		public int Id_proveedor { get; set; }
 
 		Conexion conexion = new Conexion();
@@ -30,7 +29,7 @@ namespace Datos
 
 		}
 
-		public DProducto(int id_producto, int id_categoria, String nombre, String marca,int stock,string codigo, Decimal precio_compra, Decimal precio_venta, DateTime fecha_vencimiento, int id_proveedor)
+		public DProducto(int id_producto, int id_categoria, String nombre, String marca,int stock,string codigo, Decimal precio_compra, Decimal precio_venta, int id_proveedor)
 		{
 			Id_producto = id_producto;
 			Id_categoria = id_categoria;
@@ -40,7 +39,7 @@ namespace Datos
 			Codigo = codigo;
 			Precio_compra = precio_compra;
 			Precio_venta = precio_venta;
-			Fecha_vencimiento = fecha_vencimiento;
+		
 			Id_proveedor = id_proveedor;
 			
 			
@@ -49,7 +48,7 @@ namespace Datos
 		public string Insertar(DProducto producto)
 		{
 			string rpta = "";
-			string query = "INSERT INTO Producto (id_categoria,nombre,marca,stock,codigo,precio_compra,precio_venta, fecha_vencimiento,id_proveedor) VALUES (@id_categoria,@nombre,@marca,@stock,@codigo,@precio_compra,@precio_venta,@fecha_vencimiento,@id_proveedor)";
+			string query = "INSERT INTO Producto (id_categoria,nombre,marca,stock,codigo,precio_compra,precio_venta,id_proveedor) VALUES (@id_categoria,@nombre,@marca,@stock,@codigo,@precio_compra,@precio_venta,@id_proveedor)";
 
 			try
 			{
@@ -62,7 +61,6 @@ namespace Datos
 				cmd.Parameters.Add(new SqlParameter("codigo", producto.Codigo));
 				cmd.Parameters.Add(new SqlParameter("precio_compra", producto.Precio_compra));
 				cmd.Parameters.Add(new SqlParameter("precio_venta", producto.Precio_venta));
-				cmd.Parameters.Add(new SqlParameter("fecha_vencimiento", producto.Fecha_vencimiento));
 				cmd.Parameters.Add(new SqlParameter("id_proveedor", producto.Id_proveedor));
 
 				conector.Open();
@@ -82,7 +80,7 @@ namespace Datos
 		{
 			string rpta = "";
 			string query = "UPDATE Producto SET id_categoria = @id_categoria,nombre = @nombre,marca = @marca,stock = @stock,codigo = @codigo,precio_compra = @precio_compra," +
-						   "precio_venta = @precio_venta, fecha_vencimiento = @fecha_vencimiento,id_proveedor = @id_proveedor WHERE id_producto = @id";
+						   "precio_venta = @precio_venta,id_proveedor = @id_proveedor WHERE id_producto = @id";
 
 			try
 			{
@@ -95,7 +93,6 @@ namespace Datos
 				cmd.Parameters.Add(new SqlParameter("codigo", producto.Codigo));
 				cmd.Parameters.Add(new SqlParameter("precio_compra", producto.Precio_compra));
 				cmd.Parameters.Add(new SqlParameter("precio_venta", producto.Precio_venta));
-				cmd.Parameters.Add(new SqlParameter("fecha_vencimiento", producto.Fecha_vencimiento));
 				cmd.Parameters.Add(new SqlParameter("id_proveedor", producto.Id_proveedor));
 				cmd.Parameters.Add(new SqlParameter("id", producto.Id_producto));
 
@@ -119,7 +116,7 @@ namespace Datos
 			{
 				DataTable dtRes = new DataTable();
 				String sql = "SELECT Producto.nombre AS Nombre,Categoria.Nombre AS Categoria,marca AS Marca,stock AS Stock,codigo as Codigo ,precio_compra AS 'Precio Compra'," +
-							 "precio_venta AS 'Precio Venta',fecha_vencimiento AS 'Fecha Vencimiento',Proveedor.nombre AS Proveedor from " +
+							 "precio_venta AS 'Precio Venta',Proveedor.nombre AS Proveedor from " +
 							 "Producto INNER JOIN Categoria	ON Producto.id_categoria = Categoria.id_categoria " +
 							 "INNER JOIN Proveedor ON Producto.id_proveedor = Proveedor.id_proveedor";
 				SqlConnection conector = new SqlConnection(conexion.strConexion);
@@ -143,7 +140,7 @@ namespace Datos
 			{
 				DataTable dtRes = new DataTable();
 				String sql = "SELECT codigo AS Codigo, Producto.nombre AS Descripcion,Categoria.Nombre AS Categoria,marca AS Marca,stock AS Stock," +
-							 "precio_venta AS 'Precio',fecha_vencimiento AS 'Fecha Vencimiento',Proveedor.nombre AS Proveedor from " +
+							 "precio_venta AS 'Precio',Proveedor.nombre AS Proveedor from " +
 							 "Producto INNER JOIN Categoria	ON Producto.id_categoria = Categoria.id_categoria " +
 							 "INNER JOIN Proveedor ON Producto.id_proveedor = Proveedor.id_proveedor";
 				SqlConnection conector = new SqlConnection(conexion.strConexion);
@@ -168,7 +165,7 @@ namespace Datos
 				SqlConnection conector = new SqlConnection(conexion.strConexion);
 				conector.Open();
 				String sql = "SELECT Producto.nombre AS Nombre,Categoria.Nombre AS Categoria,marca AS Marca,stock AS Stock, codigo AS Codigo ,precio_compra AS 'Precio Compra'," +
-							 "precio_venta AS 'Precio Venta',fecha_vencimiento AS 'Fecha Vencimiento',Proveedor.nombre AS Proveedor from " +
+							 "precio_venta AS 'Precio Venta',Proveedor.nombre AS Proveedor from " +
 							 "Producto INNER JOIN Categoria	ON Producto.id_categoria = Categoria.id_categoria " +
 							 "INNER JOIN Proveedor ON Producto.id_proveedor = Proveedor.id_proveedor WHERE Producto.nombre LIKE @nombre";
 				SqlCommand cmd = new SqlCommand(sql, conector);
@@ -193,7 +190,7 @@ namespace Datos
 				SqlConnection conector = new SqlConnection(conexion.strConexion);
 				conector.Open();
 				String sql = "SELECT codigo AS Codigo, Producto.nombre AS Descripcion,Categoria.Nombre AS Categoria,marca AS Marca,stock AS Stock," +
-							 "precio_venta AS 'Precio',fecha_vencimiento AS 'Fecha Vencimiento',Proveedor.nombre AS Proveedor from " +
+							 "precio_venta AS 'Precio',Proveedor.nombre AS Proveedor from " +
 							 "Producto INNER JOIN Categoria	ON Producto.id_categoria = Categoria.id_categoria " +
 							 "INNER JOIN Proveedor ON Producto.id_proveedor = Proveedor.id_proveedor WHERE Producto.nombre LIKE @nombre";
 				SqlCommand cmd = new SqlCommand(sql, conector);
@@ -216,7 +213,7 @@ namespace Datos
 				SqlConnection conector = new SqlConnection(conexion.strConexion);
 				conector.Open();
 				String sql = "SELECT codigo AS Codigo, Producto.nombre AS Descripcion,Categoria.Nombre AS Categoria,marca AS Marca,stock AS Stock," +
-							 "precio_venta AS 'Precio',fecha_vencimiento AS 'Fecha Vencimiento',Proveedor.nombre AS Proveedor from " +
+							 "precio_venta AS 'Precio',Proveedor.nombre AS Proveedor from " +
 							 "Producto INNER JOIN Categoria	ON Producto.id_categoria = Categoria.id_categoria " +
 							 "INNER JOIN Proveedor ON Producto.id_proveedor = Proveedor.id_proveedor WHERE Producto.codigo LIKE @codigo";
 				SqlCommand cmd = new SqlCommand(sql, conector);
@@ -262,6 +259,30 @@ namespace Datos
 				string query = "SELECT nombre FROM Producto WHERE nombre LIKE @nombre";
 				SqlCommand cmd = new SqlCommand(query, conector);
 				cmd.Parameters.Add(new SqlParameter("@nombre", nombreNuevo));
+				conector.Open();
+				SqlDataReader registros = cmd.ExecuteReader();
+				while (registros.Read())
+				{
+					conector.Close();
+					return true;
+				}
+				conector.Close();
+				return false;
+			}
+			catch (SqlException ex)
+			{
+				MessageBox.Show(ex.Message);
+				return false;
+			}
+		}
+		public bool CodigoExistente(string codigoNuevo)
+		{
+			try
+			{
+				SqlConnection conector = new SqlConnection(conexion.strConexion);
+				string query = "SELECT codigo FROM Producto WHERE codigo LIKE @codigo";
+				SqlCommand cmd = new SqlCommand(query, conector);
+				cmd.Parameters.Add(new SqlParameter("@codigo", codigoNuevo));
 				conector.Open();
 				SqlDataReader registros = cmd.ExecuteReader();
 				while (registros.Read())

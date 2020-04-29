@@ -34,11 +34,15 @@ namespace SistemaFacturacion
 				{
 					if (AuxiliarNombreProducto.Equals(tbNombre.Text))
 					{
-						MessageBox.Show(NProducto.Editar(Obtener_Id_Producto(AuxiliarNombreProducto), Obtener_Id_Categoria(cbCategoria.Text), tbNombre.Text, tbMarca.Text, int.Parse(tbStock.Text), tbCodigo.Text, decimal.Parse(tbPrecioCompra.Text), decimal.Parse(tbPrecioVenta.Text), dtpFecha_Vencimiento.Value, Obtener_Id_Categoria(cbProveedor.Text)));
-						Limpiar_Campos();
-						Editar = false;
-						Mostrar();
-						return;
+						
+							MessageBox.Show(NProducto.Editar(Obtener_Id_Producto(AuxiliarNombreProducto), Obtener_Id_Categoria(cbCategoria.Text), tbNombre.Text, tbMarca.Text, int.Parse(tbStock.Text), tbCodigo.Text, decimal.Parse(tbPrecioCompra.Text), decimal.Parse(tbPrecioVenta.Text), Obtener_Id_Categoria(cbProveedor.Text)));
+							Limpiar_Campos();
+							Editar = false;
+							Mostrar();
+							return;
+						
+						
+
 					}
 					else
 					{
@@ -47,10 +51,11 @@ namespace SistemaFacturacion
 							MessageBox.Show(string.Format("El nombre: '{0}' ya se encuentra en uso!", tbNombre.Text));
 						}
 					}
-					MessageBox.Show(NProducto.Editar(Obtener_Id_Producto(AuxiliarNombreProducto), Obtener_Id_Categoria(cbCategoria.Text), tbNombre.Text, tbMarca.Text, int.Parse(tbStock.Text), tbCodigo.Text, decimal.Parse(tbPrecioCompra.Text), decimal.Parse(tbPrecioVenta.Text), dtpFecha_Vencimiento.Value, Obtener_Id_Categoria(cbProveedor.Text)));
-					Limpiar_Campos();
-					Editar = false;
-					Mostrar();
+					
+						MessageBox.Show(NProducto.Editar(Obtener_Id_Producto(AuxiliarNombreProducto), Obtener_Id_Categoria(cbCategoria.Text), tbNombre.Text, tbMarca.Text, int.Parse(tbStock.Text), tbCodigo.Text, decimal.Parse(tbPrecioCompra.Text), decimal.Parse(tbPrecioVenta.Text),  Obtener_Id_Categoria(cbProveedor.Text)));
+						Limpiar_Campos();
+						Editar = false;
+						Mostrar();
 				}
 				
 				else
@@ -68,9 +73,11 @@ namespace SistemaFacturacion
 					}
 					else
 					{
-						MessageBox.Show(NProducto.Insertar(Obtener_Id_Categoria(cbCategoria.Text), tbNombre.Text, tbMarca.Text, int.Parse(tbStock.Text), tbCodigo.Text, decimal.Parse(tbPrecioCompra.Text), decimal.Parse(tbPrecioVenta.Text), dtpFecha_Vencimiento.Value, Obtener_Id_Proveedor(cbProveedor.Text)));
-						Limpiar_Campos();
-						Mostrar();
+						
+							MessageBox.Show(NProducto.Insertar(Obtener_Id_Categoria(cbCategoria.Text), tbNombre.Text, tbMarca.Text, int.Parse(tbStock.Text), tbCodigo.Text, decimal.Parse(tbPrecioCompra.Text), decimal.Parse(tbPrecioVenta.Text), Obtener_Id_Proveedor(cbProveedor.Text)));
+							Limpiar_Campos();
+							Mostrar();
+						
 					}
 					
 				}
@@ -107,7 +114,6 @@ namespace SistemaFacturacion
 			tbCodigo.Text = Convert.ToString(dgvVistaStock.CurrentRow.Cells["Codigo"].Value);
 			tbPrecioCompra.Text = Convert.ToString(dgvVistaStock.CurrentRow.Cells["Precio Compra"].Value);
 			tbPrecioVenta.Text = Convert.ToString(dgvVistaStock.CurrentRow.Cells["Precio Venta"].Value);
-			dtpFecha_Vencimiento.Text = Convert.ToString(dgvVistaStock.CurrentRow.Cells["Fecha Vencimiento"].Value);
 			cbProveedor.Text = Convert.ToString(dgvVistaStock.CurrentRow.Cells["Proveedor"].Value);
 			tabProducto.SelectedIndex = 1;
 			Editar = true;
@@ -327,7 +333,7 @@ namespace SistemaFacturacion
 			tbCodigo.Clear();
 			tbPrecioCompra.Clear();
 			tbPrecioVenta.Clear();
-			dtpFecha_Vencimiento.ResetText();
+			
 			cbProveedor.ResetText();
 			AuxiliarNombreProducto = "";
 		}
@@ -477,6 +483,8 @@ namespace SistemaFacturacion
 		{
 			FrmPrincipal.abiertoFrmProductos = false;
 		}
+
+		
 	}
 }
 

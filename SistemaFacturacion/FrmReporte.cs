@@ -20,7 +20,9 @@ namespace SistemaFacturacion
 		private void FrmReporte_Load(object sender, EventArgs e)
 		{
 			// TODO: This line of code loads data into the 'DataSet1.DatosFactura' table. You can move, or remove it, as needed.
-		//	this.DatosFacturaTableAdapter.Fill(this.DataSet1.DatosFactura);
+			//this.DatosFacturaTableAdapter.Fill(this.DataSet1.DatosFactura);
+			// TODO: This line of code loads data into the 'DataSet1.DatosFactura' table. You can move, or remove it, as needed.
+			//	this.DatosFacturaTableAdapter.Fill(this.DataSet1.DatosFactura);
 
 			this.reportViewer1.RefreshReport();
 		}

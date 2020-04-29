@@ -16,7 +16,8 @@ namespace SistemaFacturacion
 	public partial class FrmFacturacion : Form , IContract,IContractCliente
 	{
 		public static string CodigoAuxiliar { get; set; }
-		
+		public double Total { get; set; } 
+
 		public FrmFacturacion()
 		{
 			InitializeComponent();
@@ -144,7 +145,7 @@ namespace SistemaFacturacion
 					{
 						total += Convert.ToDouble(fila.Cells[4].Value);
 					}
-					lblTotal.Text = "$ "+total.ToString();
+					lblTotal.Text = total.ToString();
 
 				}
 			}
@@ -160,7 +161,7 @@ namespace SistemaFacturacion
 			if(cont_fila > 0)
 			{
 				total = total - (Convert.ToDouble(dgvFacturacion.Rows[dgvFacturacion.CurrentRow.Index].Cells[4].Value));
-				lblTotal.Text = "$ " + total.ToString();
+				lblTotal.Text =  total.ToString();
 
 				dgvFacturacion.Rows.RemoveAt(dgvFacturacion.CurrentRow.Index);
 
@@ -248,11 +249,12 @@ namespace SistemaFacturacion
 
 		private void btnFacturar_Click(object sender, EventArgs e)
 		{
+			total = Convert.ToDouble(lblTotal.Text);
 			if(cont_fila != 0)
 			{
 				try
 				{
-					string cmd = string.Format("Exec ActualizarFacturas '{0}'", 3);
+					string cmd = string.Format("Exec ActualizarFacturas '{0}'", Obtener_Id_Cliente(tbDniCliente.Text));
 					DataSet ds = Utilidades.Ejecutar(cmd);
 					string num_factura = ds.Tables[0].Rows[0]["num_factura"].ToString().Trim();
 
@@ -281,6 +283,32 @@ namespace SistemaFacturacion
 				}
 			}
 			
+		}
+		private int Obtener_Id_Cliente(string dni)
+		{
+			int id = 0;
+			try
+			{
+				Conexion conexion = new Conexion();
+				SqlConnection conector = new SqlConnection(conexion.strConexion);
+				string query = string.Format("SELECT id_cliente FROM Cliente WHERE dni = '{0}'", dni);
+				SqlCommand cmd = new SqlCommand(query, conector);
+				conector.Open();
+				SqlDataReader registro = cmd.ExecuteReader();
+
+				while (registro.Read())
+				{
+					id = Int16.Parse(registro["id_cliente"].ToString());
+					return id;
+				}
+				return id;
+			}
+			catch (SqlException ex)
+			{
+				MessageBox.Show(ex.Message);
+				return id;
+			}
+
 		}
 	}
 }

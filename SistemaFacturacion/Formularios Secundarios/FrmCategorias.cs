@@ -26,6 +26,7 @@ namespace SistemaFacturacion
 		{
 			Mostrar();
 			btnEditar.Enabled = false;
+			btnEliminar.Enabled = false;
 		}
 
 		private void btnGuardar_Click(object sender, EventArgs e)
@@ -147,7 +148,8 @@ namespace SistemaFacturacion
 		{
 			AuxiliarNombre = Convert.ToString(dgvVistaCategoria.CurrentRow.Cells["Nombre"].Value);
 			btnEditar.Enabled = true;
-			
+			btnEliminar.Enabled = true;
+
 		}
 
 		private void btnEditar_Click(object sender, EventArgs e)
@@ -168,6 +170,13 @@ namespace SistemaFacturacion
 		private void FrmCategoria_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			FrmPrincipal.abiertoFrmCategorias = false;
+		}
+
+		private void btnEliminar_Click(object sender, EventArgs e)
+		{
+			MessageBox.Show(NCategoria.Eliminar(Obtener_Id(AuxiliarNombre)));
+			Mostrar();
+			btnEliminar.Enabled = false;
 		}
 	}
 }
