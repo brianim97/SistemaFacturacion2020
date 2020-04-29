@@ -1,4 +1,5 @@
 ﻿using Datos;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -82,56 +83,43 @@ namespace SistemaFacturacion
 		public double total = 0;
 		private void btnColocar_Click(object sender, EventArgs e)
 		{
-			if(tbCodigoProd.Text == string.Empty)
+			if(tbDniCliente.Text == string.Empty)
 			{
-				MessageBox.Show("Debe Ingresar un Codigo de Producto Primero!");
-				return;
+				MessageBox.Show("Debe seleccionar un cliente primero!");
+				btnBuscarClientes.Focus();
 			}
-			try
+			else
 			{
-					if (tbCantidad.Text != string.Empty)
+				if (tbCodigoProd.Text == string.Empty)
+				{
+					MessageBox.Show("Debe Ingresar un Codigo de Producto Primero!");
+					tbCodigoProd.Focus();
+				}
+				else if(tbCantidad.Text == "0" || tbCantidad.Text == string.Empty)
+				{
+					MessageBox.Show("Debe Ingresar una Cantidad!");
+					tbCantidad.Focus();
+				}
+				else if (NProducto.StockDisponible(Convert.ToInt32(tbCodigoProd.Text), Convert.ToInt32(tbCantidad.Text)))
+				{
+					try
 					{
-						string query = string.Format("SELECT codigo,nombre, precio_venta FROM Producto WHERE codigo LIKE {0}", tbCodigoProd.Text);
-
-						DataSet ds = Utilidades.Ejecutar(query);
-
-						string codigo = ds.Tables[0].Rows[0]["codigo"].ToString();
-						string descripcion = ds.Tables[0].Rows[0]["nombre"].ToString();
-						string precio = ds.Tables[0].Rows[0]["precio_venta"].ToString();
-
-						bool existe = false;
-						int num_fila = 0;
-
-						if (cont_fila == 0)
+						if (tbCantidad.Text != string.Empty)
 						{
+							string query = string.Format("SELECT codigo,nombre, precio_venta FROM Producto WHERE codigo LIKE {0}", tbCodigoProd.Text);
 
-							dgvFacturacion.Rows.Add(codigo, descripcion, precio, tbCantidad.Text);
+							DataSet ds = Utilidades.Ejecutar(query);
 
-							double importe = Convert.ToDouble(dgvFacturacion.Rows[cont_fila].Cells[2].Value) * Convert.ToDouble(dgvFacturacion.Rows[cont_fila].Cells[3].Value);
-							dgvFacturacion.Rows[cont_fila].Cells[4].Value = importe;
+							string codigo = ds.Tables[0].Rows[0]["codigo"].ToString();
+							string descripcion = ds.Tables[0].Rows[0]["nombre"].ToString();
+							string precio = ds.Tables[0].Rows[0]["precio_venta"].ToString();
 
-							cont_fila++;
-						}
-						else
-						{
-							foreach (DataGridViewRow fila in dgvFacturacion.Rows)
+							bool existe = false;
+							int num_fila = 0;
+
+							if (cont_fila == 0)
 							{
-								if (fila.Cells[0].Value.ToString() == tbCodigoProd.Text)
-								{
-									existe = true;
-									num_fila = fila.Index;
-								}
 
-							}
-							if (existe)
-							{
-								dgvFacturacion.Rows[num_fila].Cells[3].Value = (Convert.ToDouble(tbCantidad.Text) + Convert.ToDouble(dgvFacturacion.Rows[num_fila].Cells[3].Value)).ToString();
-								double importe = Convert.ToDouble(dgvFacturacion.Rows[num_fila].Cells[2].Value) * Convert.ToDouble(dgvFacturacion.Rows[num_fila].Cells[3].Value);
-
-								dgvFacturacion.Rows[num_fila].Cells[4].Value = importe;
-							}
-							else
-							{
 								dgvFacturacion.Rows.Add(codigo, descripcion, precio, tbCantidad.Text);
 
 								double importe = Convert.ToDouble(dgvFacturacion.Rows[cont_fila].Cells[2].Value) * Convert.ToDouble(dgvFacturacion.Rows[cont_fila].Cells[3].Value);
@@ -139,21 +127,65 @@ namespace SistemaFacturacion
 
 								cont_fila++;
 							}
-						}
-					total = 0;
-					foreach (DataGridViewRow fila in dgvFacturacion.Rows)
-					{
-						total += Convert.ToDouble(fila.Cells[4].Value);
-					}
-					lblTotal.Text = total.ToString();
+							else
+							{
+								foreach (DataGridViewRow fila in dgvFacturacion.Rows)
+								{
+									if (fila.Cells[0].Value.ToString() == tbCodigoProd.Text)
+									{
+										existe = true;
+										num_fila = fila.Index;
+									}
 
+								}
+								if (existe)
+								{
+									if(NProducto.StockDisponible(Convert.ToInt32(tbCodigoProd.Text), (Convert.ToInt32(tbCantidad.Text) + Convert.ToInt32(dgvFacturacion.Rows[num_fila].Cells[3].Value))))
+									{
+										dgvFacturacion.Rows[num_fila].Cells[3].Value = (Convert.ToDouble(tbCantidad.Text) + Convert.ToDouble(dgvFacturacion.Rows[num_fila].Cells[3].Value)).ToString();
+										double importe = Convert.ToDouble(dgvFacturacion.Rows[num_fila].Cells[2].Value) * Convert.ToDouble(dgvFacturacion.Rows[num_fila].Cells[3].Value);
+
+										dgvFacturacion.Rows[num_fila].Cells[4].Value = importe;
+									}
+									else
+									{
+										MessageBox.Show("La cantidad ingresada supera el stock disponible!");
+									}
+									
+								}
+								else
+								{
+									dgvFacturacion.Rows.Add(codigo, descripcion, precio, tbCantidad.Text);
+
+									double importe = Convert.ToDouble(dgvFacturacion.Rows[cont_fila].Cells[2].Value) * Convert.ToDouble(dgvFacturacion.Rows[cont_fila].Cells[3].Value);
+									dgvFacturacion.Rows[cont_fila].Cells[4].Value = importe;
+
+									cont_fila++;
+								}
+							}
+							total = 0;
+							foreach (DataGridViewRow fila in dgvFacturacion.Rows)
+							{
+								total += Convert.ToDouble(fila.Cells[4].Value);
+							}
+							lblTotal.Text = total.ToString();
+
+						}
+					}
+					catch (Exception ex)
+					{
+						MessageBox.Show(ex.Message);
+
+					}
 				}
+				else
+				{
+					MessageBox.Show("La cantidad ingresada supera el stock disponible!");
+				}
+
+
 			}
-			catch (Exception ex)
-			{
-				MessageBox.Show(ex.Message);
-				
-			}
+			
 		}
 
 		private void BtnEliminar_Click(object sender, EventArgs e)

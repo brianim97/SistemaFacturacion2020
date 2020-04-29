@@ -299,5 +299,36 @@ namespace Datos
 				return false;
 			}
 		}
+		public bool StockDisponible(int id_producto,int cantidad)
+		{
+			try
+			{
+				SqlConnection conector = new SqlConnection(conexion.strConexion);
+				string query = "SELECT id_producto FROM Producto WHERE id_producto LIKE @id AND stock >= @cantidad";
+				SqlCommand cmd = new SqlCommand(query, conector);
+				cmd.Parameters.Add(new SqlParameter("@id", id_producto));
+				cmd.Parameters.Add(new SqlParameter("@cantidad", cantidad));
+				conector.Open();
+				SqlDataReader registros = cmd.ExecuteReader();
+				while (registros.Read())
+				{
+					conector.Close();
+					return true;
+				}
+				conector.Close();
+				return false;
+			}
+			catch (SqlException ex)
+			{
+				MessageBox.Show(ex.Message);
+				return false;
+
+			}
+			catch (Exception)
+			{
+
+				throw;
+			}
+		}
 	}
 }
