@@ -35,7 +35,7 @@ namespace SistemaFacturacion
 					if (AuxiliarNombreProducto.Equals(tbNombre.Text))
 					{
 						
-							MessageBox.Show(NProducto.Editar(Obtener_Id_Producto(AuxiliarNombreProducto), Obtener_Id_Categoria(cbCategoria.Text), tbNombre.Text, tbMarca.Text, int.Parse(tbStock.Text), tbCodigo.Text, decimal.Parse(tbPrecioCompra.Text), decimal.Parse(tbPrecioVenta.Text), Obtener_Id_Categoria(cbProveedor.Text)));
+							MessageBox.Show(NProducto.Editar(Obtener_Id_Producto(AuxiliarNombreProducto), Obtener_Id_Categoria(cbCategoria.Text), tbNombre.Text, tbMarca.Text, int.Parse(tbStock.Text), tbCodigo.Text, decimal.Parse(tbPrecioCompra.Text), decimal.Parse(tbPrecioVenta.Text), Obtener_Id_Proveedor(cbProveedor.Text)));
 							Limpiar_Campos();
 							Editar = false;
 							Mostrar();
@@ -52,7 +52,7 @@ namespace SistemaFacturacion
 						}
 					}
 					
-						MessageBox.Show(NProducto.Editar(Obtener_Id_Producto(AuxiliarNombreProducto), Obtener_Id_Categoria(cbCategoria.Text), tbNombre.Text, tbMarca.Text, int.Parse(tbStock.Text), tbCodigo.Text, decimal.Parse(tbPrecioCompra.Text), decimal.Parse(tbPrecioVenta.Text),  Obtener_Id_Categoria(cbProveedor.Text)));
+						MessageBox.Show(NProducto.Editar(Obtener_Id_Producto(AuxiliarNombreProducto), Obtener_Id_Categoria(cbCategoria.Text), tbNombre.Text, tbMarca.Text, int.Parse(tbStock.Text), tbCodigo.Text, decimal.Parse(tbPrecioCompra.Text), decimal.Parse(tbPrecioVenta.Text),  Obtener_Id_Proveedor(cbProveedor.Text)));
 						Limpiar_Campos();
 						Editar = false;
 						Mostrar();
