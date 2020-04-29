@@ -30,7 +30,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+			Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
 			this.DatosFacturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.DataSet1 = new SistemaFacturacion.DataSet1();
 			this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
@@ -52,14 +52,14 @@
 			// reportViewer1
 			// 
 			this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-			reportDataSource1.Name = "DataSet1";
-			reportDataSource1.Value = this.DatosFacturaBindingSource;
-			this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+			reportDataSource3.Name = "DataSet1";
+			reportDataSource3.Value = this.DatosFacturaBindingSource;
+			this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
 			this.reportViewer1.LocalReport.ReportEmbeddedResource = "SistemaFacturacion.Report2.rdlc";
 			this.reportViewer1.Location = new System.Drawing.Point(0, 0);
 			this.reportViewer1.Name = "reportViewer1";
 			this.reportViewer1.ServerReport.BearerToken = null;
-			this.reportViewer1.Size = new System.Drawing.Size(871, 530);
+			this.reportViewer1.Size = new System.Drawing.Size(758, 406);
 			this.reportViewer1.TabIndex = 0;
 			// 
 			// DatosFacturaTableAdapter
@@ -70,10 +70,15 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(871, 530);
+			this.ClientSize = new System.Drawing.Size(758, 406);
 			this.Controls.Add(this.reportViewer1);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "FrmReporte";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "FrmReporte";
+			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.Load += new System.EventHandler(this.FrmReporte_Load);
 			((System.ComponentModel.ISupportInitialize)(this.DatosFacturaBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.DataSet1)).EndInit();

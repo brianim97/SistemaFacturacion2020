@@ -293,6 +293,10 @@ namespace SistemaFacturacion {
             
             private global::System.Data.DataColumn columnnombre1;
             
+            private global::System.Data.DataColumn columnprecio_venta1;
+            
+            private global::System.Data.DataColumn columncan_vend1;
+            
             private global::System.Data.DataColumn columnimporte;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -386,6 +390,22 @@ namespace SistemaFacturacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn precio_venta1Column {
+                get {
+                    return this.columnprecio_venta1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn can_vend1Column {
+                get {
+                    return this.columncan_vend1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn importeColumn {
                 get {
                     return this.columnimporte;
@@ -429,7 +449,7 @@ namespace SistemaFacturacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public DatosFacturaRow AddDatosFacturaRow(int num_factura, System.DateTime fecha_factura, int cod_cliente, double precio_venta, double can_vend, string nombre, string nombre1, double importe) {
+            public DatosFacturaRow AddDatosFacturaRow(int num_factura, System.DateTime fecha_factura, int cod_cliente, string precio_venta, string can_vend, string nombre, string nombre1, string precio_venta1, string can_vend1, string importe) {
                 DatosFacturaRow rowDatosFacturaRow = ((DatosFacturaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         num_factura,
@@ -439,6 +459,8 @@ namespace SistemaFacturacion {
                         can_vend,
                         nombre,
                         nombre1,
+                        precio_venta1,
+                        can_vend1,
                         importe};
                 rowDatosFacturaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDatosFacturaRow);
@@ -469,6 +491,8 @@ namespace SistemaFacturacion {
                 this.columncan_vend = base.Columns["can_vend"];
                 this.columnnombre = base.Columns["nombre"];
                 this.columnnombre1 = base.Columns["nombre1"];
+                this.columnprecio_venta1 = base.Columns["precio_venta1"];
+                this.columncan_vend1 = base.Columns["can_vend1"];
                 this.columnimporte = base.Columns["importe"];
             }
             
@@ -481,21 +505,37 @@ namespace SistemaFacturacion {
                 base.Columns.Add(this.columnfecha_factura);
                 this.columncod_cliente = new global::System.Data.DataColumn("cod_cliente", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncod_cliente);
-                this.columnprecio_venta = new global::System.Data.DataColumn("precio_venta", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnprecio_venta = new global::System.Data.DataColumn("precio_venta", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnprecio_venta);
-                this.columncan_vend = new global::System.Data.DataColumn("can_vend", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columncan_vend = new global::System.Data.DataColumn("can_vend", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncan_vend);
                 this.columnnombre = new global::System.Data.DataColumn("nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnombre);
                 this.columnnombre1 = new global::System.Data.DataColumn("nombre1", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnombre1);
-                this.columnimporte = new global::System.Data.DataColumn("importe", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnprecio_venta1 = new global::System.Data.DataColumn("precio_venta1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprecio_venta1);
+                this.columncan_vend1 = new global::System.Data.DataColumn("can_vend1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncan_vend1);
+                this.columnimporte = new global::System.Data.DataColumn("importe", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnimporte);
+                this.columnnum_factura.AllowDBNull = false;
+                this.columnfecha_factura.AllowDBNull = false;
+                this.columncod_cliente.AllowDBNull = false;
+                this.columnprecio_venta.AllowDBNull = false;
+                this.columnprecio_venta.MaxLength = 20;
+                this.columncan_vend.AllowDBNull = false;
+                this.columncan_vend.MaxLength = 20;
                 this.columnnombre.AllowDBNull = false;
                 this.columnnombre.MaxLength = 80;
                 this.columnnombre1.AllowDBNull = false;
                 this.columnnombre1.MaxLength = 50;
-                this.columnimporte.ReadOnly = true;
+                this.columnprecio_venta1.AllowDBNull = false;
+                this.columnprecio_venta1.MaxLength = 20;
+                this.columncan_vend1.AllowDBNull = false;
+                this.columncan_vend1.MaxLength = 20;
+                this.columnimporte.AllowDBNull = false;
+                this.columnimporte.MaxLength = 20;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -640,12 +680,7 @@ namespace SistemaFacturacion {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int num_factura {
                 get {
-                    try {
-                        return ((int)(this[this.tableDatosFactura.num_facturaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'num_factura\' in table \'DatosFactura\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableDatosFactura.num_facturaColumn]));
                 }
                 set {
                     this[this.tableDatosFactura.num_facturaColumn] = value;
@@ -656,12 +691,7 @@ namespace SistemaFacturacion {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public System.DateTime fecha_factura {
                 get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableDatosFactura.fecha_facturaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'fecha_factura\' in table \'DatosFactura\' is DBNull.", e);
-                    }
+                    return ((global::System.DateTime)(this[this.tableDatosFactura.fecha_facturaColumn]));
                 }
                 set {
                     this[this.tableDatosFactura.fecha_facturaColumn] = value;
@@ -672,12 +702,7 @@ namespace SistemaFacturacion {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int cod_cliente {
                 get {
-                    try {
-                        return ((int)(this[this.tableDatosFactura.cod_clienteColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'cod_cliente\' in table \'DatosFactura\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableDatosFactura.cod_clienteColumn]));
                 }
                 set {
                     this[this.tableDatosFactura.cod_clienteColumn] = value;
@@ -686,14 +711,9 @@ namespace SistemaFacturacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double precio_venta {
+            public string precio_venta {
                 get {
-                    try {
-                        return ((double)(this[this.tableDatosFactura.precio_ventaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'precio_venta\' in table \'DatosFactura\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableDatosFactura.precio_ventaColumn]));
                 }
                 set {
                     this[this.tableDatosFactura.precio_ventaColumn] = value;
@@ -702,14 +722,9 @@ namespace SistemaFacturacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double can_vend {
+            public string can_vend {
                 get {
-                    try {
-                        return ((double)(this[this.tableDatosFactura.can_vendColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'can_vend\' in table \'DatosFactura\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableDatosFactura.can_vendColumn]));
                 }
                 set {
                     this[this.tableDatosFactura.can_vendColumn] = value;
@@ -740,90 +755,35 @@ namespace SistemaFacturacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double importe {
+            public string precio_venta1 {
                 get {
-                    try {
-                        return ((double)(this[this.tableDatosFactura.importeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'importe\' in table \'DatosFactura\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableDatosFactura.precio_venta1Column]));
+                }
+                set {
+                    this[this.tableDatosFactura.precio_venta1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string can_vend1 {
+                get {
+                    return ((string)(this[this.tableDatosFactura.can_vend1Column]));
+                }
+                set {
+                    this[this.tableDatosFactura.can_vend1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string importe {
+                get {
+                    return ((string)(this[this.tableDatosFactura.importeColumn]));
                 }
                 set {
                     this[this.tableDatosFactura.importeColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isnum_facturaNull() {
-                return this.IsNull(this.tableDatosFactura.num_facturaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setnum_facturaNull() {
-                this[this.tableDatosFactura.num_facturaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isfecha_facturaNull() {
-                return this.IsNull(this.tableDatosFactura.fecha_facturaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setfecha_facturaNull() {
-                this[this.tableDatosFactura.fecha_facturaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Iscod_clienteNull() {
-                return this.IsNull(this.tableDatosFactura.cod_clienteColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setcod_clienteNull() {
-                this[this.tableDatosFactura.cod_clienteColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isprecio_ventaNull() {
-                return this.IsNull(this.tableDatosFactura.precio_ventaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setprecio_ventaNull() {
-                this[this.tableDatosFactura.precio_ventaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Iscan_vendNull() {
-                return this.IsNull(this.tableDatosFactura.can_vendColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setcan_vendNull() {
-                this[this.tableDatosFactura.can_vendColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsimporteNull() {
-                return this.IsNull(this.tableDatosFactura.importeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetimporteNull() {
-                this[this.tableDatosFactura.importeColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -993,6 +953,8 @@ namespace SistemaFacturacion.DataSet1TableAdapters {
             tableMapping.ColumnMappings.Add("can_vend", "can_vend");
             tableMapping.ColumnMappings.Add("nombre", "nombre");
             tableMapping.ColumnMappings.Add("nombre1", "nombre1");
+            tableMapping.ColumnMappings.Add("precio_venta1", "precio_venta1");
+            tableMapping.ColumnMappings.Add("can_vend1", "can_vend1");
             tableMapping.ColumnMappings.Add("importe", "importe");
             this._adapter.TableMappings.Add(tableMapping);
         }

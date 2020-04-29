@@ -271,7 +271,7 @@ namespace SistemaFacturacion
 
 					FrmReporte rp = new FrmReporte();
 					rp.reportViewer1.LocalReport.DataSources[0].Value = ds.Tables[0];
-					
+					rp.reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
 					rp.ShowDialog();
 					Nuevo();
 					cont_fila = 0;
