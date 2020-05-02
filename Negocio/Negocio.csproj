@@ -55,6 +55,7 @@
     <Compile Include="NCliente.cs" />
     <Compile Include="NProducto.cs" />
     <Compile Include="NProveedor.cs" />
+    <Compile Include="NRegistro_Acciones.cs" />
     <Compile Include="NUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -16,7 +16,7 @@ namespace Datos
 		public string Descripcion { get; set; }
 
 		Conexion conexion = new Conexion();
-
+		DRegistro_Acciones registro = new DRegistro_Acciones();
 		public DCategoria()
 		{
 
@@ -44,13 +44,16 @@ namespace Datos
 				rpta = cmd.ExecuteNonQuery() == 1 ? "Categoria cargada correctamente" : "Error en la carga de categoria";
 				conector.Close();
 				Console.WriteLine(rpta);
+				registro.Insertar(rpta);
 				return rpta;
 
 			}
 			catch (SqlException ex)
 			{
+				registro.Insertar(rpta);
 				return rpta = ex.Message;
 			}
+
 
 		}
 		public string Editar(DCategoria categoria)
@@ -69,11 +72,13 @@ namespace Datos
 				rpta = cmd.ExecuteNonQuery() == 1 ? "Categoria editada correctamente" : "Error en editar categoria";
 				conector.Close();
 				Console.WriteLine(rpta);
+				registro.Insertar(rpta);
 				return rpta;
 
 			}
 			catch (SqlException ex)
 			{
+				registro.Insertar(rpta);
 				return rpta = ex.Message;
 			}
 
@@ -115,11 +120,13 @@ namespace Datos
 				conector.Open();
 				rpta = cmd.ExecuteNonQuery() == 1 ? "Registro Eliminado Correctamente" : "ERROR: no se elimino el registro";
 				conector.Close();
+				
 			}
 			catch (SqlException ex)
 			{
 				rpta = ex.Message;
 			}
+			registro.Insertar(rpta);
 			return rpta;
 		}
 		public bool NombreExistente(string nombreNuevo)

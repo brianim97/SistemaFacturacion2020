@@ -104,6 +104,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Formularios Secundarios\frmRegistroAcciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios Secundarios\frmRegistroAcciones.Designer.cs">
+      <DependentUpon>frmRegistroAcciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPrincipales\FrmAccesoProgramador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +200,9 @@
     <Compile Include="Formularios Secundarios\VistaProductosFacturacion.Designer.cs">
       <DependentUpon>VistaProductosFacturacion.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Formularios Secundarios\frmRegistroAcciones.resx">
+      <DependentUpon>frmRegistroAcciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipales\FrmAccesoProgramador.resx">
       <DependentUpon>FrmAccesoProgramador.cs</DependentUpon>
     </EmbeddedResource>

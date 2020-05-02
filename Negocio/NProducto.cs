@@ -85,5 +85,15 @@ namespace Negocio
 			DProducto obj = new DProducto();
 			return obj.StockDisponible(id_producto, cantidad);
 		}
+		public static string RestarStock(int id, int resta)
+		{
+			DProducto obj = new DProducto();
+			return obj.RestarStock(id,resta);
+		}
+		public static int Obtener_Id_Producto(string codigo)
+		{
+			DProducto obj = new DProducto();
+			return obj.Obtener_Id_Producto(codigo);
+		}
 	}
 }

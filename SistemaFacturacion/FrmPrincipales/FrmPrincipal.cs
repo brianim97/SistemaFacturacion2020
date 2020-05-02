@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace SistemaFacturacion
 {
+	using Formularios_Secundarios;
 	public partial class FrmPrincipal : Form
 	{
 		public static string NombreUsuario { get; set; }
@@ -21,6 +22,7 @@ namespace SistemaFacturacion
 		public static bool abiertoFrmUsuarios = false;
 		public static bool abiertoFrmCategorias = false;
 		public static bool abiertoFrmMantenimiento = false;
+		public static bool abiertoFrmRegistro = false;
 		public Form frmFacturacion;
 		public Form frmClientes;
 		public Form frmProductos;
@@ -28,6 +30,7 @@ namespace SistemaFacturacion
 		public Form frmUsuarios;
 		public Form frmCategoria;
 		public Form FrmMantenimiento;
+		public Form frmRegistro;
 
 
 		public FrmPrincipal()
@@ -36,6 +39,7 @@ namespace SistemaFacturacion
 		}
 		private void FrmPrincipal_Load(object sender, EventArgs e)
 		{
+			
 		}
 		private void panel1_Paint(object sender, PaintEventArgs e)
 		{
@@ -195,6 +199,20 @@ namespace SistemaFacturacion
 				FrmMantenimiento = new frmMantenimiento();
 				AbrirFrmHijo(FrmMantenimiento);
 				abiertoFrmMantenimiento = true;
+			}
+		}
+
+		private void btnRegistro_Click(object sender, EventArgs e)
+		{
+			if (abiertoFrmRegistro)
+			{
+				frmRegistro.BringToFront();
+			}
+			else
+			{
+				frmRegistro = new frmRegistroAcciones();
+				AbrirFrmHijo(frmRegistro);
+				abiertoFrmRegistro = true;
 			}
 		}
 	}

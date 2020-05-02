@@ -281,9 +281,10 @@ namespace SistemaFacturacion
 
 		private void btnFacturar_Click(object sender, EventArgs e)
 		{
-			total = Convert.ToDouble(lblTotal.Text);
+		
 			if(cont_fila != 0)
 			{
+				total = Convert.ToDouble(lblTotal.Text);
 				try
 				{
 					string cmd = string.Format("Exec ActualizarFacturas '{0}'", Obtener_Id_Cliente(tbDniCliente.Text));
@@ -296,6 +297,7 @@ namespace SistemaFacturacion
 					{
 						cmd = string.Format("Exec ActualizarDetalles '{0}','{1}','{2}','{3}','{4}'", Convert.ToInt32(num_factura),Convert.ToInt32(fila.Cells[0].Value.ToString()), fila.Cells[2].Value.ToString(),fila.Cells[3].Value.ToString(), fila.Cells[4].Value.ToString());
 						ds = Utilidades.Ejecutar(cmd);
+						NRegistro_Acciones.Insertar(NProducto.RestarStock(NProducto.Obtener_Id_Producto(fila.Cells[0].Value.ToString()), Convert.ToInt32(fila.Cells[3].Value.ToString())));
 						//Convert.ToDouble(fila.Cells[2].Value.ToString()) Convert.ToDouble(fila.Cells[4].Value.ToString())
 					}
 					cmd = "Exec DatosFactura " + num_factura;
@@ -307,6 +309,7 @@ namespace SistemaFacturacion
 					rp.ShowDialog();
 					Nuevo();
 					cont_fila = 0;
+					
 				}
 				catch (SqlException ex)
 				{

@@ -330,5 +330,52 @@ namespace Datos
 				throw;
 			}
 		}
+		public string RestarStock(int id,int resta)
+		{
+			string rpta = "";
+			string query = "UPDATE Producto SET stock = stock - @stock WHERE id_producto = @id";
+
+			try
+			{
+				SqlConnection conector = new SqlConnection(conexion.strConexion);
+				SqlCommand cmd = new SqlCommand(query, conector);
+				cmd.Parameters.Add(new SqlParameter("@id", id));
+				cmd.Parameters.Add(new SqlParameter("@stock", resta));
+				conector.Open();
+				cmd.ExecuteNonQuery();
+				conector.Close();
+
+				return rpta = String.Format("Se restó el stock en {0} del producto con id {1}.",resta,id);
+			}
+			catch (SqlException ex)
+			{
+				return rpta = ex.Message;
+			}
+			
+		}
+		public int Obtener_Id_Producto(string codigo)
+		{
+			int id = 0;
+			try
+			{
+				Conexion conexion = new Conexion();
+				SqlConnection conector = new SqlConnection(conexion.strConexion);
+				SqlCommand cmd = new SqlCommand(string.Format("SELECT id_producto FROM Producto WHERE Codigo = '{0}'", codigo), conector);
+				conector.Open();
+				SqlDataReader registros = cmd.ExecuteReader();
+				while (registros.Read())
+				{
+					id = Int16.Parse(registros["id_producto"].ToString());
+				}
+				conector.Close();
+				return id;
+			}
+			catch (SqlException ex)
+			{
+				MessageBox.Show(ex.Message);
+				return id;
+			}
+
+		}
 	}
 }
