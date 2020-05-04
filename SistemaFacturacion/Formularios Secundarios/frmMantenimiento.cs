@@ -34,7 +34,10 @@ namespace SistemaFacturacion
 		{
 			btnRealizarBackup.Enabled = false;
 			btnRealizarRestore.Enabled = false;
-			
+			tbContraseña.Enabled = false;
+			tbUsuario.Enabled = false;
+			btnComprobarConexion.Enabled = false;
+
 		}
 
 		private void btnBuscarBackup_Click(object sender, EventArgs e)
@@ -80,8 +83,8 @@ namespace SistemaFacturacion
 						tbUbicacionBackup.Clear();
 						btnRealizarBackup.Enabled = false;
 					}
-					}
-				catch(Exception ex)
+				}
+				catch (Exception ex)
 				{
 					MessageBox.Show("Error: " + ex.Message);
 				}
@@ -96,7 +99,7 @@ namespace SistemaFacturacion
 			string rpta = "";
 			try
 			{
-				if((AuxCategorias.Count > 0) || (AuxProveedores.Count > 0))
+				if ((AuxCategorias.Count > 0) || (AuxProveedores.Count > 0))
 				{
 					if (AuxCategorias.Count > 0)
 					{
@@ -125,13 +128,13 @@ namespace SistemaFacturacion
 			{
 				MessageBox.Show(ex.Message);
 			}
-	
+
 
 		}
 
 		private void btnRealizarRestore_Click(object sender, EventArgs e)
 		{
-		
+
 			try
 			{
 				if (tbUbicacionRestore.Text == string.Empty)
@@ -180,15 +183,20 @@ namespace SistemaFacturacion
 
 		private void cbHojaExcel_SelectedIndexChanged(object sender, EventArgs e)
 		{
+			
+			dgvExcelImportar.DataSource = null;
+			prodImports.Clear();
+			bool bandera = false;
 			AuxCategorias.Clear();
 			AuxProveedores.Clear();
 			DataTable dt = tableCollection[cbHojaExcel.SelectedItem.ToString()];
+			
 			//dgvExcelImportar.DataSource = dt;
 			try
 			{
 				if (dt != null)
 				{
-					
+
 					for (int i = 0; i < dt.Rows.Count; i++)
 					{
 						ProductoImport pImp = new ProductoImport();
@@ -204,7 +212,7 @@ namespace SistemaFacturacion
 						}
 						else
 						{
-							NCategoria.Insertar(dt.Rows[i]["Categoria"].ToString(),"");
+							NCategoria.Insertar(dt.Rows[i]["Categoria"].ToString(), "");
 							AuxCategorias.Add(dt.Rows[i]["Categoria"].ToString());
 							pImp.Categoria = dt.Rows[i]["Categoria"].ToString();
 						}
@@ -219,17 +227,25 @@ namespace SistemaFacturacion
 							pImp.Proveedor = dt.Rows[i]["Proveedor"].ToString();
 						}
 						prodImports.Add(pImp);
+						bandera = true;
+
 					}
-					MessageBox.Show("Se realizó una importacion parcial de categorias y proveedores," +
+					if (bandera)
+					{
+						MessageBox.Show("Se realizó una importacion parcial de categorias y proveedores," +
 						"si no importa los datos y cierra el fomulario se eliminaran automaticamente los datos parcialmente cargados!");
-					dgvExcelImportar.DataSource = prodImports;
+						dgvExcelImportar.DataSource = prodImports;
+						lblRegistros.Text = "Registros: " + dgvExcelImportar.Rows.Count.ToString();
+					}
+
 				}
+
 			}
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message);
 			}
-			
+
 		}
 		DataTableCollection tableCollection;
 
@@ -258,6 +274,7 @@ namespace SistemaFacturacion
 								{
 									cbHojaExcel.Items.Add(table.TableName);//agregar hoja al combobox;
 								}
+								btnUbicacionImportar.Enabled = false;
 							}
 						}
 					}
@@ -267,7 +284,7 @@ namespace SistemaFacturacion
 			{
 				MessageBox.Show(ex.Message);
 			}
-			
+
 		}
 
 		private void btnImportar_Click(object sender, EventArgs e)
@@ -277,7 +294,7 @@ namespace SistemaFacturacion
 			int contProductosDuplicados = 0;
 			try
 			{
-				if(cbHojaExcel.Text != string.Empty)
+				if (cbHojaExcel.Text != string.Empty)
 				{
 					foreach (var item in prodImports)
 					{
@@ -290,6 +307,10 @@ namespace SistemaFacturacion
 						{
 							contProductosDuplicados++;
 							continue;
+						}
+						if (item.Nombre.Length > 200)
+						{
+							item.Nombre = item.Nombre.Substring(0, 199);
 						}
 						NProducto.Insertar(Obtener_Id_Categoria(item.Categoria), item.Nombre, item.Marca, item.Stock, item.Codigo, item.Precio_compra, item.Precio_venta, Obtener_Id_Proveedor(item.Proveedor));
 						contInsertar++;
@@ -314,30 +335,33 @@ namespace SistemaFacturacion
 					{
 						MessageBox.Show("No se realizaron acciones!");
 					}
+					btnUbicacionImportar.Enabled = true;
 				}
 				else
 				{
 					MessageBox.Show("Debe seleccionar una hoja!");
 					cbHojaExcel.Focus();
 				}
-				
-				
-				
-			//	DapperPlusManager.Entity<ProductoImport>().Table("Producto");
-			//	List<ProductoImport> productoImports = dgvExcelImportar.DataSource as List<ProductoImport>;
-			//	if(productoImports != null)
-			//	{
-			//		using(IDbConnection db = new SqlConnection(Conexion.copystrConexion))
-			//		{
-			//			db.BulkInsert(productoImports);
-			//		}
-			//		MessageBox.Show("Importacion Terminada");
-			//	}
+
+
+
+				//	DapperPlusManager.Entity<ProductoImport>().Table("Producto");
+				//	List<ProductoImport> productoImports = dgvExcelImportar.DataSource as List<ProductoImport>;
+				//	if(productoImports != null)
+				//	{
+				//		using(IDbConnection db = new SqlConnection(Conexion.copystrConexion))
+				//		{
+				//			db.BulkInsert(productoImports);
+				//		}
+				//		MessageBox.Show("Importacion Terminada");
+				//	}
+
 			}
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message);
 			}
+			Limpiar();
 		}
 		private int Obtener_Id_Categoria(string nombre)
 		{
@@ -381,5 +405,122 @@ namespace SistemaFacturacion
 			}
 			return id;
 		}
-	}
+
+		private void btnLimpiar_Click(object sender, EventArgs e)
+		{
+			Limpiar();
+		}
+		private void Limpiar()
+		{
+			dgvExcelImportar.DataSource = null;
+			tbUbicacionImportar.Clear();
+			cbHojaExcel.Items.Clear();
+			cbHojaExcel.Text = "";
+			btnUbicacionImportar.Enabled = true;
+		}
+
+		private void rbConexionLocal_CheckedChanged(object sender, EventArgs e)
+		{
+			if (rbConexionLocal.Checked)
+			{
+				tbContraseña.Enabled = false;
+				tbUsuario.Enabled = false;
+			}
+		}
+
+		private void rbConexionRemota_CheckedChanged(object sender, EventArgs e)
+		{
+			if (rbConexionRemota.Checked)
+			{
+				tbContraseña.Enabled = true;
+				tbUsuario.Enabled = true;
+			}
+		}
+
+		private void tabConexionDB_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnGuardar_Click(object sender, EventArgs e)
+		{
+			if (rbConexionLocal.Checked)
+			{
+				if (tbNombreDb.Text != string.Empty)
+				{
+					if (tbIPNombreServidor.Text != string.Empty)
+					{
+						string[] lineas = { tbIPNombreServidor.Text, tbNombreDb.Text };
+						File.WriteAllLines(Application.StartupPath + "/DataBaseConnection.txt", lineas);
+						MessageBox.Show("Datos Correctamente Guardados!");
+						btnComprobarConexion.Enabled = true;
+						btnComprobarConexion.Focus();
+					}
+					else
+					{
+						MessageBox.Show("Campo 'Nombre Base de Datos' no puede estar vacio!");
+					}
+
+				}
+				else if (rbConexionRemota.Checked)
+				{
+					if (tbNombreDb.Text != string.Empty)
+					{
+						if (tbIPNombreServidor.Text != string.Empty)
+						{
+							if (tbUsuario.Text != string.Empty)
+							{
+								if (tbContraseña.Text != string.Empty)
+								{
+									string[] lineas = { tbIPNombreServidor.Text, tbNombreDb.Text, tbUsuario.Text, tbContraseña.Text };
+									File.WriteAllLines(Application.StartupPath + "/DataBaseConnection.txt", lineas);
+									MessageBox.Show("Datos Correctamente Guardados!");
+									btnComprobarConexion.Enabled = true;
+									btnComprobarConexion.Focus();
+								}
+								else
+								{
+									MessageBox.Show("Campo 'Contraseña' no puede estar vacio!");
+									tbContraseña.Focus();
+								}
+							}
+							else
+							{
+								MessageBox.Show("Campo 'Usuario' no puede estar vacio!");
+								tbUsuario.Focus();
+							}
+						}
+						else
+						{
+							MessageBox.Show("Campo 'IP Servidor' no puede estar vacio!");
+							tbIPNombreServidor.Focus();
+						}
+					}
+					else
+					{
+						MessageBox.Show("Campo 'Nombre Base de Datos' no puede estar vacio!");
+						tbNombreDb.Focus();
+					}
+
+				}
+			}
+		}
+			private void btnComprobarConexion_Click(object sender, EventArgs e)
+			{
+				try
+				{
+					Conexion cn = new Conexion();
+					SqlConnection sqlConnection = new SqlConnection(cn.strConexion);
+					sqlConnection.Open();
+					MessageBox.Show("Conexion exitosa!");
+
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show("No es posible conectar!\n" + ex.Message);
+				}
+
+			}
+		}
+	
 }

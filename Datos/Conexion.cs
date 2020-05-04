@@ -26,9 +26,9 @@ namespace Datos
 			{
 			
 				string[] lineas = File.ReadAllLines(Application.StartupPath + "/DataBaseConnection.txt");
-				if(lineas.Length < 2)
+				if(lineas.Length < 3)
 				{
-					strConexion = String.Format("Data Source =.; Initial Catalog = {0}; Integrated Security = True",lineas[0]);
+					strConexion = String.Format("Data Source ={0}; Initial Catalog = {1}; Integrated Security = True;Max Pool Size=10024", lineas[0],lineas[1]);
 					dataBaseMantenimiento = lineas[0];
 				}
 				else

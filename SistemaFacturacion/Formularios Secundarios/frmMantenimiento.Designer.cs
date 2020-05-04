@@ -32,6 +32,7 @@
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabImpExpProd = new System.Windows.Forms.TabPage();
 			this.panel2 = new System.Windows.Forms.Panel();
+			this.btnLimpiar = new System.Windows.Forms.Button();
 			this.btnImportar = new System.Windows.Forms.Button();
 			this.cbHojaExcel = new System.Windows.Forms.ComboBox();
 			this.label8 = new System.Windows.Forms.Label();
@@ -59,7 +60,19 @@
 			this.pbImg = new System.Windows.Forms.PictureBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.btnSeleccionar = new System.Windows.Forms.Button();
-			this.productoImportBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.tabConexionDB = new System.Windows.Forms.TabPage();
+			this.btnGuardar = new System.Windows.Forms.Button();
+			this.tbContraseña = new System.Windows.Forms.TextBox();
+			this.tbUsuario = new System.Windows.Forms.TextBox();
+			this.tbIPNombreServidor = new System.Windows.Forms.TextBox();
+			this.tbNombreDb = new System.Windows.Forms.TextBox();
+			this.label12 = new System.Windows.Forms.Label();
+			this.label11 = new System.Windows.Forms.Label();
+			this.label10 = new System.Windows.Forms.Label();
+			this.rbConexionRemota = new System.Windows.Forms.RadioButton();
+			this.rbConexionLocal = new System.Windows.Forms.RadioButton();
+			this.label9 = new System.Windows.Forms.Label();
+			this.btnComprobarConexion = new System.Windows.Forms.Button();
 			this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.marcaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.stockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,6 +81,8 @@
 			this.precioventaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.categoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.proveedorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.productoImportBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.lblRegistros = new System.Windows.Forms.Label();
 			this.tabControl1.SuspendLayout();
 			this.tabImpExpProd.SuspendLayout();
 			this.panel2.SuspendLayout();
@@ -77,6 +92,7 @@
 			this.tabRestore.SuspendLayout();
 			this.tabImgComercio.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pbImg)).BeginInit();
+			this.tabConexionDB.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.productoImportBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -86,6 +102,7 @@
 			this.tabControl1.Controls.Add(this.tabBackup);
 			this.tabControl1.Controls.Add(this.tabRestore);
 			this.tabControl1.Controls.Add(this.tabImgComercio);
+			this.tabControl1.Controls.Add(this.tabConexionDB);
 			this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabControl1.Location = new System.Drawing.Point(0, 0);
 			this.tabControl1.Name = "tabControl1";
@@ -106,6 +123,8 @@
 			// 
 			// panel2
 			// 
+			this.panel2.Controls.Add(this.lblRegistros);
+			this.panel2.Controls.Add(this.btnLimpiar);
 			this.panel2.Controls.Add(this.btnImportar);
 			this.panel2.Controls.Add(this.cbHojaExcel);
 			this.panel2.Controls.Add(this.label8);
@@ -119,6 +138,16 @@
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(864, 388);
 			this.panel2.TabIndex = 1;
+			// 
+			// btnLimpiar
+			// 
+			this.btnLimpiar.Location = new System.Drawing.Point(426, 336);
+			this.btnLimpiar.Name = "btnLimpiar";
+			this.btnLimpiar.Size = new System.Drawing.Size(99, 23);
+			this.btnLimpiar.TabIndex = 9;
+			this.btnLimpiar.Text = "Limpiar";
+			this.btnLimpiar.UseVisualStyleBackColor = true;
+			this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
 			// 
 			// btnImportar
 			// 
@@ -393,9 +422,135 @@
 			this.btnSeleccionar.Text = "Seleccionar";
 			this.btnSeleccionar.UseVisualStyleBackColor = true;
 			// 
-			// productoImportBindingSource
+			// tabConexionDB
 			// 
-			this.productoImportBindingSource.DataSource = typeof(SistemaFacturacion.ProductoImport);
+			this.tabConexionDB.Controls.Add(this.btnGuardar);
+			this.tabConexionDB.Controls.Add(this.tbContraseña);
+			this.tabConexionDB.Controls.Add(this.tbUsuario);
+			this.tabConexionDB.Controls.Add(this.tbIPNombreServidor);
+			this.tabConexionDB.Controls.Add(this.tbNombreDb);
+			this.tabConexionDB.Controls.Add(this.label12);
+			this.tabConexionDB.Controls.Add(this.label11);
+			this.tabConexionDB.Controls.Add(this.label10);
+			this.tabConexionDB.Controls.Add(this.rbConexionRemota);
+			this.tabConexionDB.Controls.Add(this.rbConexionLocal);
+			this.tabConexionDB.Controls.Add(this.label9);
+			this.tabConexionDB.Controls.Add(this.btnComprobarConexion);
+			this.tabConexionDB.Location = new System.Drawing.Point(4, 22);
+			this.tabConexionDB.Name = "tabConexionDB";
+			this.tabConexionDB.Size = new System.Drawing.Size(864, 462);
+			this.tabConexionDB.TabIndex = 4;
+			this.tabConexionDB.Text = "Conexion DB";
+			this.tabConexionDB.UseVisualStyleBackColor = true;
+			this.tabConexionDB.Click += new System.EventHandler(this.tabConexionDB_Click);
+			// 
+			// btnGuardar
+			// 
+			this.btnGuardar.Location = new System.Drawing.Point(582, 212);
+			this.btnGuardar.Name = "btnGuardar";
+			this.btnGuardar.Size = new System.Drawing.Size(198, 23);
+			this.btnGuardar.TabIndex = 11;
+			this.btnGuardar.Text = "Guardar";
+			this.btnGuardar.UseVisualStyleBackColor = true;
+			this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+			// 
+			// tbContraseña
+			// 
+			this.tbContraseña.Location = new System.Drawing.Point(225, 244);
+			this.tbContraseña.Name = "tbContraseña";
+			this.tbContraseña.Size = new System.Drawing.Size(244, 20);
+			this.tbContraseña.TabIndex = 10;
+			// 
+			// tbUsuario
+			// 
+			this.tbUsuario.Location = new System.Drawing.Point(225, 198);
+			this.tbUsuario.Name = "tbUsuario";
+			this.tbUsuario.Size = new System.Drawing.Size(244, 20);
+			this.tbUsuario.TabIndex = 9;
+			// 
+			// tbIPNombreServidor
+			// 
+			this.tbIPNombreServidor.Location = new System.Drawing.Point(225, 153);
+			this.tbIPNombreServidor.Name = "tbIPNombreServidor";
+			this.tbIPNombreServidor.Size = new System.Drawing.Size(244, 20);
+			this.tbIPNombreServidor.TabIndex = 8;
+			// 
+			// tbNombreDb
+			// 
+			this.tbNombreDb.Location = new System.Drawing.Point(225, 111);
+			this.tbNombreDb.Name = "tbNombreDb";
+			this.tbNombreDb.Size = new System.Drawing.Size(244, 20);
+			this.tbNombreDb.TabIndex = 7;
+			// 
+			// label12
+			// 
+			this.label12.AutoSize = true;
+			this.label12.Location = new System.Drawing.Point(93, 247);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(61, 13);
+			this.label12.TabIndex = 6;
+			this.label12.Text = "Contraseña";
+			// 
+			// label11
+			// 
+			this.label11.AutoSize = true;
+			this.label11.Location = new System.Drawing.Point(93, 201);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(43, 13);
+			this.label11.TabIndex = 5;
+			this.label11.Text = "Usuario";
+			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.Location = new System.Drawing.Point(93, 156);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(101, 13);
+			this.label10.TabIndex = 4;
+			this.label10.Text = "IP/Nombre Servidor";
+			// 
+			// rbConexionRemota
+			// 
+			this.rbConexionRemota.AutoSize = true;
+			this.rbConexionRemota.Location = new System.Drawing.Point(630, 167);
+			this.rbConexionRemota.Name = "rbConexionRemota";
+			this.rbConexionRemota.Size = new System.Drawing.Size(109, 17);
+			this.rbConexionRemota.TabIndex = 3;
+			this.rbConexionRemota.Text = "Conexion Remota";
+			this.rbConexionRemota.UseVisualStyleBackColor = true;
+			this.rbConexionRemota.CheckedChanged += new System.EventHandler(this.rbConexionRemota_CheckedChanged);
+			// 
+			// rbConexionLocal
+			// 
+			this.rbConexionLocal.AutoSize = true;
+			this.rbConexionLocal.Checked = true;
+			this.rbConexionLocal.Location = new System.Drawing.Point(630, 134);
+			this.rbConexionLocal.Name = "rbConexionLocal";
+			this.rbConexionLocal.Size = new System.Drawing.Size(98, 17);
+			this.rbConexionLocal.TabIndex = 2;
+			this.rbConexionLocal.TabStop = true;
+			this.rbConexionLocal.Text = "Conexion Local";
+			this.rbConexionLocal.UseVisualStyleBackColor = true;
+			this.rbConexionLocal.CheckedChanged += new System.EventHandler(this.rbConexionLocal_CheckedChanged);
+			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.Location = new System.Drawing.Point(93, 114);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(117, 13);
+			this.label9.TabIndex = 1;
+			this.label9.Text = "Nombre Base de Datos";
+			// 
+			// btnComprobarConexion
+			// 
+			this.btnComprobarConexion.Location = new System.Drawing.Point(582, 241);
+			this.btnComprobarConexion.Name = "btnComprobarConexion";
+			this.btnComprobarConexion.Size = new System.Drawing.Size(198, 23);
+			this.btnComprobarConexion.TabIndex = 0;
+			this.btnComprobarConexion.Text = "Comprobar Conexion";
+			this.btnComprobarConexion.UseVisualStyleBackColor = true;
+			this.btnComprobarConexion.Click += new System.EventHandler(this.btnComprobarConexion_Click);
 			// 
 			// nombreDataGridViewTextBoxColumn
 			// 
@@ -445,6 +600,19 @@
 			this.proveedorDataGridViewTextBoxColumn.HeaderText = "Proveedor";
 			this.proveedorDataGridViewTextBoxColumn.Name = "proveedorDataGridViewTextBoxColumn";
 			// 
+			// productoImportBindingSource
+			// 
+			this.productoImportBindingSource.DataSource = typeof(SistemaFacturacion.ProductoImport);
+			// 
+			// lblRegistros
+			// 
+			this.lblRegistros.AutoSize = true;
+			this.lblRegistros.Location = new System.Drawing.Point(711, 13);
+			this.lblRegistros.Name = "lblRegistros";
+			this.lblRegistros.Size = new System.Drawing.Size(54, 13);
+			this.lblRegistros.TabIndex = 10;
+			this.lblRegistros.Text = "Registros:";
+			// 
 			// frmMantenimiento
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -471,6 +639,8 @@
 			this.tabImgComercio.ResumeLayout(false);
 			this.tabImgComercio.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pbImg)).EndInit();
+			this.tabConexionDB.ResumeLayout(false);
+			this.tabConexionDB.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.productoImportBindingSource)).EndInit();
 			this.ResumeLayout(false);
 
@@ -517,5 +687,20 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn categoriaDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn proveedorDataGridViewTextBoxColumn;
 		private System.Windows.Forms.BindingSource productoImportBindingSource;
+		private System.Windows.Forms.Button btnLimpiar;
+		private System.Windows.Forms.TabPage tabConexionDB;
+		private System.Windows.Forms.TextBox tbContraseña;
+		private System.Windows.Forms.TextBox tbUsuario;
+		private System.Windows.Forms.TextBox tbIPNombreServidor;
+		private System.Windows.Forms.TextBox tbNombreDb;
+		private System.Windows.Forms.Label label12;
+		private System.Windows.Forms.Label label11;
+		private System.Windows.Forms.Label label10;
+		private System.Windows.Forms.RadioButton rbConexionRemota;
+		private System.Windows.Forms.RadioButton rbConexionLocal;
+		private System.Windows.Forms.Label label9;
+		private System.Windows.Forms.Button btnComprobarConexion;
+		private System.Windows.Forms.Button btnGuardar;
+		private System.Windows.Forms.Label lblRegistros;
 	}
 }

@@ -483,7 +483,7 @@ namespace SistemaFacturacion
 		{
 			FrmPrincipal.abiertoFrmProductos = false;
 		}
-
+	
 		
 	}
 }
